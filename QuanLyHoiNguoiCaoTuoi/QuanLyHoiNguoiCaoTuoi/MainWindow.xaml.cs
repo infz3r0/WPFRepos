@@ -23,6 +23,36 @@ namespace QuanLyHoiNguoiCaoTuoi
         public MainWindow()
         {
             InitializeComponent();
+
+            List<User> users = new List<User>();
+            users.Add(new User() { Id = 1, Name = "John Doe", Birthday = new DateTime(1971, 7, 23) });
+            users.Add(new User() { Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17) });
+            users.Add(new User() { Id = 3, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) });
+
+            dgSimple.ItemsSource = users;
+        }
+
+        public class User
+        {
+            public int Id { get; set; }
+
+            public string Name { get; set; }
+
+            public DateTime Birthday { get; set; }
+        }
+
+        private void rbtThemThanhVien_Click(object sender, RoutedEventArgs e)
+        {
+            string title = "Thêm thành viên";
+            ThongTinThanhVien f = new ThongTinThanhVien(title);
+            f.ShowDialog();
+        }
+
+        private void rbtThemKhuPho_Click(object sender, RoutedEventArgs e)
+        {
+            string title = "Thêm khu phố";
+            KhuPho f = new KhuPho(title);
+            f.ShowDialog();
         }
     }
 }

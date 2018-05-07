@@ -5,8 +5,158 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="720" Width="1280">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Ribbon x:Name="RibbonWin"  SelectedIndex="0">
+            <!-- Help Pane, located at the right-hand side -->
+            <Ribbon.HelpPaneContent>
+                <RibbonButton SmallImageSource="Images\help.png" />
+            </Ribbon.HelpPaneContent>
+            <!-- Quick Access Toolbar - located at the upper-left corner -->
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton x:Name ="Save" SmallImageSource="Images\help.png" />
+                    <RibbonSplitButton x:Name ="Undo" SmallImageSource="Images\help.png">
+                        <RibbonSplitMenuItem Header="Undo 1" />
+                        <RibbonSplitMenuItem Header="Undo 2" />
+                        <RibbonSplitMenuItem Header="Undo 3" />
+                    </RibbonSplitButton>
+                    <RibbonSplitButton x:Name="Redo" SmallImageSource="Images\help.png" >
+                        <RibbonSplitMenuItem Header="Redo 1" />
+                        <RibbonSplitMenuItem Header="Redo 2" />
+                    </RibbonSplitButton>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+            <!-- Application Menu, located at the left-hand side (down arrow) -->
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="Images\help.png" KeyTip="F">
+                    <RibbonApplicationMenuItem Header="Options" ImageSource="Images\help.png" />
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="Images\help.png" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <!-- Ribbon Tab #1: Home -->
+            <RibbonTab Header="Thành viên và Ban chấp hành" KeyTip="T" >
+                <!-- group-->
+                <RibbonGroup x:Name="rbgKhuPho" Header="Khu phố">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách khu phố" KeyTip="T">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" Name="ThemKhuPho" Click="rbtThemKhuPho_Click"/>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgThanhVien" Header="Thành viên">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách thành viên" KeyTip="T">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" Name="ThemThanhVien" Click="rbtThemThanhVien_Click"/>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgBanChapHanh" Header="Ban chấp hành">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách ban chấp hành" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #2: -->
+            <RibbonTab Header="Hoạt động" KeyTip="H">
+                <!-- group-->
+                <RibbonGroup x:Name="rbgHoatDong" Header="Hoạt động">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách hoạt động" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgThanhVienThamGiaHoatDong" Header="Thành viên tham gia">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách thành viên tham gia" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #3: -->
+            <RibbonTab Header="Quỹ" KeyTip="Q">
+                <!-- group-->
+                <RibbonGroup x:Name="rbgThu" Header="Khoản thu">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách khoản thu" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgChi" Header="Khoản chi">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách khoản chi" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #4: -->
+            <RibbonTab Header="Câu lạc bộ" KeyTip="Q">
+                <!-- group-->
+                <RibbonGroup x:Name="rbgCLB" Header="Câu lạc bộ">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách CLB" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgThanhVienCLB" Header="Thành viên">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách thành viên CLB" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #5: -->
+            <RibbonTab Header="Họp" KeyTip="Q">
+                <!-- group-->
+                <RibbonGroup x:Name="rbgHopBCH" Header="Họp BCH">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách cuộc họp" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                    
+                </RibbonGroup>
+                
+                <!-- group-->
+                <RibbonGroup x:Name="rbgHopTN" Header="Họp thường niên">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách cuộc họp" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                    
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgTVHopTN" Header="Thànhh viên">
+                    <RibbonMenuButton LargeImageSource="Images\help.png" Label="Danh sách thành viên" KeyTip="B">
+                    </RibbonMenuButton>
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Thêm" KeyTip="A" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Xóa" KeyTip="D" />
+                    <RibbonButton SmallImageSource="Images\help.png" Label="Sửa" KeyTip="C" />
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+        <TabControl Grid.Row="2">
+            <TabItem Header="Tab1">
+                <DataGrid Name="dgSimple"></DataGrid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

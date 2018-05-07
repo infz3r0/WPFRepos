@@ -1,0 +1,51 @@
+﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.ThanhVienHoatDong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi"
+        mc:Ignorable="d"
+        Title="Thành viên tham gia hoạt động" Height="520" Width="700" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Style="{StaticResource Label}">Hoạt động:</Label>
+            <ComboBox x:Name="cmbHoatDong" Style="{StaticResource InputComboBox}" MinWidth="250" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2">
+
+        </DataGrid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
+            <Button Margin="10,0" Width="36">UP</Button>
+            <Button Margin="10,0" Width="36">Down</Button>
+        </StackPanel>
+
+        <DataGrid Grid.Row="4">
+
+        </DataGrid>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click">
+                OK
+            </Button>
+            <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" IsCancel="True" >
+                Close
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

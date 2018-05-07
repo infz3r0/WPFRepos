@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +55,66 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CLB\CLB.xaml.cs">
+      <DependentUpon>CLB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HoatDong\HoatDong.xaml.cs">
+      <DependentUpon>HoatDong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hop\HopBCH.xaml.cs">
+      <DependentUpon>HopBCH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hop\HopThuongNien.xaml.cs">
+      <DependentUpon>HopThuongNien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hop\ThanhVienHop.xaml.cs">
+      <DependentUpon>ThanhVienHop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KhuPho\KhuPho.xaml.cs">
+      <DependentUpon>KhuPho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CLB\ThanhVienCLB.xaml.cs">
+      <DependentUpon>ThanhVienCLB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HoatDong\ThanhVienHoatDong.xaml.cs">
+      <DependentUpon>ThanhVienHoatDong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quy\Chi.xaml.cs">
+      <DependentUpon>Chi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quy\Thu.xaml.cs">
+      <DependentUpon>Thu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThanhVien\ThongTinBanChapHanh.xaml.cs">
+      <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThanhVien\ThongTinThanhVien.xaml.cs">
+      <DependentUpon>ThongTinThanhVien.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CLB\CLB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HoatDong\HoatDong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hop\HopBCH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hop\HopThuongNien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hop\ThanhVienHop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KhuPho\KhuPho.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +127,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="CLB\ThanhVienCLB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HoatDong\ThanhVienHoatDong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Quy\Chi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Quy\Thu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThanhVien\ThongTinBanChapHanh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ThanhVien\ThongTinThanhVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,5 +178,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\help.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
