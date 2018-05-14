@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.Quy"
         mc:Ignorable="d"
-        Title="Chi" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+        Title="Chi" Height="240" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>
@@ -18,6 +18,8 @@
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
@@ -28,7 +30,10 @@
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Số tiền:</Label>
         <TextBox x:Name="txbSoTien" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}" />
 
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Hoạt động:</Label>
+        <ComboBox x:Name="cmbHoatDong" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputComboBox}" />
+        
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click">
                 OK
             </Button>

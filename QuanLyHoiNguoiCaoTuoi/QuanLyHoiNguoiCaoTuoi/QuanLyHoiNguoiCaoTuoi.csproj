@@ -61,6 +61,9 @@
     <Compile Include="HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Hop\BCHThamGiaHop.xaml.cs">
+      <DependentUpon>BCHThamGiaHop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Hop\HopBCH.xaml.cs">
       <DependentUpon>HopBCH.xaml</DependentUpon>
     </Compile>
@@ -82,8 +85,14 @@
     <Compile Include="Quy\Chi.xaml.cs">
       <DependentUpon>Chi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Quy\Duyet.xaml.cs">
+      <DependentUpon>Duyet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Quy\Thu.xaml.cs">
       <DependentUpon>Thu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TaiKhoan\DangNhap.xaml.cs">
+      <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
     <Compile Include="ThanhVien\ThongTinBanChapHanh.xaml.cs">
       <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
@@ -96,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HoatDong\HoatDong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hop\BCHThamGiaHop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -139,7 +152,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Quy\Duyet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Quy\Thu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TaiKhoan\DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi.Hop
     /// </summary>
     public partial class ThanhVienHop : Window
     {
-        public ThanhVienHop()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public ThanhVienHop(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "thành viên tham gia họp";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

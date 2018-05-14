@@ -19,10 +19,23 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class KhuPho : Window
     {
-        public KhuPho(string title)
+        public enum TYPE {
+            ADD,
+            EDIT
+        }
+
+        public KhuPho(TYPE t)
         {
             InitializeComponent();
-            lblTitle.Content = title;
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "khu phố";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

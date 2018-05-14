@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.Hop"
         mc:Ignorable="d"
-        Title="Họp thường niên" Height="245" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+        Title="Họp thường niên" Height="245" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>

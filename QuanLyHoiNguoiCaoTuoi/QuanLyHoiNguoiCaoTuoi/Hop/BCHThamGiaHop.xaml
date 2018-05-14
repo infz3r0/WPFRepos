@@ -1,11 +1,11 @@
-﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.ThanhVienCLB"
+﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.Hop.BCHThamGiaHop"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi"
+        xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.Hop"
         mc:Ignorable="d"
-        Title="ThanhVienCLB" Height="520" Width="700" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="BCH tham gia họp" Height="520" Width="700" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -22,12 +22,12 @@
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Style="{StaticResource Label}">Câu lạc bộ:</Label>
-            <ComboBox x:Name="cmbCLB" Style="{StaticResource InputComboBox}" MinWidth="250" />
+            <Label Style="{StaticResource Label}">Cuộc họp:</Label>
+            <ComboBox x:Name="cmbHopBCH" Style="{StaticResource InputComboBox}" MinWidth="250" />
         </StackPanel>
 
         <DataGrid Grid.Row="2">
-            
+
         </DataGrid>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
@@ -36,7 +36,7 @@
         </StackPanel>
 
         <DataGrid Grid.Row="4">
-            
+
         </DataGrid>
 
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
@@ -47,7 +47,5 @@
                 Close
             </Button>
         </StackPanel>
-    </Grid>   
-    
-    
+    </Grid>
 </Window>

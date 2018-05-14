@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class ThanhVienHoatDong : Window
     {
-        public ThanhVienHoatDong()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public ThanhVienHoatDong(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "thành viên tham gia hoạt động";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

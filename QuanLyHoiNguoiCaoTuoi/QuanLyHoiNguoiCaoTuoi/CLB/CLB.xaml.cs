@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class CLB : Window
     {
-        public CLB()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public CLB(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "Câu lạc bộ";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi.Quy
     /// </summary>
     public partial class Chi : Window
     {
-        public Chi()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public Chi(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "khoản chi";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

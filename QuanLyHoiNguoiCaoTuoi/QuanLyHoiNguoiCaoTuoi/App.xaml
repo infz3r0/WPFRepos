@@ -23,6 +23,12 @@
             <Setter Property="Margin" Value="0,0,10,0"></Setter>
             <Setter Property="MinHeight" Value="25"></Setter>
         </Style>
+        <Style x:Key="InputPassword" TargetType="PasswordBox">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="0,0,10,0"></Setter>
+            <Setter Property="MinHeight" Value="25"></Setter>
+        </Style>
         <Style x:Key="ButtonOK" TargetType="Button">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderBrush" Value="#0066cc"></Setter>

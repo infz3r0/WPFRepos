@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi.Hop
     /// </summary>
     public partial class HopBCH : Window
     {
-        public HopBCH()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public HopBCH(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "họp BCH";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

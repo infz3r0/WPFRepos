@@ -19,9 +19,24 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class ThongTinBanChapHanh : Window
     {
-        public ThongTinBanChapHanh()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public ThongTinBanChapHanh(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "ban chấp hành";
         }
     }
 }

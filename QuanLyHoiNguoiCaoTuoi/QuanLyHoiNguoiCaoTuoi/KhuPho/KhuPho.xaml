@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi"
         mc:Ignorable="d"
-        Title="Thông tin khu phố" Height="160" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+        Title="Thông tin khu phố" Height="170" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         
     </Window.Resources>

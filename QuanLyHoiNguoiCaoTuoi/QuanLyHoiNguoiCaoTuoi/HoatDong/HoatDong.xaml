@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi"
         mc:Ignorable="d"
-       Title="Hoạt động" Height="330" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+       Title="Hoạt động" Height="370" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>
@@ -21,27 +21,31 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
 
-        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label}">Tiêu đề:</Label>
-        <TextBox x:Name="txbTieuDe" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputText}" />
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label}">Năm:</Label>
+        <ComboBox x:Name="cmbNam" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputComboBox}" />
+        
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Tiêu đề:</Label>
+        <TextBox x:Name="txbTieuDe" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}" />
 
-        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Nội dung:</Label>
-        <TextBox x:Name="txbNoiDung" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}" />
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Nội dung:</Label>
+        <TextBox x:Name="txbNoiDung" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}" />
 
-        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Ngày bắt đầu:</Label>
-        <DatePicker x:Name="dtpNgayBatDau" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputDatePicker}" />
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Ngày bắt đầu:</Label>
+        <DatePicker x:Name="dtpNgayBatDau" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputDatePicker}" />
 
-        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Ngày kết thúc:</Label>
-        <DatePicker x:Name="dtpNgayKetThuc" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputDatePicker}" />
+        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource Label}">Ngày kết thúc:</Label>
+        <DatePicker x:Name="dtpNgayKetThuc" Grid.Row="5" Grid.Column="1" Style="{StaticResource InputDatePicker}" />
 
-        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource Label}">Điểm chuẩn:</Label>
-        <TextBox x:Name="txbDiemChuan" Grid.Row="5" Grid.Column="1" Style="{StaticResource InputText}" />
+        <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource Label}">Điểm chuẩn:</Label>
+        <TextBox x:Name="txbDiemChuan" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputText}" />
 
 
-        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True">
                 OK
             </Button>

@@ -19,9 +19,29 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class HoatDong : Window
     {
-        public HoatDong()
+        public enum TYPE
+        {
+            ADD,
+            EDIT
+        }
+
+        public HoatDong(TYPE t)
         {
             InitializeComponent();
+            if (t == TYPE.ADD)
+            {
+                lblTitle.Content = "Thêm ";
+            }
+            else if (t == TYPE.EDIT)
+            {
+                lblTitle.Content = "Sửa ";
+            }
+            lblTitle.Content += "hoạt động";
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
