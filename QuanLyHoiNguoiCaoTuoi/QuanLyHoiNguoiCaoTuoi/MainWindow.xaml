@@ -175,9 +175,9 @@
             </RibbonTab>
         </Ribbon>
         <TabControl Grid.Row="2" Name="tctMain">
-            <TabItem Header="Tab1">
+            <!--<TabItem Header="Tab1">
                 <DataGrid Name="dgSimple"></DataGrid>
-            </TabItem>
+            </TabItem>-->
         </TabControl>
     </Grid>
 </Window>

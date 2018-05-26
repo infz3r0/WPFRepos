@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.TimKiemThogKe"
         mc:Ignorable="d"
-        Title="Thống kê thành viên tham gia hoạt động" Height="520" Width="500">
+        Title="Thống kê thành viên tham gia hoạt động" Height="530" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -27,7 +27,7 @@
         </DataGrid>
 
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
-            <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True">
+            <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Visibility="Hidden">
                 OK
             </Button>
             <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" IsCancel="True" >

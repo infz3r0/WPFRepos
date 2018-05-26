@@ -32,7 +32,7 @@ namespace QuanLyHoiNguoiCaoTuoi
             users.Add(new User() { Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17) });
             users.Add(new User() { Id = 3, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) });
 
-            dgSimple.ItemsSource = users;
+            //dgSimple.ItemsSource = users;
         }
 
         public class User
@@ -413,7 +413,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtThongKe_Click(object sender, RoutedEventArgs e)
         {
-            
+            ThongKeThanhVienHoatDong f = new ThongKeThanhVienHoatDong();
+            f.ShowDialog();
         }
 
         //endclass

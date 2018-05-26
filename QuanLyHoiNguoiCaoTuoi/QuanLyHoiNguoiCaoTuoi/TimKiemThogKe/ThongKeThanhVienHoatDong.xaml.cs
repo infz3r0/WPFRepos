@@ -22,6 +22,7 @@ namespace QuanLyHoiNguoiCaoTuoi.TimKiemThogKe
         public ThongKeThanhVienHoatDong()
         {
             InitializeComponent();
+            lblTitle.Content = "Danh sách thành viên và hoạt động";
         }
     }
 }
