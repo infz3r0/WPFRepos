@@ -31,8 +31,12 @@
         </DataGrid>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5">
-            <Button Margin="10,0" Width="36">UP</Button>
-            <Button Margin="10,0" Width="36">Down</Button>
+            <Button Margin="10,0" Width="36" >
+                <Image Source="D:\GitReposLab\WPFRepos\QuanLyHoiNguoiCaoTuoi\QuanLyHoiNguoiCaoTuoi\Images\up.png" />
+            </Button>
+            <Button Margin="10,0" Width="36">
+                <Image Source="D:\GitReposLab\WPFRepos\QuanLyHoiNguoiCaoTuoi\QuanLyHoiNguoiCaoTuoi\Images\down.png" />
+            </Button>
         </StackPanel>
 
         <DataGrid Grid.Row="4">

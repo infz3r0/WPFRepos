@@ -22,6 +22,8 @@ namespace QuanLyHoiNguoiCaoTuoi.TaiKhoan
         public DangNhap()
         {
             InitializeComponent();
+
+            lblTitle.Content = "Đăng nhập";
         }
     }
 }

@@ -12,25 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QuanLyHoiNguoiCaoTuoi.Quy
+namespace QuanLyHoiNguoiCaoTuoi.TimKiemThogKe
 {
     /// <summary>
-    /// Interaction logic for Duyet.xaml
+    /// Interaction logic for ThongKeThanhVienHoatDong.xaml
     /// </summary>
-    public partial class Duyet : Window
+    public partial class ThongKeThanhVienHoatDong : Window
     {
-        public Duyet()
+        public ThongKeThanhVienHoatDong()
         {
             InitializeComponent();
-
-            lblTitle.Content = "Duyệt khoản chi";
-        }
-
-
-
-        private void btnOK_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

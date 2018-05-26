@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QuanLyHoiNguoiCaoTuoi.Quy;
 using QuanLyHoiNguoiCaoTuoi.Hop;
+using QuanLyHoiNguoiCaoTuoi.TimKiemThogKe;
 
 namespace QuanLyHoiNguoiCaoTuoi
 {
@@ -43,6 +44,13 @@ namespace QuanLyHoiNguoiCaoTuoi
             public DateTime Birthday { get; set; }
         }
 
+        #region khu pho
+        private void rbtThemKhuPho_Click(object sender, RoutedEventArgs e)
+        {
+            KhuPho f = new KhuPho(KhuPho.TYPE.ADD);
+            f.ShowDialog();
+        }
+
         private void rbtXoaKhuPho_Click(object sender, RoutedEventArgs e)
         {
 
@@ -54,12 +62,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
-        private void rbtThemKhuPho_Click(object sender, RoutedEventArgs e)
-        {
-            KhuPho f = new KhuPho(KhuPho.TYPE.ADD);
-            f.ShowDialog();
-        }
-
+        #endregion
+        #region thanh vien
         private void rbtThemThanhVien_Click(object sender, RoutedEventArgs e)
         {
             ThongTinThanhVien f = new ThongTinThanhVien(ThongTinThanhVien.TYPE.ADD);
@@ -77,6 +81,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        #endregion
+        #region bch
         private void rbtThemBCH_Click(object sender, RoutedEventArgs e)
         {
             ThongTinBanChapHanh f = new ThongTinBanChapHanh(ThongTinBanChapHanh.TYPE.ADD);
@@ -94,6 +100,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        #endregion
+        #region hoat dong
         private void rbtThemHoatDong_Click(object sender, RoutedEventArgs e)
         {
             HoatDong f = new HoatDong(HoatDong.TYPE.ADD);
@@ -111,6 +119,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        #endregion
+        #region thanh vien hoat dong
         private void rbtThemThamGiaHD_Click(object sender, RoutedEventArgs e)
         {
             ThanhVienHoatDong f = new ThanhVienHoatDong(ThanhVienHoatDong.TYPE.ADD);
@@ -128,6 +138,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        #endregion
+        #region thu
         private void rbtThemKhoanThu_Click(object sender, RoutedEventArgs e)
         {
 
@@ -147,6 +159,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        #endregion
+        #region chi
         private void rbtThemKhoanChi_Click(object sender, RoutedEventArgs e)
         {
 
@@ -166,6 +180,14 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         }
 
+        private void rbtDuyetKhoanChi_Click(object sender, RoutedEventArgs e)
+        {
+            Duyet f = new Duyet();
+            f.ShowDialog();
+        }
+
+        #endregion
+        #region clb
         private void rbtThemCLB_Click(object sender, RoutedEventArgs e)
         {
             CLB f = new CLB(CLB.TYPE.ADD);
@@ -185,6 +207,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         }
 
+        #endregion
+        #region thanh vien clb
         private void rbtThemThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
             ThanhVienCLB f = new ThanhVienCLB(ThanhVienCLB.TYPE.ADD);
@@ -204,6 +228,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         }
 
+        #endregion
+        #region hop bch
         private void rbtThemHopBCH_Click(object sender, RoutedEventArgs e)
         {
             HopBCH f = new HopBCH(HopBCH.TYPE.ADD);
@@ -223,6 +249,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         }
 
+        #endregion
+        #region hop tn
         private void rbtThemHopTN_Click(object sender, RoutedEventArgs e)
         {
             HopThuongNien f = new HopThuongNien(HopThuongNien.TYPE.ADD);
@@ -242,6 +270,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         }
 
+        #endregion
+        #region thanh vien hop
         private void rbtThemThanhVienHop_Click(object sender, RoutedEventArgs e)
         {
             ThanhVienHop f = new ThanhVienHop(ThanhVienHop.TYPE.ADD);
@@ -259,6 +289,131 @@ namespace QuanLyHoiNguoiCaoTuoi
 
             ThanhVienHop f = new ThanhVienHop(ThanhVienHop.TYPE.EDIT);
             f.ShowDialog();
+        }
+
+        #endregion
+        #region bch hop
+        private void rbtThemBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+            BCHThamGiaHop f = new BCHThamGiaHop(BCHThamGiaHop.TYPE.ADD);
+            f.ShowDialog();
+        }
+
+        private void rbtXoaBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbtSuaBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+            BCHThamGiaHop f = new BCHThamGiaHop(BCHThamGiaHop.TYPE.EDIT);
+            f.ShowDialog();
+        }
+        
+        private void rbtDSHopBCH_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSHopBCH", "Họp ban chấp hành", "dgDSHopBCH");
+        }
+
+        private void rbtDSKhuPho_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSKhuPho", "Khu phố", "dgDSKhuPho");
+        }
+
+        private void rbtDSThanhVien_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSThanhVien", "Thành viên", "dgDSThanhVien");
+        }
+
+        private void rbtDSBCH_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSBCH", "Ban chấp hành", "dgDSBCH");
+        }
+
+        private void rbtDSHoatDong_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSHoatDong", "Hoạt động", "dgDSHoatDong");
+        }
+
+        private void rbtDSThanhVienHoatDong_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSThanhVienHoatDong", "Thành viên tham gia hoạt động", "dgDSThanhVienHoatDong");
+        }
+
+        private void rbtDSThu_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSThu", "Khoản thu", "dgDSThu");
+        }
+
+        private void rbtDSChi_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSChi", "Khoản chi", "dgDSChi");
+        }
+
+        private void rbtDSCLB_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSCLB", "Câu lạc bộ", "dgDSCLB");
+        }
+
+        private void rbtDSThanhVienCLB_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSThanhVienCLB", "Thành viên câu lạc bộ", "dgDSThanhVienCLB");
+        }
+
+        private void rbtDSBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSBCHHop", "BCH tham gia họp", "dgDSBCHHop");
+        }
+
+        private void rbtDSHopTN_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSHopTN", "Họp thường niên", "dgDSHopTN");
+        }
+
+        private void rbtDSThanhVienHop_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewTab("tabDSThanhVienHop", "Thành viên họp", "dgDSThanhVienHop");
+        }
+
+        #endregion
+
+
+
+        private void AddNewTab(string tabName, string tabHeader, string dgridName)
+        {
+            //init tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = tabHeader;
+            DataGrid dataGrid = new DataGrid();
+            dataGrid.Name = dgridName;
+            tab.Content = dataGrid;
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
+        }
+
+        private void rbtSearch_Click(object sender, RoutedEventArgs e)
+        {
+            TimKiem f = new TimKiem();
+            f.ShowDialog();
+        }
+
+        private void rbtThongKe_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         //endclass

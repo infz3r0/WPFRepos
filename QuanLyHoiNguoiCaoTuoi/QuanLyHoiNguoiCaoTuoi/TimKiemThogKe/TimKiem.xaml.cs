@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace QuanLyHoiNguoiCaoTuoi.Quy
+namespace QuanLyHoiNguoiCaoTuoi.TimKiemThogKe
 {
     /// <summary>
-    /// Interaction logic for Duyet.xaml
+    /// Interaction logic for TimKiem.xaml
     /// </summary>
-    public partial class Duyet : Window
+    public partial class TimKiem : Window
     {
-        public Duyet()
+        public TimKiem()
         {
             InitializeComponent();
-
-            lblTitle.Content = "Duyệt khoản chi";
-        }
-
-
-
-        private void btnOK_Click(object sender, RoutedEventArgs e)
-        {
-
+            lblTitle.Content = "Tìm kiếm";
         }
     }
 }
