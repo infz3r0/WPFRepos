@@ -34,9 +34,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Controls.Ribbon" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,82 +65,152 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CLB\CLB.xaml.cs">
+    <Compile Include="DATA\bch_tham_gia_hop.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\CLB.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\dong_gop.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\hoat_dong.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\hop_bch.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\hop_thuong_nien.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\khoan_chi.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\khoan_thu.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\KhuPhoDAO.cs" />
+    <Compile Include="DATA\khu_pho.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\ModelDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\ModelDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\ModelDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\quyen.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\tai_khoan.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\thanh_vien.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\thanh_vien_clb.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\thanh_vien_tham_gia.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\thanh_vien_tham_gia_hop.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\thong_tin_ban_chap_hanh.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\tong_ket.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CLB\CLB.xaml.cs">
       <DependentUpon>CLB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HoatDong\HoatDong.xaml.cs">
+    <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hop\BCHThamGiaHop.xaml.cs">
+    <Compile Include="UI\Hop\BCHThamGiaHop.xaml.cs">
       <DependentUpon>BCHThamGiaHop.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hop\HopBCH.xaml.cs">
+    <Compile Include="UI\Hop\HopBCH.xaml.cs">
       <DependentUpon>HopBCH.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hop\HopThuongNien.xaml.cs">
+    <Compile Include="UI\Hop\HopThuongNien.xaml.cs">
       <DependentUpon>HopThuongNien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hop\ThanhVienHop.xaml.cs">
+    <Compile Include="UI\Hop\ThanhVienHop.xaml.cs">
       <DependentUpon>ThanhVienHop.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KhuPho\KhuPho.xaml.cs">
+    <Compile Include="UI\KhuPho\KhuPho.xaml.cs">
       <DependentUpon>KhuPho.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CLB\ThanhVienCLB.xaml.cs">
+    <Compile Include="UI\CLB\ThanhVienCLB.xaml.cs">
       <DependentUpon>ThanhVienCLB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HoatDong\ThanhVienHoatDong.xaml.cs">
+    <Compile Include="UI\HoatDong\ThanhVienHoatDong.xaml.cs">
       <DependentUpon>ThanhVienHoatDong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Quy\Chi.xaml.cs">
+    <Compile Include="UI\KhuPho\UC_DatagridKhuPho.xaml.cs">
+      <DependentUpon>UC_DatagridKhuPho.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Quy\Chi.xaml.cs">
       <DependentUpon>Chi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Quy\Duyet.xaml.cs">
+    <Compile Include="UI\Quy\Duyet.xaml.cs">
       <DependentUpon>Duyet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Quy\Thu.xaml.cs">
+    <Compile Include="UI\Quy\Thu.xaml.cs">
       <DependentUpon>Thu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TaiKhoan\DangNhap.xaml.cs">
+    <Compile Include="UI\TaiKhoan\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ThanhVien\ThongTinBanChapHanh.xaml.cs">
+    <Compile Include="UI\ThanhVien\ThongTinBanChapHanh.xaml.cs">
       <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ThanhVien\ThongTinThanhVien.xaml.cs">
+    <Compile Include="UI\ThanhVien\ThongTinThanhVien.xaml.cs">
       <DependentUpon>ThongTinThanhVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimKiemThogKe\ThongKeThanhVienHoatDong.xaml.cs">
+    <Compile Include="UI\TimKiemThogKe\ThongKeThanhVienHoatDong.xaml.cs">
       <DependentUpon>ThongKeThanhVienHoatDong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TimKiemThogKe\TimKiem.xaml.cs">
+    <Compile Include="UI\TimKiemThogKe\TimKiem.xaml.cs">
       <DependentUpon>TimKiem.xaml</DependentUpon>
     </Compile>
-    <Page Include="CLB\CLB.xaml">
+    <Page Include="UI\CLB\CLB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HoatDong\HoatDong.xaml">
+    <Page Include="UI\HoatDong\HoatDong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hop\BCHThamGiaHop.xaml">
+    <Page Include="UI\Hop\BCHThamGiaHop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hop\HopBCH.xaml">
+    <Page Include="UI\Hop\HopBCH.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hop\HopThuongNien.xaml">
+    <Page Include="UI\Hop\HopThuongNien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hop\ThanhVienHop.xaml">
+    <Page Include="UI\Hop\ThanhVienHop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="KhuPho\KhuPho.xaml">
+    <Page Include="UI\KhuPho\KhuPho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,43 +226,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="CLB\ThanhVienCLB.xaml">
+    <Page Include="UI\CLB\ThanhVienCLB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HoatDong\ThanhVienHoatDong.xaml">
+    <Page Include="UI\HoatDong\ThanhVienHoatDong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Quy\Chi.xaml">
+    <Page Include="UI\KhuPho\UC_DatagridKhuPho.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Quy\Duyet.xaml">
+    <Page Include="UI\Quy\Chi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Quy\Thu.xaml">
+    <Page Include="UI\Quy\Duyet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TaiKhoan\DangNhap.xaml">
+    <Page Include="UI\Quy\Thu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ThanhVien\ThongTinBanChapHanh.xaml">
+    <Page Include="UI\TaiKhoan\DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ThanhVien\ThongTinThanhVien.xaml">
+    <Page Include="UI\ThanhVien\ThongTinBanChapHanh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TimKiemThogKe\ThongKeThanhVienHoatDong.xaml">
+    <Page Include="UI\ThanhVien\ThongTinThanhVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TimKiemThogKe\TimKiem.xaml">
+    <Page Include="UI\TimKiemThogKe\ThongKeThanhVienHoatDong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TimKiemThogKe\TimKiem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,6 +289,31 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="DATA\ModelDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DATA\ModelDB.edmx.diagram">
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.bch_tham_gia_hop.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.CLB.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.dong_gop.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.hoat_dong.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.hop_bch.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.hop_thuong_nien.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.khoan_chi.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.khoan_thu.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.khu_pho.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.quyen.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.tai_khoan.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.thanh_vien.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.thanh_vien_clb.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.thanh_vien_tham_gia.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.thanh_vien_tham_gia_hop.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.thong_tin_ban_chap_hanh.datasource" />
+    <None Include="Properties\DataSources\QuanLyHoiNguoiCaoTuoi.DATA.tong_ket.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -215,53 +323,68 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\add.png" />
-    <Resource Include="Images\city.png" />
-    <Resource Include="Images\delete.png" />
-    <Resource Include="Images\edit.png" />
-    <Resource Include="Images\help.png" />
+    <Resource Include="UI\Images\add.png" />
+    <Resource Include="UI\Images\city.png" />
+    <Resource Include="UI\Images\delete.png" />
+    <Resource Include="UI\Images\edit.png" />
+    <Resource Include="UI\Images\help.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\manager.png" />
-    <Resource Include="Images\people.png" />
+    <Resource Include="UI\Images\manager.png" />
+    <Resource Include="UI\Images\people.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\target.png" />
-    <Resource Include="Images\walkperson.png" />
+    <Resource Include="UI\Images\target.png" />
+    <Resource Include="UI\Images\walkperson.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\group.png" />
-    <Resource Include="Images\income.png" />
-    <Resource Include="Images\outcome.png" />
+    <Resource Include="UI\Images\group.png" />
+    <Resource Include="UI\Images\income.png" />
+    <Resource Include="UI\Images\outcome.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\check.png" />
+    <Resource Include="UI\Images\check.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\groupmember.png" />
+    <Resource Include="UI\Images\groupmember.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\meeting bch.png" />
-    <Resource Include="Images\meeting.png" />
+    <Resource Include="UI\Images\meeting bch.png" />
+    <Resource Include="UI\Images\meeting.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\meeting bch member.png" />
-    <Resource Include="Images\meeting member.png" />
+    <Resource Include="UI\Images\meeting bch member.png" />
+    <Resource Include="UI\Images\meeting member.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\search.png" />
-    <Resource Include="Images\statistic.png" />
+    <Resource Include="UI\Images\search.png" />
+    <Resource Include="UI\Images\statistic.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\menu.png" />
+    <Resource Include="UI\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\down.png" />
-    <Resource Include="Images\up.png" />
+    <Resource Include="UI\Images\down.png" />
+    <Resource Include="UI\Images\up.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\exit.png" />
-    <Resource Include="Images\setting.png" />
+    <Resource Include="UI\Images\exit.png" />
+    <Resource Include="UI\Images\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DATA\ModelDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DATA\ModelDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

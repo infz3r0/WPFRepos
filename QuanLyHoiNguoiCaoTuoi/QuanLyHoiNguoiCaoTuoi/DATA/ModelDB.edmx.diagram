@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="979b6be3d00641dab007d294be73e66c" Name="Diagram1">
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.bch_tham_gia_hop" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.CLB" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.dong_gop" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hoat_dong" Width="1.5" PointX="6" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_thuong_nien" Width="1.5" PointX="9" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.khoan_chi" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.khoan_thu" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.khu_pho" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.quyen" Width="1.5" PointX="3" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.tai_khoan" Width="1.5" PointX="5.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.thanh_vien" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.thanh_vien_clb" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.thanh_vien_tham_gia" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.thanh_vien_tham_gia_hop" Width="1.5" PointX="11.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.thong_tin_ban_chap_hanh" Width="1.5" PointX="5.25" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.tong_ket" Width="1.5" PointX="3.75" PointY="25.375" IsExpanded="true" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham___id_th__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham___id_th__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_cl__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_cl__25518C17" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__hoat_dong__nam__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__hoat_dong__nam__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_chi__id_ho__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_chi__id_ho__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_ho__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_ho__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vien_tham___02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vien_tham___245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_chi__id_ng__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_chi__id_ng__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id_ng__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id_ng__208CD6FA" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id_ng__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id_ng__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_kh__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_kh__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__tai_khoan__id_qu__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__tai_khoan__id_qu__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__tai_khoan__id_th__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__tai_khoan__id_th__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__1CBC4616" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thong_tin__id_th__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thong_tin__id_th__797309D9" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

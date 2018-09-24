@@ -12,9 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using QuanLyHoiNguoiCaoTuoi.Quy;
-using QuanLyHoiNguoiCaoTuoi.Hop;
-using QuanLyHoiNguoiCaoTuoi.TimKiemThogKe;
+
+using QuanLyHoiNguoiCaoTuoi.UI.CLB;
+using QuanLyHoiNguoiCaoTuoi.UI.HoatDong;
+using QuanLyHoiNguoiCaoTuoi.UI.Hop;
+using QuanLyHoiNguoiCaoTuoi.UI.KhuPho;
+using QuanLyHoiNguoiCaoTuoi.UI.Quy;
+using QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan;
+using QuanLyHoiNguoiCaoTuoi.UI.ThanhVien;
+using QuanLyHoiNguoiCaoTuoi.UI.TimKiemThogKe;
 
 namespace QuanLyHoiNguoiCaoTuoi
 {
@@ -26,40 +32,62 @@ namespace QuanLyHoiNguoiCaoTuoi
         public MainWindow()
         {
             InitializeComponent();
-
-            List<User> users = new List<User>();
-            users.Add(new User() { Id = 1, Name = "John Doe", Birthday = new DateTime(1971, 7, 23) });
-            users.Add(new User() { Id = 2, Name = "Jane Doe", Birthday = new DateTime(1974, 1, 17) });
-            users.Add(new User() { Id = 3, Name = "Sammy Doe", Birthday = new DateTime(1991, 9, 2) });
-
-            //dgSimple.ItemsSource = users;
+            
         }
-
-        public class User
-        {
-            public int Id { get; set; }
-
-            public string Name { get; set; }
-
-            public DateTime Birthday { get; set; }
-        }
-
+        
         #region khu pho
         private void rbtThemKhuPho_Click(object sender, RoutedEventArgs e)
         {
-            KhuPho f = new KhuPho(KhuPho.TYPE.ADD);
+            KhuPho f = new KhuPho();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSKhuPho";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_DatagridKhuPho)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaKhuPho_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSKhuPho";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //call delete
+                    ((UC_DatagridKhuPho)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaKhuPho_Click(object sender, RoutedEventArgs e)
         {
-            KhuPho f = new KhuPho(KhuPho.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSKhuPho";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //call delete
+                    ((UC_DatagridKhuPho)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
         }
 
         #endregion
@@ -309,15 +337,45 @@ namespace QuanLyHoiNguoiCaoTuoi
             BCHThamGiaHop f = new BCHThamGiaHop(BCHThamGiaHop.TYPE.EDIT);
             f.ShowDialog();
         }
-        
+
+
+
+        #endregion
+        #region Danh sach
         private void rbtDSHopBCH_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSHopBCH", "Họp ban chấp hành", "dgDSHopBCH");
+            AddNewTab("tabDSHopBCH", "Họp ban chấp hành", "dgDSHopBCH");            
         }
 
         private void rbtDSKhuPho_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSKhuPho", "Khu phố", "dgDSKhuPho");
+            //AddNewTab("tabDSKhuPho", "Khu phố", "ucDSKhuPho");
+            //init tab
+            string tabName = "tabDSKhuPho";                      
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_DatagridKhuPho)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Khu phố";
+
+            UC_DatagridKhuPho uc = new UC_DatagridKhuPho();
+            uc.Name = "ucDSKhuPho";
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSThanhVien_Click(object sender, RoutedEventArgs e)
@@ -374,9 +432,7 @@ namespace QuanLyHoiNguoiCaoTuoi
         {
             AddNewTab("tabDSThanhVienHop", "Thành viên họp", "dgDSThanhVienHop");
         }
-
         #endregion
-
 
 
         private void AddNewTab(string tabName, string tabHeader, string dgridName)
@@ -416,6 +472,7 @@ namespace QuanLyHoiNguoiCaoTuoi
             ThongKeThanhVienHoatDong f = new ThongKeThanhVienHoatDong();
             f.ShowDialog();
         }
+        
 
         //endclass
     }
