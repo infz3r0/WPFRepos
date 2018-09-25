@@ -47,6 +47,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -117,6 +118,7 @@
     <Compile Include="DATA\thanh_vien.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\ThanhVienDAO.cs" />
     <Compile Include="DATA\thanh_vien_clb.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -135,6 +137,8 @@
     <Compile Include="UI\CLB\CLB.xaml.cs">
       <DependentUpon>CLB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomException.cs" />
+    <Compile Include="UI\ComboboxPairs.cs" />
     <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
     </Compile>
@@ -179,6 +183,9 @@
     </Compile>
     <Compile Include="UI\ThanhVien\ThongTinThanhVien.xaml.cs">
       <DependentUpon>ThongTinThanhVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThanhVien\UC_Datagrid_ThongTinThanhVien.xaml.cs">
+      <DependentUpon>UC_Datagrid_ThongTinThanhVien.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\TimKiemThogKe\ThongKeThanhVienHoatDong.xaml.cs">
       <DependentUpon>ThongKeThanhVienHoatDong.xaml</DependentUpon>
@@ -259,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\ThanhVien\ThongTinThanhVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ThanhVien\UC_Datagrid_ThongTinThanhVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

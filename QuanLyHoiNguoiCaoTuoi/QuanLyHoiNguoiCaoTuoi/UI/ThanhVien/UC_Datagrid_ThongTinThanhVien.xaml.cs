@@ -16,70 +16,55 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
-namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
+namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
 {
     /// <summary>
-    /// Interaction logic for UC_DatagridKhuPho.xaml
+    /// Interaction logic for UC_Datagrid_ThongTinThanhVien.xaml
     /// </summary>
-    public partial class UC_DatagridKhuPho : UserControl
+    public partial class UC_Datagrid_ThongTinThanhVien : UserControl
     {
         hoi_nguoi_cao_tuoiEntities context = new hoi_nguoi_cao_tuoiEntities();
-        CollectionViewSource khu_phoViewSource;
+        CollectionViewSource thanh_vienViewSource;
 
-        public UC_DatagridKhuPho()
+        public UC_Datagrid_ThongTinThanhVien()
         {
             InitializeComponent();
-            khu_phoViewSource = ((CollectionViewSource)(FindResource("khu_phoViewSource")));
+            thanh_vienViewSource = ((CollectionViewSource)(FindResource("thanh_vienViewSource")));
             DataContext = this;
         }
 
         public void Refresh()
         {
             LoadData();
-            khu_phoViewSource.View.Refresh();
+            thanh_vienViewSource.View.Refresh();
         }
 
         private void LoadData()
         {
-            khu_phoViewSource.Source = null;
-            // Load is an extension method on IQueryable,    
-            // defined in the System.Data.Entity namespace.   
-            // This method enumerates the results of the query,    
-            // similar to ToList but without creating a list.   
-            // When used with Linq to Entities, this method    
-            // creates entity objects and adds them to the context.   
+            thanh_vienViewSource.Source = null;
+
             try
             {
-                context.khu_pho.Load();
+                context.thanh_vien.Include("khu_pho").Load();
             }
             catch (Exception ex)
             {
                 CustomException.SQLException(ex);
-            }            
+            }
 
-            // After the data is loaded, call the DbSet<T>.Local property    
-            // to use the DbSet<T> as a binding source.   
-            khu_phoViewSource.Source = context.khu_pho.Local;
+            thanh_vienViewSource.Source = context.thanh_vien.Local;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
-            // Do not load your data at design time.
-            // if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-            // {
-            // 	//Load your data here and assign the result to the CollectionViewSource.
-            // 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
-            // 	myCollectionViewSource.Source = your data
-            // }
-
             LoadData();
         }
 
+        
         public void DeleteSelectedRows()
         {
-            int countColumns = khu_phoDataGrid.Columns.Count;
-            int countSelectedRows = khu_phoDataGrid.SelectedCells.Count / countColumns;
+            int countColumns = thanh_vienDataGrid.Columns.Count;
+            int countSelectedRows = thanh_vienDataGrid.SelectedCells.Count / countColumns;
 
             if (countSelectedRows > 0)
             {
@@ -89,10 +74,10 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
                 {
                     for (int r = 0; r < countSelectedRows; r++)
                     {
-                        khu_pho o = (khu_pho)khu_phoDataGrid.Items[r];
+                        thanh_vien o = (thanh_vien)thanh_vienDataGrid.Items[r];
                         try
                         {
-                            context.khu_pho.Remove(o);
+                            context.thanh_vien.Remove(o);
                             context.SaveChanges();
                             Refresh();
                         }
@@ -104,13 +89,14 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
                 }
             }
 
-            
+
         }
+
 
         public void OpenUpdateWindow()
         {
-            khu_pho o = (khu_pho)khu_phoDataGrid.SelectedItem;
-            KhuPho w = new KhuPho(o);
+            thanh_vien o = (thanh_vien)thanh_vienDataGrid.SelectedItem;
+            ThongTinThanhVien w = new ThongTinThanhVien(o);
             w.ShowDialog();
             Refresh();
         }

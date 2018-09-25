@@ -21,7 +21,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
     /// </summary>
     public partial class KhuPho : Window
     {
-        private KhuPhoDAO dao = new KhuPhoDAO();
+        private KhuPhoDAO khuPhoDAO = new KhuPhoDAO();
         private TYPE type;
         private khu_pho o;
 
@@ -35,6 +35,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
             InitializeComponent();
             type = TYPE.ADD;
             lblTitle.Content = "Thêm khu phố";
+            txbTenKhuPho.Focus();
         }
 
         public KhuPho(khu_pho o)
@@ -44,6 +45,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
             this.o = (khu_pho)o;
             lblTitle.Content = "Sửa khu phố";
             txbTenKhuPho.Text = o.ten_khu_pho;
+            txbTenKhuPho.Focus();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -53,30 +55,32 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if (txbTenKhuPho.Text.Length > 50 || string.IsNullOrEmpty(txbTenKhuPho.Text) || string.IsNullOrWhiteSpace(txbTenKhuPho.Text))
+            {
+                MessageBox.Show("Tên khu phố không hợp lệ", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txbTenKhuPho.Focus();
+                return;
+            }
+
             if (type == TYPE.ADD)
             {
                 khu_pho newo = new khu_pho();
                 newo.ten_khu_pho = txbTenKhuPho.Text;
-                if (dao.Add(newo))
+                if (khuPhoDAO.Add(newo))
                 {
                     MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    txbTenKhuPho.Clear();
                 }
-                else
-                {
-                    MessageBox.Show("Lỗi", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                txbTenKhuPho.Focus();
             }
             else if (type == TYPE.EDIT)
             {                
                 o.ten_khu_pho = txbTenKhuPho.Text;
-                if (dao.Update(o))
+                if (khuPhoDAO.Update(o))
                 {
                     MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Lỗi", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                txbTenKhuPho.Focus();
             }
         }
 

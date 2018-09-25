@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.ThanhVien"
         mc:Ignorable="d"
-        Title="Thông tin thành viên" Height="370" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Thông tin thành viên" Height="410" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>
@@ -23,31 +23,34 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
         
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label}">Họ tên:</Label>
-        <TextBox x:Name="txbHoTen" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputText}" />
+        <TextBox x:Name="txbHoTen" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputText}" MaxLength="50"/>
         
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Ngày sinh:</Label>
-        <DatePicker x:Name="dtpNgaySinh" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputDatePicker}" SelectedDate="1990-01-01" />
+        <DatePicker x:Name="dtpNgaySinh" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputDatePicker}" SelectedDate="1900-01-01" />
         
         <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Giới tính:</Label>
         <ComboBox x:Name="cmbGioiTinh" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputComboBox}" />
         
         <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Địa chỉ:</Label>
-        <TextBox x:Name="txbDiaChi" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputText}" />
+        <TextBox x:Name="txbDiaChi" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputText}" MaxLength="200"/>
         
         <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource Label}">Chức vụ:</Label>
         <ComboBox x:Name="cmbChucVu" Grid.Row="5" Grid.Column="1" Style="{StaticResource InputComboBox}" />
         
         <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource Label}">Khu phố:</Label>
         <ComboBox x:Name="cmbKhuPho" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputComboBox}" />
-        
 
-        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
-            <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True">
+        <Label Grid.Row="7" Grid.Column="0" Style="{StaticResource Label}">Ngày tham gia:</Label>
+        <DatePicker x:Name="dtpNgayThamGia" Grid.Row="7" Grid.Column="1" Style="{StaticResource InputDatePicker}" />
+
+        <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+            <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click">
                 OK
             </Button>
             <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" IsCancel="True" >

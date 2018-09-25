@@ -83,7 +83,7 @@ namespace QuanLyHoiNguoiCaoTuoi
             {
                 if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
                 {
-                    //call delete
+                    //
                     ((UC_DatagridKhuPho)((TabItem)item).Content).OpenUpdateWindow();
                     return;
                 }
@@ -94,19 +94,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region thanh vien
         private void rbtThemThanhVien_Click(object sender, RoutedEventArgs e)
         {
-            ThongTinThanhVien f = new ThongTinThanhVien(ThongTinThanhVien.TYPE.ADD);
+            ThongTinThanhVien f = new ThongTinThanhVien();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSThanhVien";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThongTinThanhVien)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaThanhVien_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSThanhVien";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_ThongTinThanhVien)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaThanhVien_Click(object sender, RoutedEventArgs e)
         {
-            ThongTinThanhVien f = new ThongTinThanhVien(ThongTinThanhVien.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSThanhVien";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_ThongTinThanhVien)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
         }
 
         #endregion
@@ -349,7 +386,6 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSKhuPho_Click(object sender, RoutedEventArgs e)
         {
-            //AddNewTab("tabDSKhuPho", "Khu phố", "ucDSKhuPho");
             //init tab
             string tabName = "tabDSKhuPho";                      
 
@@ -371,7 +407,6 @@ namespace QuanLyHoiNguoiCaoTuoi
             tab.Header = "Khu phố";
 
             UC_DatagridKhuPho uc = new UC_DatagridKhuPho();
-            uc.Name = "ucDSKhuPho";
             tab.Content = uc;
 
             tctMain.Items.Add(tab);
@@ -380,7 +415,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSThanhVien_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSThanhVien", "Thành viên", "dgDSThanhVien");
+            //init tab
+            string tabName = "tabDSThanhVien";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_ThongTinThanhVien)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Thành viên";
+
+            UC_Datagrid_ThongTinThanhVien uc = new UC_Datagrid_ThongTinThanhVien();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSBCH_Click(object sender, RoutedEventArgs e)

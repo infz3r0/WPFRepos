@@ -22,12 +22,23 @@
                     </DataGridTextColumn.ElementStyle>
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn x:Name="ten_khu_phoColumn" Width="Auto" Header="Tên khu phố" Binding="{Binding ten_khu_pho}"/>
+                <DataGridTextColumn x:Name="ten_khu_phoColumn" Width="Auto" Header="Tên khu phố" Binding="{Binding ten_khu_pho}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
