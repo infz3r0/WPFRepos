@@ -72,6 +72,7 @@
     <Compile Include="DATA\CLB.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\CLBDAO.cs" />
     <Compile Include="DATA\dong_gop.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -138,6 +139,9 @@
       <DependentUpon>CLB.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomException.cs" />
+    <Compile Include="UI\CLB\UC_DatagridCLB.xaml.cs">
+      <DependentUpon>UC_DatagridCLB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ComboboxPairs.cs" />
     <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
@@ -194,6 +198,10 @@
       <DependentUpon>TimKiem.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\CLB\CLB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CLB\UC_DatagridCLB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

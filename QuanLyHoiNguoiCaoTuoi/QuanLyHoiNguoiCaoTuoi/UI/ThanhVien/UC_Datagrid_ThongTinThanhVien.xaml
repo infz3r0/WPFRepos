@@ -12,7 +12,7 @@
     </UserControl.Resources>
     <Grid DataContext="{StaticResource thanh_vienViewSource}">
 
-        <DataGrid x:Name="thanh_vienDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="thanh_vienDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" MinRowHeight="23" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="id_thanh_vienColumn" Width="Auto" Header="ID" Binding="{Binding id_thanh_vien}">
                     <DataGridTextColumn.ElementStyle>

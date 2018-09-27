@@ -255,20 +255,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region clb
         private void rbtThemCLB_Click(object sender, RoutedEventArgs e)
         {
-            CLB f = new CLB(CLB.TYPE.ADD);
+            CLB f = new CLB();
             f.ShowDialog();
 
+            //init tab
+            string tabName = "tabDSCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_DatagridCLB)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaCLB_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSCLB";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_DatagridCLB)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaCLB_Click(object sender, RoutedEventArgs e)
         {
-            CLB f = new CLB(CLB.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_DatagridCLB)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
 
         }
 
@@ -469,7 +505,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSCLB_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSCLB", "Câu lạc bộ", "dgDSCLB");
+            //init tab
+            string tabName = "tabDSCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_DatagridCLB)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Câu lạc bộ";
+
+            UC_DatagridCLB uc = new UC_DatagridCLB();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSThanhVienCLB_Click(object sender, RoutedEventArgs e)
