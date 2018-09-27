@@ -45,14 +45,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
 
             try
             {
-                context.thanh_vien.Include("khu_pho").Load();
+                thanh_vienViewSource.Source = context.thanh_vien.Include("khu_pho").ToList();
             }
             catch (Exception ex)
             {
                 CustomException.SQLException(ex);
             }
-
-            thanh_vienViewSource.Source = context.thanh_vien.Local;
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -63,29 +62,41 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
         
         public void DeleteSelectedRows()
         {
-            int countColumns = thanh_vienDataGrid.Columns.Count;
-            int countSelectedRows = thanh_vienDataGrid.SelectedCells.Count / countColumns;
+            int countCol = thanh_vienDataGrid.Columns.Count;
+            int countSelected = thanh_vienDataGrid.SelectedCells.Count / countCol;
 
-            if (countSelectedRows > 0)
+            if (countSelected > 0)
             {
-                string msg = string.Format("Bạn có chắc chắn xóa {0} dòng dữ liệu này?", countSelectedRows);
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(msg, "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo);
+                string msg = string.Format("Bạn có chắc chắn xóa {0} dòng dữ liệu này?", countSelected);
+                MessageBoxResult messageBoxResult = MessageBox.Show(msg, "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    for (int r = 0; r < countSelectedRows; r++)
+                    int c_success = 0;
+                    int c_fail = 0;
+
+                    List<thanh_vien> thanh_vienL = new List<thanh_vien>();
+                    for (int r = 0; r < countSelected; r++)
                     {
-                        thanh_vien o = (thanh_vien)thanh_vienDataGrid.Items[r];
+                        thanh_vien o = (thanh_vien)thanh_vienDataGrid.SelectedCells[r * countCol].Item;
+                        thanh_vienL.Add(o);
+                    }
+                    foreach (thanh_vien o in thanh_vienL)
+                    {
                         try
                         {
-                            context.thanh_vien.Remove(o);
+                            context.P_Delete_thanh_vien(o.id_thanh_vien);
                             context.SaveChanges();
                             Refresh();
+                            c_success++;
                         }
                         catch (Exception ex)
                         {
-                            CustomException.UnknownException(ex);
+                            c_fail++;
+                            CustomException.SQLException(ex);
                         }
                     }
+                    string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);
+                    MessageBox.Show(result, "Kết quả", System.Windows.MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
 

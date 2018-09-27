@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hoi_nguoi_cao_tuoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="hoi_nguoi_cao_tuoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bch_tham_gia_hop">
           <Key>
             <PropertyRef Name="thang" />
@@ -621,6 +621,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="P_Delete_clb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="P_Delete_khu_pho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="P_Delete_thanh_vien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="hoi_nguoi_cao_tuoiModelStoreContainer">
           <EntitySet Name="bch_tham_gia_hop" EntityType="Self.bch_tham_gia_hop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLB" EntityType="Self.CLB" Schema="dbo" store:Type="Tables" />
@@ -784,8 +793,7 @@
             <End Role="thong_tin_ban_chap_hanh" EntitySet="thong_tin_ban_chap_hanh" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hoi_nguoi_cao_tuoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1639,6 +1647,15 @@
             <End Role="thanh_vien" EntitySet="thanh_vien" />
             <End Role="thong_tin_ban_chap_hanh" EntitySet="thong_tin_ban_chap_hanh" />
           </AssociationSet>
+          <FunctionImport Name="P_Delete_khu_pho">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="P_Delete_clb">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="P_Delete_thanh_vien">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1831,6 +1848,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_Delete_khu_pho" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_khu_pho" />
+          <FunctionImportMapping FunctionImportName="P_Delete_clb" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_clb" />
+          <FunctionImportMapping FunctionImportName="P_Delete_thanh_vien" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thanh_vien" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

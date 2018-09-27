@@ -12,6 +12,8 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class hoi_nguoi_cao_tuoiEntities : DbContext
     {
@@ -42,5 +44,32 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
         public virtual DbSet<thanh_vien_tham_gia_hop> thanh_vien_tham_gia_hop { get; set; }
         public virtual DbSet<thong_tin_ban_chap_hanh> thong_tin_ban_chap_hanh { get; set; }
         public virtual DbSet<tong_ket> tong_ket { get; set; }
+    
+        public virtual int P_Delete_khu_pho(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_khu_pho", idParameter);
+        }
+    
+        public virtual int P_Delete_clb(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_clb", idParameter);
+        }
+    
+        public virtual int P_Delete_thanh_vien(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thanh_vien", idParameter);
+        }
     }
 }

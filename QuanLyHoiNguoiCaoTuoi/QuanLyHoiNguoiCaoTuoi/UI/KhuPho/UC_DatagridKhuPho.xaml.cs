@@ -50,16 +50,17 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
             // creates entity objects and adds them to the context.   
             try
             {
-                context.khu_pho.Load();
+                //.khu_pho.Load();
+                khu_phoViewSource.Source = context.khu_pho.ToList();
             }
             catch (Exception ex)
             {
                 CustomException.SQLException(ex);
-            }            
+            }
 
             // After the data is loaded, call the DbSet<T>.Local property    
             // to use the DbSet<T> as a binding source.   
-            khu_phoViewSource.Source = context.khu_pho.Local;
+            //khu_phoViewSource.Source = context.khu_pho.Local;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -78,33 +79,45 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
 
         public void DeleteSelectedRows()
         {
-            int countColumns = khu_phoDataGrid.Columns.Count;
-            int countSelectedRows = khu_phoDataGrid.SelectedCells.Count / countColumns;
+            int countCol = khu_phoDataGrid.Columns.Count;
+            int countSelected = khu_phoDataGrid.SelectedCells.Count / countCol;
 
-            if (countSelectedRows > 0)
-            {
-                string msg = string.Format("Bạn có chắc chắn xóa {0} dòng dữ liệu này?", countSelectedRows);
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show(msg, "Xác nhận xóa", System.Windows.MessageBoxButton.YesNo);
+            if (countSelected > 0)
+            {                
+                string msg = string.Format("Bạn có chắc chắn xóa {0} dòng dữ liệu này?", countSelected);
+                MessageBoxResult messageBoxResult = MessageBox.Show(msg, "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    for (int r = 0; r < countSelectedRows; r++)
+                    int c_success = 0;
+                    int c_fail = 0;
+
+                    List<khu_pho> khu_phoL = new List<khu_pho>();
+                    for (int r = 0; r < countSelected; r++)
                     {
-                        khu_pho o = (khu_pho)khu_phoDataGrid.Items[r];
+                        khu_pho o = (khu_pho)khu_phoDataGrid.SelectedCells[r * countCol].Item;
+                        khu_phoL.Add(o);
+                    }
+                    foreach (khu_pho o in khu_phoL)
+                    {
                         try
                         {
-                            context.khu_pho.Remove(o);
+                            context.P_Delete_khu_pho(o.id_khu_pho);
                             context.SaveChanges();
                             Refresh();
+                            c_success++;
                         }
                         catch (Exception ex)
                         {
-                            CustomException.UnknownException(ex);
+                            c_fail++;
+                            CustomException.SQLException(ex);
                         }
                     }
+                    string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);
+                    MessageBox.Show(result, "Kết quả", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
 
-            
+
         }
 
         public void OpenUpdateWindow()
