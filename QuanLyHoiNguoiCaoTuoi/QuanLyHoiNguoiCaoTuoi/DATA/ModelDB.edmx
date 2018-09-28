@@ -630,6 +630,9 @@
         <Function Name="P_Delete_thanh_vien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="P_Delete_thong_tin_ban_chap_hanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="hoi_nguoi_cao_tuoiModelStoreContainer">
           <EntitySet Name="bch_tham_gia_hop" EntityType="Self.bch_tham_gia_hop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLB" EntityType="Self.CLB" Schema="dbo" store:Type="Tables" />
@@ -1651,9 +1654,12 @@
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="P_Delete_clb">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="P_Delete_thanh_vien">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="P_Delete_thong_tin_ban_chap_hanh">
             <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1851,6 +1857,7 @@
           <FunctionImportMapping FunctionImportName="P_Delete_khu_pho" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_khu_pho" />
           <FunctionImportMapping FunctionImportName="P_Delete_clb" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_clb" />
           <FunctionImportMapping FunctionImportName="P_Delete_thanh_vien" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thanh_vien" />
+          <FunctionImportMapping FunctionImportName="P_Delete_thong_tin_ban_chap_hanh" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thong_tin_ban_chap_hanh" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

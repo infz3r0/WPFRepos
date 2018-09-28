@@ -71,5 +71,14 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thanh_vien", idParameter);
         }
+    
+        public virtual int P_Delete_thong_tin_ban_chap_hanh(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thong_tin_ban_chap_hanh", idParameter);
+        }
     }
 }

@@ -150,19 +150,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region bch
         private void rbtThemBCH_Click(object sender, RoutedEventArgs e)
         {
-            ThongTinBanChapHanh f = new ThongTinBanChapHanh(ThongTinBanChapHanh.TYPE.ADD);
+            ThongTinBanChapHanh f = new ThongTinBanChapHanh();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSBCH";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_ThongTinBanChapHanh)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaBCH_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSBCH";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_ThongTinBanChapHanh)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaBCH_Click(object sender, RoutedEventArgs e)
         {
-            ThongTinBanChapHanh f = new ThongTinBanChapHanh(ThongTinBanChapHanh.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSBCH";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_ThongTinBanChapHanh)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
         }
 
         #endregion
@@ -480,7 +517,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSBCH_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSBCH", "Ban chấp hành", "dgDSBCH");
+            //init tab
+            string tabName = "tabDSBCH";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_ThongTinBanChapHanh)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Ban chấp hành";
+
+            UC_Datagrid_ThongTinBanChapHanh uc = new UC_Datagrid_ThongTinBanChapHanh();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSHoatDong_Click(object sender, RoutedEventArgs e)

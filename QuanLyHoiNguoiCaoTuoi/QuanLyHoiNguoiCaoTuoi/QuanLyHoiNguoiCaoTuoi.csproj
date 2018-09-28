@@ -66,6 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DATA\BanChapHanhDAO.cs" />
     <Compile Include="DATA\bch_tham_gia_hop.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -188,6 +189,9 @@
     <Compile Include="UI\ThanhVien\ThongTinThanhVien.xaml.cs">
       <DependentUpon>ThongTinThanhVien.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\ThanhVien\UC_Datagrid_ThongTinBanChapHanh.xaml.cs">
+      <DependentUpon>UC_Datagrid_ThongTinBanChapHanh.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\ThanhVien\UC_Datagrid_ThongTinThanhVien.xaml.cs">
       <DependentUpon>UC_Datagrid_ThongTinThanhVien.xaml</DependentUpon>
     </Compile>
@@ -274,6 +278,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\ThanhVien\ThongTinThanhVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ThanhVien\UC_Datagrid_ThongTinBanChapHanh.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

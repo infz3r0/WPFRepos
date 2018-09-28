@@ -12,6 +12,33 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     {
         private hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities();
 
+        public List<thanh_vien> GetList()
+        {
+            try
+            {
+                return db.thanh_vien.ToList();
+            }
+            catch (Exception ex)
+            {
+                CustomException.UnknownException(ex);
+                return null;
+            }
+        }
+
+        public List<thanh_vien> GetListNotInBCH()
+        {
+            try
+            {
+                List<int> ids = db.thong_tin_ban_chap_hanh.Select(x => x.id_thanh_vien).ToList();
+                return db.thanh_vien.Where(x=>!ids.Contains(x.id_thanh_vien)).ToList();
+            }
+            catch (Exception ex)
+            {
+                CustomException.UnknownException(ex);
+                return null;
+            }
+        }
+
         public bool Add(thanh_vien o)
         {
             try
