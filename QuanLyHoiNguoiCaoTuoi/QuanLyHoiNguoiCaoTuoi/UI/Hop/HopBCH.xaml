@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.Hop"
         mc:Ignorable="d"
-        Title="Họp ban chấp hành" Height="290" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Họp ban chấp hành" Height="250" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>
@@ -19,7 +19,6 @@
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
@@ -30,13 +29,12 @@
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Tháng:</Label>
         <ComboBox x:Name="cmbThang" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputComboBox}" />
 
-        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Lần họp:</Label>
-        <TextBox x:Name="txbLanHop" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}" />
+        
 
-        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Nội dung:</Label>
-        <TextBox x:Name="txbNoiDung" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputText}" />
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Nội dung:</Label>
+        <TextBox x:Name="txbNoiDung" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}" />
 
-        <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click">
                 OK
             </Button>

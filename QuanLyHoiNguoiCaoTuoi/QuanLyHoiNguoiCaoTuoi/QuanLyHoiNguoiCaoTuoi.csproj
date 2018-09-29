@@ -80,6 +80,7 @@
     <Compile Include="DATA\hoat_dong.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\HopBCHDAO.cs" />
     <Compile Include="DATA\hop_bch.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -159,6 +160,9 @@
     <Compile Include="UI\Hop\ThanhVienHop.xaml.cs">
       <DependentUpon>ThanhVienHop.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Hop\UC_Datagrid_HopBCH.xaml.cs">
+      <DependentUpon>UC_Datagrid_HopBCH.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\KhuPho\KhuPho.xaml.cs">
       <DependentUpon>KhuPho.xaml</DependentUpon>
     </Compile>
@@ -226,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Hop\ThanhVienHop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Hop\UC_Datagrid_HopBCH.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

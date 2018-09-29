@@ -31,7 +31,6 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
         public virtual DbSet<CLB> CLBs { get; set; }
         public virtual DbSet<dong_gop> dong_gop { get; set; }
         public virtual DbSet<hoat_dong> hoat_dong { get; set; }
-        public virtual DbSet<hop_bch> hop_bch { get; set; }
         public virtual DbSet<hop_thuong_nien> hop_thuong_nien { get; set; }
         public virtual DbSet<khoan_chi> khoan_chi { get; set; }
         public virtual DbSet<khoan_thu> khoan_thu { get; set; }
@@ -44,6 +43,7 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
         public virtual DbSet<thanh_vien_tham_gia_hop> thanh_vien_tham_gia_hop { get; set; }
         public virtual DbSet<thong_tin_ban_chap_hanh> thong_tin_ban_chap_hanh { get; set; }
         public virtual DbSet<tong_ket> tong_ket { get; set; }
+        public virtual DbSet<hop_bch> hop_bch { get; set; }
     
         public virtual int P_Delete_khu_pho(Nullable<int> id)
         {
@@ -79,6 +79,19 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thong_tin_ban_chap_hanh", idParameter);
+        }
+    
+        public virtual int P_Delete_hop_bch(Nullable<int> thang, Nullable<int> nam)
+        {
+            var thangParameter = thang.HasValue ?
+                new ObjectParameter("thang", thang) :
+                new ObjectParameter("thang", typeof(int));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_hop_bch", thangParameter, namParameter);
         }
     }
 }

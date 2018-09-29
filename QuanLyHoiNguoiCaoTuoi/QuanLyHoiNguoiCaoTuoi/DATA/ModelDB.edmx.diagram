@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.CLB" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.dong_gop" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hoat_dong" Width="1.5" PointX="6" PointY="24.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_thuong_nien" Width="1.5" PointX="9" PointY="22.375" IsExpanded="true" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.khoan_chi" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.khoan_thu" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
@@ -24,8 +23,6 @@
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.tong_ket" Width="1.5" PointX="3.75" PointY="25.375" IsExpanded="true" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham___id_th__1EA48E88" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham___id_th__7D439ABD" ManuallyRouted="false" />
-        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" ManuallyRouted="false" />
-        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_cl__03F0984C" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_cl__25518C17" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__khoan_thu__id__07C12930" ManuallyRouted="false" />
@@ -58,6 +55,9 @@
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thanh_vie__id_th__7B5B524B" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thong_tin__id_th__1AD3FDA4" ManuallyRouted="false" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__thong_tin__id_th__797309D9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" />
+        <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

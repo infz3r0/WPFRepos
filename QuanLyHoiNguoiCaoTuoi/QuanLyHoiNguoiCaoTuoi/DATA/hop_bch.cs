@@ -23,7 +23,6 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     
         public int thang { get; set; }
         public int nam { get; set; }
-        public int lan_hop { get; set; }
         public string noi_dung { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

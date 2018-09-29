@@ -370,21 +370,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region hop bch
         private void rbtThemHopBCH_Click(object sender, RoutedEventArgs e)
         {
-            HopBCH f = new HopBCH(HopBCH.TYPE.ADD);
+            HopBCH f = new HopBCH();
             f.ShowDialog();
 
+            //init tab
+            string tabName = "tabDSHopBCH";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopBCH)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaHopBCH_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSHopBCH";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopBCH)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaHopBCH_Click(object sender, RoutedEventArgs e)
         {
-            HopBCH f = new HopBCH(HopBCH.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSHopBCH";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopBCH)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
         }
 
         #endregion
@@ -454,7 +489,32 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region Danh sach
         private void rbtDSHopBCH_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSHopBCH", "Họp ban chấp hành", "dgDSHopBCH");            
+            //AddNewTab("tabDSHopBCH", "Họp ban chấp hành", "dgDSHopBCH");
+            //init tab
+            string tabName = "tabDSHopBCH";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_HopBCH)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Họp BCH";
+
+            UC_Datagrid_HopBCH uc = new UC_Datagrid_HopBCH();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSKhuPho_Click(object sender, RoutedEventArgs e)

@@ -53,7 +53,6 @@
           </Key>
           <Property Name="thang" Type="int" Nullable="false" />
           <Property Name="nam" Type="int" Nullable="false" />
-          <Property Name="lan_hop" Type="int" Nullable="false" />
           <Property Name="noi_dung" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="hop_thuong_nien">
@@ -624,6 +623,10 @@
         <Function Name="P_Delete_clb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="P_Delete_hop_bch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="thang" Type="int" Mode="In" />
+          <Parameter Name="nam" Type="int" Mode="In" />
+        </Function>
         <Function Name="P_Delete_khu_pho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -811,9 +814,9 @@
           <Property Name="id_thanh_vien" Type="Int32" Nullable="false" />
           <NavigationProperty Name="thanh_vien" Relationship="Self.FK__bch_tham___id_th__1EA48E88" FromRole="bch_tham_gia_hop" ToRole="thanh_vien" />
           <NavigationProperty Name="thanh_vien1" Relationship="Self.FK__bch_tham___id_th__7D439ABD" FromRole="bch_tham_gia_hop" ToRole="thanh_vien" />
-          <NavigationProperty Name="hop_bch" Relationship="Self.FK__bch_tham_gia_hop__02084FDA" FromRole="bch_tham_gia_hop" ToRole="hop_bch" />
-          <NavigationProperty Name="hop_bch1" Relationship="Self.FK__bch_tham_gia_hop__236943A5" FromRole="bch_tham_gia_hop" ToRole="hop_bch" />
-        </EntityType>
+          <NavigationProperty Name="hop_bch" Relationship="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" FromRole="bch_tham_gia_hop" ToRole="hop_bch" />
+          <NavigationProperty Name="hop_bch1" Relationship="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" FromRole="bch_tham_gia_hop" ToRole="hop_bch" />
+          </EntityType>
         <EntityType Name="CLB">
           <Key>
             <PropertyRef Name="id_clb" />
@@ -854,18 +857,6 @@
           <NavigationProperty Name="khoan_chi1" Relationship="Self.FK__khoan_chi__id_ho__2739D489" FromRole="hoat_dong" ToRole="khoan_chi" />
           <NavigationProperty Name="thanh_vien_tham_gia" Relationship="Self.FK__thanh_vie__id_ho__04E4BC85" FromRole="hoat_dong" ToRole="thanh_vien_tham_gia" />
           <NavigationProperty Name="thanh_vien_tham_gia1" Relationship="Self.FK__thanh_vie__id_ho__2645B050" FromRole="hoat_dong" ToRole="thanh_vien_tham_gia" />
-        </EntityType>
-        <EntityType Name="hop_bch">
-          <Key>
-            <PropertyRef Name="thang" />
-            <PropertyRef Name="nam" />
-          </Key>
-          <Property Name="thang" Type="Int32" Nullable="false" />
-          <Property Name="nam" Type="Int32" Nullable="false" />
-          <Property Name="lan_hop" Type="Int32" Nullable="false" />
-          <Property Name="noi_dung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="bch_tham_gia_hop" Relationship="Self.FK__bch_tham_gia_hop__02084FDA" FromRole="hop_bch" ToRole="bch_tham_gia_hop" />
-          <NavigationProperty Name="bch_tham_gia_hop1" Relationship="Self.FK__bch_tham_gia_hop__236943A5" FromRole="hop_bch" ToRole="bch_tham_gia_hop" />
         </EntityType>
         <EntityType Name="hop_thuong_nien">
           <Key>
@@ -1069,34 +1060,6 @@
             </Principal>
             <Dependent Role="bch_tham_gia_hop">
               <PropertyRef Name="id_thanh_vien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__bch_tham_gia_hop__02084FDA">
-          <End Role="hop_bch" Type="Self.hop_bch" Multiplicity="1" />
-          <End Role="bch_tham_gia_hop" Type="Self.bch_tham_gia_hop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hop_bch">
-              <PropertyRef Name="thang" />
-              <PropertyRef Name="nam" />
-            </Principal>
-            <Dependent Role="bch_tham_gia_hop">
-              <PropertyRef Name="thang" />
-              <PropertyRef Name="nam" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__bch_tham_gia_hop__236943A5">
-          <End Role="hop_bch" Type="Self.hop_bch" Multiplicity="1" />
-          <End Role="bch_tham_gia_hop" Type="Self.bch_tham_gia_hop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="hop_bch">
-              <PropertyRef Name="thang" />
-              <PropertyRef Name="nam" />
-            </Principal>
-            <Dependent Role="bch_tham_gia_hop">
-              <PropertyRef Name="thang" />
-              <PropertyRef Name="nam" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1493,7 +1456,6 @@
           <EntitySet Name="CLBs" EntityType="Self.CLB" />
           <EntitySet Name="dong_gop" EntityType="Self.dong_gop" />
           <EntitySet Name="hoat_dong" EntityType="Self.hoat_dong" />
-          <EntitySet Name="hop_bch" EntityType="Self.hop_bch" />
           <EntitySet Name="hop_thuong_nien" EntityType="Self.hop_thuong_nien" />
           <EntitySet Name="khoan_chi" EntityType="Self.khoan_chi" />
           <EntitySet Name="khoan_thu" EntityType="Self.khoan_thu" />
@@ -1512,14 +1474,6 @@
           </AssociationSet>
           <AssociationSet Name="FK__bch_tham___id_th__7D439ABD" Association="Self.FK__bch_tham___id_th__7D439ABD">
             <End Role="thanh_vien" EntitySet="thanh_vien" />
-            <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
-          </AssociationSet>
-          <AssociationSet Name="FK__bch_tham_gia_hop__02084FDA" Association="Self.FK__bch_tham_gia_hop__02084FDA">
-            <End Role="hop_bch" EntitySet="hop_bch" />
-            <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
-          </AssociationSet>
-          <AssociationSet Name="FK__bch_tham_gia_hop__236943A5" Association="Self.FK__bch_tham_gia_hop__236943A5">
-            <End Role="hop_bch" EntitySet="hop_bch" />
             <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
           </AssociationSet>
           <AssociationSet Name="FK__thanh_vie__id_cl__03F0984C" Association="Self.FK__thanh_vie__id_cl__03F0984C">
@@ -1660,9 +1614,61 @@
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="P_Delete_thong_tin_ban_chap_hanh">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="P_Delete_hop_bch">
+            <Parameter Name="thang" Mode="In" Type="Int32" />
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="hop_bch" EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" />
+          <AssociationSet Name="FK__bch_tham_gia_hop__02084FDA" Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA">
+            <End Role="hop_bch" EntitySet="hop_bch" />
+            <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bch_tham_gia_hop__236943A5" Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5">
+            <End Role="hop_bch" EntitySet="hop_bch" />
+            <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="hop_bch">
+          <Key>
+            <PropertyRef Name="thang" />
+            <PropertyRef Name="nam" />
+          </Key>
+          <Property Name="thang" Type="Int32" Nullable="false" />
+          <Property Name="nam" Type="Int32" Nullable="false" />
+          <Property Name="noi_dung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="bch_tham_gia_hop" Relationship="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" FromRole="hop_bch" ToRole="bch_tham_gia_hop" />
+          <NavigationProperty Name="bch_tham_gia_hop1" Relationship="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" FromRole="hop_bch" ToRole="bch_tham_gia_hop" />
+        </EntityType>
+        <Association Name="FK__bch_tham_gia_hop__02084FDA">
+          <End Type="hoi_nguoi_cao_tuoiModel.hop_bch" Role="hop_bch" Multiplicity="1" />
+          <End Type="hoi_nguoi_cao_tuoiModel.bch_tham_gia_hop" Role="bch_tham_gia_hop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hop_bch">
+              <PropertyRef Name="thang" />
+              <PropertyRef Name="nam" />
+            </Principal>
+            <Dependent Role="bch_tham_gia_hop">
+              <PropertyRef Name="thang" />
+              <PropertyRef Name="nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bch_tham_gia_hop__236943A5">
+          <End Type="hoi_nguoi_cao_tuoiModel.hop_bch" Role="hop_bch" Multiplicity="1" />
+          <End Type="hoi_nguoi_cao_tuoiModel.bch_tham_gia_hop" Role="bch_tham_gia_hop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hop_bch">
+              <PropertyRef Name="thang" />
+              <PropertyRef Name="nam" />
+            </Principal>
+            <Dependent Role="bch_tham_gia_hop">
+              <PropertyRef Name="thang" />
+              <PropertyRef Name="nam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1709,16 +1715,6 @@
                 <ScalarProperty Name="tu_cham_diem" ColumnName="tu_cham_diem" />
                 <ScalarProperty Name="ket_qua_dat_duoc" ColumnName="ket_qua_dat_duoc" />
                 <ScalarProperty Name="nam" ColumnName="nam" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="hop_bch">
-            <EntityTypeMapping TypeName="hoi_nguoi_cao_tuoiModel.hop_bch">
-              <MappingFragment StoreEntitySet="hop_bch">
-                <ScalarProperty Name="thang" ColumnName="thang" />
-                <ScalarProperty Name="nam" ColumnName="nam" />
-                <ScalarProperty Name="lan_hop" ColumnName="lan_hop" />
-                <ScalarProperty Name="noi_dung" ColumnName="noi_dung" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1858,6 +1854,16 @@
           <FunctionImportMapping FunctionImportName="P_Delete_clb" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_clb" />
           <FunctionImportMapping FunctionImportName="P_Delete_thanh_vien" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thanh_vien" />
           <FunctionImportMapping FunctionImportName="P_Delete_thong_tin_ban_chap_hanh" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thong_tin_ban_chap_hanh" />
+          <FunctionImportMapping FunctionImportName="P_Delete_hop_bch" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_hop_bch" />
+          <EntitySetMapping Name="hop_bch">
+            <EntityTypeMapping TypeName="hoi_nguoi_cao_tuoiModel.hop_bch">
+              <MappingFragment StoreEntitySet="hop_bch">
+                <ScalarProperty Name="noi_dung" ColumnName="noi_dung" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+                <ScalarProperty Name="thang" ColumnName="thang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
