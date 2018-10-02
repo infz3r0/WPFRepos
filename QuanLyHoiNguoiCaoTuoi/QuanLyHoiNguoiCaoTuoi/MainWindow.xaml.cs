@@ -426,20 +426,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region hop tn
         private void rbtThemHopTN_Click(object sender, RoutedEventArgs e)
         {
-            HopThuongNien f = new HopThuongNien(HopThuongNien.TYPE.ADD);
+            HopThuongNien f = new HopThuongNien();
             f.ShowDialog();
 
+            //init tab
+            string tabName = "tabDSHopTN";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopTN)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaHopTN_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSHopTN";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopTN)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaHopTN_Click(object sender, RoutedEventArgs e)
         {
-            HopThuongNien f = new HopThuongNien(HopThuongNien.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSHopTN";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HopTN)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
 
         }
 
@@ -665,7 +701,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSHopTN_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSHopTN", "Họp thường niên", "dgDSHopTN");
+            //init tab
+            string tabName = "tabDSHopTN";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_HopTN)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Họp thường niên";
+
+            UC_Datagrid_HopTN uc = new UC_Datagrid_HopTN();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSThanhVienHop_Click(object sender, RoutedEventArgs e)

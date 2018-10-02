@@ -93,5 +93,18 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_hop_bch", thangParameter, namParameter);
         }
+    
+        public virtual int P_Delete_hop_tn(Nullable<int> lanhop, Nullable<int> nam)
+        {
+            var lanhopParameter = lanhop.HasValue ?
+                new ObjectParameter("lanhop", lanhop) :
+                new ObjectParameter("lanhop", typeof(int));
+    
+            var namParameter = nam.HasValue ?
+                new ObjectParameter("nam", nam) :
+                new ObjectParameter("nam", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_hop_tn", lanhopParameter, namParameter);
+        }
     }
 }

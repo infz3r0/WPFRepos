@@ -627,6 +627,10 @@
           <Parameter Name="thang" Type="int" Mode="In" />
           <Parameter Name="nam" Type="int" Mode="In" />
         </Function>
+        <Function Name="P_Delete_hop_tn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lanhop" Type="int" Mode="In" />
+          <Parameter Name="nam" Type="int" Mode="In" />
+        </Function>
         <Function Name="P_Delete_khu_pho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -1629,6 +1633,10 @@
             <End Role="hop_bch" EntitySet="hop_bch" />
             <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
           </AssociationSet>
+          <FunctionImport Name="P_Delete_hop_tn">
+            <Parameter Name="lanhop" Mode="In" Type="Int32" />
+            <Parameter Name="nam" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="hop_bch">
           <Key>
@@ -1864,6 +1872,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_Delete_hop_tn" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_hop_tn" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
