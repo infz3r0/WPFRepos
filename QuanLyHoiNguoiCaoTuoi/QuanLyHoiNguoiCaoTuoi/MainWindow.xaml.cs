@@ -308,6 +308,20 @@ namespace QuanLyHoiNguoiCaoTuoi
                     return;
                 }
             }
+
+            //init tab
+            string tabName2 = "tabDSThanhVienCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName2) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThanhVienCLB)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaCLB_Click(object sender, RoutedEventArgs e)
@@ -343,27 +357,52 @@ namespace QuanLyHoiNguoiCaoTuoi
                 }
             }
 
+            //init tab
+            string tabName2 = "tabDSThanhVienCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName2) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThanhVienCLB)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         #endregion
         #region thanh vien clb
         private void rbtThemThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
-            ThanhVienCLB f = new ThanhVienCLB(ThanhVienCLB.TYPE.ADD);
+            ThanhVienCLB f = new ThanhVienCLB();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSThanhVienCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThanhVienCLB)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
 
         }
 
         private void rbtXoaThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void rbtSuaThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
-            ThanhVienCLB f = new ThanhVienCLB(ThanhVienCLB.TYPE.EDIT);
-            f.ShowDialog();
-
+            
         }
 
         #endregion
@@ -691,7 +730,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSThanhVienCLB", "Thành viên câu lạc bộ", "dgDSThanhVienCLB");
+            //init tab
+            string tabName = "tabDSThanhVienCLB";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_ThanhVienCLB)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Thành viên CLB";
+
+            UC_Datagrid_ThanhVienCLB uc = new UC_Datagrid_ThanhVienCLB();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSBCHHop_Click(object sender, RoutedEventArgs e)

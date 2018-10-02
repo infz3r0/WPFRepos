@@ -39,6 +39,23 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+        public List<thanh_vien> GetListNotInCLB(int id_clb)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    List<int> id_tv_clb = db.thanh_vien_clb.Where(x => x.id_clb == id_clb).Select(x=>x.id_thanh_vien).ToList();
+                    return db.thanh_vien.Include("khu_pho").Where(x => !id_tv_clb.Contains(x.id_thanh_vien)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                }
+            }
+        }
+
         public bool Add(thanh_vien o)
         {
             try

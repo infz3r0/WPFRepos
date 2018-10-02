@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <CollectionViewSource x:Key="thanh_vienViewSource" d:DesignSource="{d:DesignInstance {x:Type DATA:thong_tin_ban_chap_hanh2}, CreateList=True}"/>
+        <CollectionViewSource x:Key="thanh_vienViewSource" d:DesignSource="{d:DesignInstance {x:Type DATA:thong_tin_ban_chap_hanh}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource thanh_vienViewSource}">
 

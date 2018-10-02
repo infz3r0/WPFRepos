@@ -99,17 +99,31 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
                     }
                     foreach (DATA.CLB o in CLBL)
                     {
-                        try
+                        using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
-                            context.P_Delete_clb(o.id_clb);
-                            context.SaveChanges();
-                            Refresh();
-                            c_success++;
-                        }
-                        catch (Exception ex)
-                        {
-                            c_fail++;
-                            CustomException.SQLException(ex);
+                            try
+                            {
+                                List<thanh_vien_clb> thanh_Vien_Clbs = db.thanh_vien_clb.Where(x => x.id_clb == o.id_clb).ToList();
+                                if (thanh_Vien_Clbs.Count > 1)
+                                {
+                                    //MessageBox.Show("Không thể xóa CLB đã có thành viên.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    c_fail++;
+                                    continue;
+                                }
+                                thanh_vien_clb quanly = db.thanh_vien_clb.FirstOrDefault(x => x.id_clb == o.id_clb && x.la_quan_ly == true);
+                                db.thanh_vien_clb.Remove(quanly);
+                                DATA.CLB clb = db.CLBs.FirstOrDefault(x => x.id_clb == o.id_clb);
+                                db.CLBs.Remove(clb);
+
+                                db.SaveChanges();
+                                Refresh();
+                                c_success++;
+                            }
+                            catch (Exception ex)
+                            {
+                                c_fail++;
+                                CustomException.SQLException(ex);
+                            }
                         }
                     }
                     string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);

@@ -25,6 +25,22 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+        public thanh_vien_clb GetQuanLy(int id_clb)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    return db.thanh_vien_clb.FirstOrDefault(x => x.id_clb == id_clb && x.la_quan_ly == true);
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                }
+            }
+        }
+
         public bool Add(CLB o)
         {
             try

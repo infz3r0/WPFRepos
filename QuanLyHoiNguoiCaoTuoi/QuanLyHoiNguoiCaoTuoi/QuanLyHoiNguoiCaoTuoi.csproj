@@ -119,6 +119,7 @@
     <Compile Include="DATA\tai_khoan.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\ThanhVienCLBDAO.cs" />
     <Compile Include="DATA\thanh_vien.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -144,6 +145,9 @@
     <Compile Include="CustomException.cs" />
     <Compile Include="UI\CLB\UC_DatagridCLB.xaml.cs">
       <DependentUpon>UC_DatagridCLB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CLB\UC_Datagrid_ThanhVienCLB.xaml.cs">
+      <DependentUpon>UC_Datagrid_ThanhVienCLB.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ComboboxPairs.cs" />
     <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
@@ -214,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CLB\UC_DatagridCLB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CLB\UC_Datagrid_ThanhVienCLB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
