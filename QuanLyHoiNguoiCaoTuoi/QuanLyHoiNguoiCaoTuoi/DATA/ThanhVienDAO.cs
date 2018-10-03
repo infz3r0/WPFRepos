@@ -10,32 +10,36 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
     public class ThanhVienDAO
     {
-        private hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities();
-
         public List<thanh_vien> GetList()
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                return db.thanh_vien.ToList();
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return null;
+                try
+                {
+                    return db.thanh_vien.ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                } 
             }
         }
 
         public List<thanh_vien> GetListNotInBCH()
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                List<int> ids = db.thong_tin_ban_chap_hanh.Select(x => x.id_thanh_vien).ToList();
-                return db.thanh_vien.Where(x=>!ids.Contains(x.id_thanh_vien)).ToList();
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return null;
+                try
+                {
+                    List<int> ids = db.thong_tin_ban_chap_hanh.Select(x => x.id_thanh_vien).ToList();
+                    return db.thanh_vien.Where(x => !ids.Contains(x.id_thanh_vien)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                } 
             }
         }
 
@@ -58,39 +62,45 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
 
         public bool Add(thanh_vien o)
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                db.thanh_vien.Add(o);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return false;
+                try
+                {
+                    db.thanh_vien.Add(o);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                } 
             }
         }
 
         public bool Update(thanh_vien o)
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                thanh_vien old = db.thanh_vien.FirstOrDefault(x => x.id_thanh_vien == o.id_thanh_vien);
-                old.ho_ten = o.ho_ten;
-                old.gioi_tinh = o.gioi_tinh;
-                old.ngay_sinh = o.ngay_sinh;
-                old.dia_chi = o.dia_chi;
-                old.id_khu_pho = o.id_khu_pho;
-                old.chuc_vu = o.chuc_vu;
-                old.ngay_tham_gia = o.ngay_tham_gia;
+                try
+                {
+                    thanh_vien old = db.thanh_vien.FirstOrDefault(x => x.id_thanh_vien == o.id_thanh_vien);
+                    old.ho_ten = o.ho_ten;
+                    old.gioi_tinh = o.gioi_tinh;
+                    old.ngay_sinh = o.ngay_sinh;
+                    old.dia_chi = o.dia_chi;
+                    old.id_khu_pho = o.id_khu_pho;
+                    old.chuc_vu = o.chuc_vu;
+                    old.ngay_tham_gia = o.ngay_tham_gia;
 
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return false;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                } 
             }
         }
 

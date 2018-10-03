@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using System.Data.Entity;
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
 namespace QuanLyHoiNguoiCaoTuoi.UI.CLB

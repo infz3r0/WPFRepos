@@ -10,49 +10,56 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
     public class KhuPhoDAO
     {
-        private hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities();
-
         public List<khu_pho> GetList()
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                return db.khu_pho.ToList();
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return null;
+                try
+                {
+                    return db.khu_pho.ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                } 
             }
         }
 
         public bool Add(khu_pho o)
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                db.khu_pho.Add(o);
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return false;
+                try
+                {
+                    db.khu_pho.Add(o);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                } 
             }
         }
 
         public bool Update(khu_pho o)
         {
-            try
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                khu_pho old = db.khu_pho.FirstOrDefault(x => x.id_khu_pho == o.id_khu_pho);
-                old.ten_khu_pho = o.ten_khu_pho;
-                db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                CustomException.UnknownException(ex);
-                return false;
+                try
+                {
+                    khu_pho old = db.khu_pho.FirstOrDefault(x => x.id_khu_pho == o.id_khu_pho);
+                    old.ten_khu_pho = o.ten_khu_pho;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                } 
             }
         }
 

@@ -620,26 +620,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="P_Delete_clb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="P_Delete_hop_bch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="thang" Type="int" Mode="In" />
-          <Parameter Name="nam" Type="int" Mode="In" />
-        </Function>
-        <Function Name="P_Delete_hop_tn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="lanhop" Type="int" Mode="In" />
-          <Parameter Name="nam" Type="int" Mode="In" />
-        </Function>
-        <Function Name="P_Delete_khu_pho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="P_Delete_thanh_vien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="P_Delete_thong_tin_ban_chap_hanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
         <EntityContainer Name="hoi_nguoi_cao_tuoiModelStoreContainer">
           <EntitySet Name="bch_tham_gia_hop" EntityType="Self.bch_tham_gia_hop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CLB" EntityType="Self.CLB" Schema="dbo" store:Type="Tables" />
@@ -1608,22 +1588,6 @@
             <End Role="thanh_vien" EntitySet="thanh_vien" />
             <End Role="thong_tin_ban_chap_hanh" EntitySet="thong_tin_ban_chap_hanh" />
           </AssociationSet>
-          <FunctionImport Name="P_Delete_khu_pho">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="P_Delete_clb">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="P_Delete_thanh_vien">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="P_Delete_thong_tin_ban_chap_hanh">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="P_Delete_hop_bch">
-            <Parameter Name="thang" Mode="In" Type="Int32" />
-            <Parameter Name="nam" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="hop_bch" EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" />
           <AssociationSet Name="FK__bch_tham_gia_hop__02084FDA" Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA">
             <End Role="hop_bch" EntitySet="hop_bch" />
@@ -1633,10 +1597,6 @@
             <End Role="hop_bch" EntitySet="hop_bch" />
             <End Role="bch_tham_gia_hop" EntitySet="bch_tham_gia_hop" />
           </AssociationSet>
-          <FunctionImport Name="P_Delete_hop_tn">
-            <Parameter Name="lanhop" Mode="In" Type="Int32" />
-            <Parameter Name="nam" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="hop_bch">
           <Key>
@@ -1858,11 +1818,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="P_Delete_khu_pho" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_khu_pho" />
-          <FunctionImportMapping FunctionImportName="P_Delete_clb" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_clb" />
-          <FunctionImportMapping FunctionImportName="P_Delete_thanh_vien" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thanh_vien" />
-          <FunctionImportMapping FunctionImportName="P_Delete_thong_tin_ban_chap_hanh" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_thong_tin_ban_chap_hanh" />
-          <FunctionImportMapping FunctionImportName="P_Delete_hop_bch" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_hop_bch" />
           <EntitySetMapping Name="hop_bch">
             <EntityTypeMapping TypeName="hoi_nguoi_cao_tuoiModel.hop_bch">
               <MappingFragment StoreEntitySet="hop_bch">
@@ -1872,7 +1827,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="P_Delete_hop_tn" FunctionName="hoi_nguoi_cao_tuoiModel.Store.P_Delete_hop_tn" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

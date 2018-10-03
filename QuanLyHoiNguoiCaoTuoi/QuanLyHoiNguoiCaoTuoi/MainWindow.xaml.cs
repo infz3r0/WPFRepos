@@ -206,19 +206,56 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region hoat dong
         private void rbtThemHoatDong_Click(object sender, RoutedEventArgs e)
         {
-            HoatDong f = new HoatDong(HoatDong.TYPE.ADD);
+            HoatDong f = new HoatDong();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HoatDong)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaHoatDong_Click(object sender, RoutedEventArgs e)
         {
+            //init tab
+            string tabName = "tabDSHoatDong";
 
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HoatDong)((TabItem)item).Content).DeleteSelectedRows();
+                    return;
+                }
+            }
         }
 
         private void rbtSuaHoatDong_Click(object sender, RoutedEventArgs e)
         {
-            HoatDong f = new HoatDong(HoatDong.TYPE.EDIT);
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //
+                    ((UC_Datagrid_HoatDong)((TabItem)item).Content).OpenUpdateWindow();
+                    return;
+                }
+            }
         }
 
         #endregion
@@ -681,7 +718,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSHoatDong_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSHoatDong", "Hoạt động", "dgDSHoatDong");
+            //init tab
+            string tabName = "tabDSHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_HoatDong)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Hoạt động";
+
+            UC_Datagrid_HoatDong uc = new UC_Datagrid_HoatDong();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSThanhVienHoatDong_Click(object sender, RoutedEventArgs e)

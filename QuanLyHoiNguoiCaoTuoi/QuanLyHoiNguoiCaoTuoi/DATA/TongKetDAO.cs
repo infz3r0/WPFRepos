@@ -4,35 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Data.Entity;
-
 namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
-    public class CLBDAO
+    public class TongKetDAO
     {
-        public List<CLB> GetList()
+        public List<tong_ket> GetList()
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.CLBs.ToList();
-                }
-                catch (Exception ex)
-                {
-                    CustomException.UnknownException(ex);
-                    return null;
-                } 
-            }
-        }
-
-        public thanh_vien_clb GetQuanLy(int id_clb)
-        {
-            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
-            {
-                try
-                {
-                    return db.thanh_vien_clb.FirstOrDefault(x => x.id_clb == id_clb && x.la_quan_ly == true);
+                    return db.tong_ket.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -42,13 +24,34 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public bool Add(CLB o)
+        public bool IsExists(int year)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    db.CLBs.Add(o);
+                    tong_ket o = db.tong_ket.FirstOrDefault(x => x.nam == year);
+                    if (o == null)
+                    {
+                        return false;
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                }
+            }
+        }
+
+        public bool Add(tong_ket o)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    db.tong_ket.Add(o);
                     db.SaveChanges();
                     return true;
                 }
@@ -56,19 +59,20 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
             }
         }
 
-        public bool Update(CLB o)
+        public bool Update(tong_ket o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    CLB old = db.CLBs.FirstOrDefault(x => x.id_clb == o.id_clb);
-                    old.ten_clb = o.ten_clb;
-                    old.ngay_thanh_lap = o.ngay_thanh_lap;
+                    tong_ket old = db.tong_ket.FirstOrDefault(x => x.nam == o.nam);
+                    old.tong_diem = o.tong_diem;
+                    old.xep_loai = o.xep_loai;
+
                     db.SaveChanges();
                     return true;
                 }
@@ -76,11 +80,12 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
             }
         }
 
 
-        //end class
+
+
     }
 }

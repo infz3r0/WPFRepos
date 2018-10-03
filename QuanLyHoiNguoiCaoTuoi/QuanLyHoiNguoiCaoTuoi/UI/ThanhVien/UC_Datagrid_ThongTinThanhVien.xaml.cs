@@ -82,17 +82,20 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
                     }
                     foreach (thanh_vien o in thanh_vienL)
                     {
-                        try
+                        using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
-                            context.P_Delete_thanh_vien(o.id_thanh_vien);
-                            context.SaveChanges();
-                            Refresh();
-                            c_success++;
-                        }
-                        catch (Exception ex)
-                        {
-                            c_fail++;
-                            CustomException.SQLException(ex);
+                            try
+                            {
+                                db.thanh_vien.Remove(o);
+                                db.SaveChanges();
+                                Refresh();
+                                c_success++;
+                            }
+                            catch (Exception ex)
+                            {
+                                c_fail++;
+                                CustomException.SQLException(ex);
+                            } 
                         }
                     }
                     string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);

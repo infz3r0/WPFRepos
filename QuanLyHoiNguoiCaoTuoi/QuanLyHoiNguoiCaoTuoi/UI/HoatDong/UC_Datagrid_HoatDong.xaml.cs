@@ -16,65 +16,57 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
-namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
+namespace QuanLyHoiNguoiCaoTuoi.UI.HoatDong
 {
     /// <summary>
-    /// Interaction logic for UC_DatagridKhuPho.xaml
+    /// Interaction logic for UC_Datagrid_HoatDong.xaml
     /// </summary>
-    public partial class UC_DatagridKhuPho : UserControl
+    public partial class UC_Datagrid_HoatDong : UserControl
     {
         hoi_nguoi_cao_tuoiEntities context = new hoi_nguoi_cao_tuoiEntities();
-        CollectionViewSource khu_phoViewSource;
+        CollectionViewSource hoat_dongViewSource;
 
-        public UC_DatagridKhuPho()
+        public UC_Datagrid_HoatDong()
         {
             InitializeComponent();
-            khu_phoViewSource = ((CollectionViewSource)(FindResource("khu_phoViewSource")));
+            hoat_dongViewSource = ((CollectionViewSource)(FindResource("hoat_dongViewSource")));
             DataContext = this;
         }
 
         public void Refresh()
         {
             LoadData();
-            khu_phoViewSource.View.Refresh();
+            hoat_dongViewSource.View.Refresh();
         }
 
         private void LoadData()
         {
-            khu_phoViewSource.Source = null;
+            hoat_dongViewSource.Source = null;
 
             try
             {
-                //.khu_pho.Load();
-                khu_phoViewSource.Source = context.khu_pho.ToList();
+                hoat_dongViewSource.Source = context.hoat_dong.ToList();
             }
             catch (Exception ex)
             {
                 CustomException.SQLException(ex);
             }
+
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
-            // Do not load your data at design time.
-            // if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-            // {
-            // 	//Load your data here and assign the result to the CollectionViewSource.
-            // 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
-            // 	myCollectionViewSource.Source = your data
-            // }
-
             LoadData();
         }
 
+
         public void DeleteSelectedRows()
         {
-            int countCol = khu_phoDataGrid.Columns.Count;
-            int countSelected = khu_phoDataGrid.SelectedCells.Count / countCol;
+            int countCol = hoat_dongDataGrid.Columns.Count;
+            int countSelected = hoat_dongDataGrid.SelectedCells.Count / countCol;
 
             if (countSelected > 0)
-            {                
+            {
                 string msg = string.Format("Bạn có chắc chắn xóa {0} dòng dữ liệu này?", countSelected);
                 MessageBoxResult messageBoxResult = MessageBox.Show(msg, "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
@@ -82,19 +74,20 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
                     int c_success = 0;
                     int c_fail = 0;
 
-                    List<khu_pho> khu_phoL = new List<khu_pho>();
+                    List<hoat_dong> hoat_dongL = new List<hoat_dong>();
                     for (int r = 0; r < countSelected; r++)
                     {
-                        khu_pho o = (khu_pho)khu_phoDataGrid.SelectedCells[r * countCol].Item;
-                        khu_phoL.Add(o);
+                        hoat_dong temp = (hoat_dong)hoat_dongDataGrid.SelectedCells[r * countCol].Item;
+                        hoat_dong o = context.hoat_dong.FirstOrDefault(x => x.id_hoat_dong == temp.id_hoat_dong);
+                        hoat_dongL.Add(o);
                     }
-                    foreach (khu_pho o in khu_phoL)
+                    foreach (hoat_dong o in hoat_dongL)
                     {
                         using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
                             try
                             {
-                                db.khu_pho.Remove(o);
+                                db.hoat_dong.Remove(o);
                                 db.SaveChanges();
                                 Refresh();
                                 c_success++;
@@ -103,21 +96,22 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
                             {
                                 c_fail++;
                                 CustomException.SQLException(ex);
-                            } 
+                            }
                         }
                     }
                     string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);
-                    MessageBox.Show(result, "Kết quả", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(result, "Kết quả", System.Windows.MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
 
 
         }
 
+
         public void OpenUpdateWindow()
         {
-            khu_pho o = (khu_pho)khu_phoDataGrid.SelectedItem;
-            KhuPho w = new KhuPho(o);
+            hoat_dong o = (hoat_dong)hoat_dongDataGrid.SelectedItem;
+            HoatDong w = new HoatDong(o);
             w.ShowDialog();
             Refresh();
         }

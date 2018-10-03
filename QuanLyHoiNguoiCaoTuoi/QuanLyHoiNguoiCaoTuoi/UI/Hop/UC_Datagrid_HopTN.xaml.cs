@@ -82,16 +82,20 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Hop
                     }
                     foreach (hop_thuong_nien o in hop_thuong_nienL)
                     {
-                        try
+                        using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
-                            context.P_Delete_hop_tn(o.lan_hop, o.nam);
-                            Refresh();
-                            c_success++;
-                        }
-                        catch (Exception ex)
-                        {
-                            c_fail++;
-                            CustomException.SQLException(ex);
+                            try
+                            {
+                                db.hop_thuong_nien.Remove(o);
+                                db.SaveChanges();
+                                Refresh();
+                                c_success++;
+                            }
+                            catch (Exception ex)
+                            {
+                                c_fail++;
+                                CustomException.SQLException(ex);
+                            } 
                         }
                     }
                     string result = string.Format("Đã xóa: {0}\nLỗi: {1}", c_success, c_fail);

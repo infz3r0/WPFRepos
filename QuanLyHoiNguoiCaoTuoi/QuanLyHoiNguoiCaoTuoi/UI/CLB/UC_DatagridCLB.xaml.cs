@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using System.Data.Entity;
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
 namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
@@ -42,12 +41,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
         private void LoadData()
         {
             cLBViewSource.Source = null;
-            // Load is an extension method on IQueryable,    
-            // defined in the System.Data.Entity namespace.   
-            // This method enumerates the results of the query,    
-            // similar to ToList but without creating a list.   
-            // When used with Linq to Entities, this method    
-            // creates entity objects and adds them to the context.   
+
             try
             {
                 //.CLB.Load();
@@ -57,23 +51,11 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
             {
                 CustomException.SQLException(ex);
             }
-
-            // After the data is loaded, call the DbSet<T>.Local property    
-            // to use the DbSet<T> as a binding source.   
-            //CLBViewSource.Source = context.CLB.Local;
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
-            // Do not load your data at design time.
-            // if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-            // {
-            // 	//Load your data here and assign the result to the CollectionViewSource.
-            // 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
-            // 	myCollectionViewSource.Source = your data
-            // }
-
             LoadData();
         }
 

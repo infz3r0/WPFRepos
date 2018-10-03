@@ -12,8 +12,6 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class hoi_nguoi_cao_tuoiEntities : DbContext
     {
@@ -44,67 +42,5 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
         public virtual DbSet<thong_tin_ban_chap_hanh> thong_tin_ban_chap_hanh { get; set; }
         public virtual DbSet<tong_ket> tong_ket { get; set; }
         public virtual DbSet<hop_bch> hop_bch { get; set; }
-    
-        public virtual int P_Delete_khu_pho(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_khu_pho", idParameter);
-        }
-    
-        public virtual int P_Delete_clb(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_clb", idParameter);
-        }
-    
-        public virtual int P_Delete_thanh_vien(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thanh_vien", idParameter);
-        }
-    
-        public virtual int P_Delete_thong_tin_ban_chap_hanh(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_thong_tin_ban_chap_hanh", idParameter);
-        }
-    
-        public virtual int P_Delete_hop_bch(Nullable<int> thang, Nullable<int> nam)
-        {
-            var thangParameter = thang.HasValue ?
-                new ObjectParameter("thang", thang) :
-                new ObjectParameter("thang", typeof(int));
-    
-            var namParameter = nam.HasValue ?
-                new ObjectParameter("nam", nam) :
-                new ObjectParameter("nam", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_hop_bch", thangParameter, namParameter);
-        }
-    
-        public virtual int P_Delete_hop_tn(Nullable<int> lanhop, Nullable<int> nam)
-        {
-            var lanhopParameter = lanhop.HasValue ?
-                new ObjectParameter("lanhop", lanhop) :
-                new ObjectParameter("lanhop", typeof(int));
-    
-            var namParameter = nam.HasValue ?
-                new ObjectParameter("nam", nam) :
-                new ObjectParameter("nam", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("P_Delete_hop_tn", lanhopParameter, namParameter);
-        }
     }
 }
