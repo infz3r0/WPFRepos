@@ -121,6 +121,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\ThanhVienCLBDAO.cs" />
+    <Compile Include="DATA\ThanhVienHoatDongDAO.cs" />
     <Compile Include="DATA\thanh_vien.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -155,8 +156,14 @@
     <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\HoatDong\HoatDongUpdate.xaml.cs">
+      <DependentUpon>HoatDongUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\HoatDong\UC_Datagrid_HoatDong.xaml.cs">
       <DependentUpon>UC_Datagrid_HoatDong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HoatDong\UC_Datagrid_ThanhVienHoatDong.xaml.cs">
+      <DependentUpon>UC_Datagrid_ThanhVienHoatDong.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Hop\BCHThamGiaHop.xaml.cs">
       <DependentUpon>BCHThamGiaHop.xaml</DependentUpon>
@@ -234,7 +241,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\HoatDong\HoatDongUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\HoatDong\UC_Datagrid_HoatDong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\HoatDong\UC_Datagrid_ThanhVienHoatDong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

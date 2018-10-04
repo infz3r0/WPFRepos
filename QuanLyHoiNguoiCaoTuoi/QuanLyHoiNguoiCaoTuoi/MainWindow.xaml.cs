@@ -262,8 +262,22 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region thanh vien hoat dong
         private void rbtThemThamGiaHD_Click(object sender, RoutedEventArgs e)
         {
-            ThanhVienHoatDong f = new ThanhVienHoatDong(ThanhVienHoatDong.TYPE.ADD);
+            ThanhVienHoatDong f = new ThanhVienHoatDong();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSThanhVienHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThanhVienHoatDong)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaThamGiaHD_Click(object sender, RoutedEventArgs e)
@@ -273,8 +287,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtSuaThamGiaHD_Click(object sender, RoutedEventArgs e)
         {
-            ThanhVienHoatDong f = new ThanhVienHoatDong(ThanhVienHoatDong.TYPE.EDIT);
-            f.ShowDialog();
+            
         }
 
         #endregion
@@ -747,7 +760,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSThanhVienHoatDong_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSThanhVienHoatDong", "Thành viên tham gia hoạt động", "dgDSThanhVienHoatDong");
+            //init tab
+            string tabName = "tabDSThanhVienHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_ThanhVienHoatDong)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Thành viên tham gia hoạt động";
+
+            UC_Datagrid_ThanhVienHoatDong uc = new UC_Datagrid_ThanhVienHoatDong();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSThu_Click(object sender, RoutedEventArgs e)

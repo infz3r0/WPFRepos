@@ -26,6 +26,8 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+
+
         public List<thanh_vien> GetListNotInBCH()
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
@@ -51,6 +53,23 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     List<int> id_tv_clb = db.thanh_vien_clb.Where(x => x.id_clb == id_clb).Select(x=>x.id_thanh_vien).ToList();
                     return db.thanh_vien.Include("khu_pho").Where(x => !id_tv_clb.Contains(x.id_thanh_vien)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                }
+            }
+        }
+
+        public List<thanh_vien> GetListNotInHoatDong(int id_hoat_dong)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    List<int> id_tv_hoat_dong = db.thanh_vien_tham_gia.Where(x => x.id_hoat_dong == id_hoat_dong).Select(x => x.id_thanh_vien).ToList();
+                    return db.thanh_vien.Include("khu_pho").Where(x => !id_tv_hoat_dong.Contains(x.id_thanh_vien)).ToList();
                 }
                 catch (Exception ex)
                 {
