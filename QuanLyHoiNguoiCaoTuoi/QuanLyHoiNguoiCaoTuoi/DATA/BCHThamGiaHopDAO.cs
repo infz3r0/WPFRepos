@@ -4,35 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Data.Entity;
-
 namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
-    public class HopBCHDAO
+    public class BCHThamGiaHopDAO
     {
-        public List<hop_bch> GetList()
+        public List<bch_tham_gia_hop> GetList()
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.hop_bch.ToList();
-                }
-                catch (Exception ex)
-                {
-                    CustomException.UnknownException(ex);
-                    return null;
-                } 
-            }
-        }
-
-        public List<int> GetYears()
-        {
-            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
-            {
-                try
-                {
-                    return db.hop_bch.Select(x => x.nam).Distinct().ToList();
+                    return db.bch_tham_gia_hop.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -42,13 +24,15 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public List<int> GetMonthsByYear(int y)
+        
+
+        public List<bch_tham_gia_hop> GetListByMonthYear(int m, int y)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.hop_bch.Where(x => x.nam == y).Select(x => x.thang).ToList();
+                    return db.bch_tham_gia_hop.Include("thanh_vien").Where(x => x.thang == m && x.nam == y).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -58,13 +42,13 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public bool Add(hop_bch o)
+        public bool Add(bch_tham_gia_hop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    db.hop_bch.Add(o);
+                    db.bch_tham_gia_hop.Add(o);
                     db.SaveChanges();
                     return true;
                 }
@@ -72,18 +56,18 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
             }
         }
 
-        public bool Update(hop_bch o)
+        public bool Update(bch_tham_gia_hop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    hop_bch old = db.hop_bch.FirstOrDefault(x => x.thang == o.thang && x.nam == o.nam);
-                    old.noi_dung = o.noi_dung;
+                    bch_tham_gia_hop old = db.bch_tham_gia_hop.FirstOrDefault(x => x.id_thanh_vien == o.id_thanh_vien && x.thang == o.thang && x.nam == o.nam);
+
                     db.SaveChanges();
                     return true;
                 }
@@ -91,11 +75,31 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
+            }
+        }
+
+        public bool Remove(int thang, int nam, int id_thanh_vien)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    bch_tham_gia_hop o = db.bch_tham_gia_hop.FirstOrDefault(x => x.thang == thang && x.nam == nam && x.id_thanh_vien == id_thanh_vien);
+                    db.bch_tham_gia_hop.Remove(o);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                }
             }
         }
 
 
-        //end class
+
+
     }
 }

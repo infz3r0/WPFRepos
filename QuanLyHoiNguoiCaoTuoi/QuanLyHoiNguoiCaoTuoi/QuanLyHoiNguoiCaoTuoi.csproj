@@ -67,6 +67,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DATA\BanChapHanhDAO.cs" />
+    <Compile Include="DATA\BCHThamGiaHopDAO.cs" />
     <Compile Include="DATA\bch_tham_gia_hop.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -89,6 +90,7 @@
     <Compile Include="DATA\hop_thuong_nien.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\KhoanThuDAO.cs" />
     <Compile Include="DATA\khoan_chi.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -176,6 +178,9 @@
     </Compile>
     <Compile Include="UI\Hop\ThanhVienHop.xaml.cs">
       <DependentUpon>ThanhVienHop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Hop\UC_Datagrid_BCHThamGiaHop.xaml.cs">
+      <DependentUpon>UC_Datagrid_BCHThamGiaHop.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Hop\UC_Datagrid_HopBCH.xaml.cs">
       <DependentUpon>UC_Datagrid_HopBCH.xaml</DependentUpon>
@@ -266,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Hop\ThanhVienHop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Hop\UC_Datagrid_BCHThamGiaHop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

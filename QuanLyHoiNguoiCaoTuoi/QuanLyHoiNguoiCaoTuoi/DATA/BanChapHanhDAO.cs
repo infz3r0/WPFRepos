@@ -24,6 +24,23 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+        public List<thong_tin_ban_chap_hanh> GetListNotInHopBCH(int m, int y)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    List<int> id_bch = db.bch_tham_gia_hop.Where(x=>x.thang == m && x.nam == y).Select(x => x.id_thanh_vien).ToList();
+                    return db.thong_tin_ban_chap_hanh.Include("thanh_vien").Where(x=>!id_bch.Contains(x.id_thanh_vien)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                }
+            }
+        }
+
         public bool Add(thong_tin_ban_chap_hanh o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())

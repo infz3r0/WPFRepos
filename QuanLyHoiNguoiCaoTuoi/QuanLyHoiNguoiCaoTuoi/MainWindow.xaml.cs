@@ -593,8 +593,22 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region bch hop
         private void rbtThemBCHHop_Click(object sender, RoutedEventArgs e)
         {
-            BCHThamGiaHop f = new BCHThamGiaHop(BCHThamGiaHop.TYPE.ADD);
+            BCHThamGiaHop f = new BCHThamGiaHop();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSBCHHop";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_BCHThamGiaHop)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
         }
 
         private void rbtXoaBCHHop_Click(object sender, RoutedEventArgs e)
@@ -604,8 +618,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtSuaBCHHop_Click(object sender, RoutedEventArgs e)
         {
-            BCHThamGiaHop f = new BCHThamGiaHop(BCHThamGiaHop.TYPE.EDIT);
-            f.ShowDialog();
+
         }
 
 
@@ -857,7 +870,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSBCHHop_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSBCHHop", "BCH tham gia họp", "dgDSBCHHop");
+            //init tab
+            string tabName = "tabDSBCHHop";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_BCHThamGiaHop)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "BCH tham gia họp";
+
+            UC_Datagrid_BCHThamGiaHop uc = new UC_Datagrid_BCHThamGiaHop();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
 
         private void rbtDSHopTN_Click(object sender, RoutedEventArgs e)

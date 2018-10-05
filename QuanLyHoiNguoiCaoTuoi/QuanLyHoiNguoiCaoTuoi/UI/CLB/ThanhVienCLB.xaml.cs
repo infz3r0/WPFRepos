@@ -25,7 +25,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
         private ThanhVienDAO thanhVienDAO = new ThanhVienDAO();
         private ThanhVienCLBDAO thanhVienCLBDAO = new ThanhVienCLBDAO();
         private TYPE type;
-        private thanh_vien o;
+
 
         public enum TYPE
         {
