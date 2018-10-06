@@ -6,31 +6,15 @@ using System.Threading.Tasks;
 
 namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
-    public class HopTNDAO
+    public class ThanhVienHopDAO
     {
-        public List<hop_thuong_nien> GetList()
+        public List<thanh_vien_tham_gia_hop> GetList()
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.hop_thuong_nien.ToList();
-                }
-                catch (Exception ex)
-                {
-                    CustomException.UnknownException(ex);
-                    return null;
-                } 
-            }
-        }
-
-        public List<int> GetYears()
-        {
-            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
-            {
-                try
-                {
-                    return db.hop_thuong_nien.Select(x => x.nam).Distinct().ToList();
+                    return db.thanh_vien_tham_gia_hop.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -40,13 +24,15 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public List<int> GetLanHopsByYear(int y)
+
+
+        public List<thanh_vien_tham_gia_hop> GetListByLanHopYear(int l, int y)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.hop_thuong_nien.Where(x => x.nam == y).Select(x => x.lan_hop).ToList();
+                    return db.thanh_vien_tham_gia_hop.Include("thanh_vien").Where(x => x.lan_hop == l && x.nam == y).ToList();
                 }
                 catch (Exception ex)
                 {
@@ -56,13 +42,13 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public bool Add(hop_thuong_nien o)
+        public bool Add(thanh_vien_tham_gia_hop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    db.hop_thuong_nien.Add(o);
+                    db.thanh_vien_tham_gia_hop.Add(o);
                     db.SaveChanges();
                     return true;
                 }
@@ -70,18 +56,18 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
             }
         }
 
-        public bool Update(hop_thuong_nien o)
+        public bool Update(thanh_vien_tham_gia_hop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    hop_thuong_nien old = db.hop_thuong_nien.FirstOrDefault(x => x.lan_hop == o.lan_hop && x.nam == o.nam);
-                    old.noi_dung = o.noi_dung;
+                    thanh_vien_tham_gia_hop old = db.thanh_vien_tham_gia_hop.FirstOrDefault(x => x.id_thanh_vien == o.id_thanh_vien && x.lan_hop == o.lan_hop && x.nam == o.nam);
+
                     db.SaveChanges();
                     return true;
                 }
@@ -89,11 +75,31 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 {
                     CustomException.UnknownException(ex);
                     return false;
-                } 
+                }
+            }
+        }
+
+        public bool Remove(int l, int nam, int id_thanh_vien)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    thanh_vien_tham_gia_hop o = db.thanh_vien_tham_gia_hop.FirstOrDefault(x => x.lan_hop == l && x.nam == nam && x.id_thanh_vien == id_thanh_vien);
+                    db.thanh_vien_tham_gia_hop.Remove(o);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                }
             }
         }
 
 
-        //end class
+
+
     }
 }

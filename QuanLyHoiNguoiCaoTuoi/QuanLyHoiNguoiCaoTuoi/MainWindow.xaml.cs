@@ -572,8 +572,22 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region thanh vien hop
         private void rbtThemThanhVienHop_Click(object sender, RoutedEventArgs e)
         {
-            ThanhVienHop f = new ThanhVienHop(ThanhVienHop.TYPE.ADD);
+            ThanhVienHop f = new ThanhVienHop();
             f.ShowDialog();
+
+            //init tab
+            string tabName = "tabDSThanhVienHop";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_ThanhVienHop)((TabItem)item).Content).Refresh();
+                    return;
+                }
+            }
 
         }
 
@@ -584,9 +598,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtSuaThanhVienHop_Click(object sender, RoutedEventArgs e)
         {
-
-            ThanhVienHop f = new ThanhVienHop(ThanhVienHop.TYPE.EDIT);
-            f.ShowDialog();
+            
         }
 
         #endregion
@@ -928,7 +940,31 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDSThanhVienHop_Click(object sender, RoutedEventArgs e)
         {
-            AddNewTab("tabDSThanhVienHop", "Thành viên họp", "dgDSThanhVienHop");
+            //init tab
+            string tabName = "tabDSThanhVienHop";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName))
+                {
+                    //go to exist tab
+                    ((UC_Datagrid_ThanhVienHop)((TabItem)item).Content).Refresh();
+                    tctMain.SelectedItem = item;
+                    return;
+                }
+            }
+
+            //add new tab
+            TabItem tab = new TabItem();
+            tab.Name = tabName;
+            tab.Header = "Thành viên họp";
+
+            UC_Datagrid_ThanhVienHop uc = new UC_Datagrid_ThanhVienHop();
+            tab.Content = uc;
+
+            tctMain.Items.Add(tab);
+            tctMain.SelectedItem = tab;
         }
         #endregion
 

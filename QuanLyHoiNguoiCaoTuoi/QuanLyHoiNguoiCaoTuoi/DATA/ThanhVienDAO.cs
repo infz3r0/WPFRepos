@@ -79,6 +79,23 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+        public List<thanh_vien> GetListNotInHopTN(int l, int y)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    List<int> id_tv_hop = db.thanh_vien_tham_gia_hop.Where(x => x.lan_hop == l && x.nam == y).Select(x => x.id_thanh_vien).ToList();
+                    return db.thanh_vien.Include("khu_pho").Where(x => !id_tv_hop.Contains(x.id_thanh_vien)).ToList();
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return null;
+                }
+            }
+        }
+
         public bool Add(thanh_vien o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())

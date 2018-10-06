@@ -4,17 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.Hop"
-             xmlns:DATA="clr-namespace:QuanLyHoiNguoiCaoTuoi.DATA" x:Class="QuanLyHoiNguoiCaoTuoi.UI.Hop.UC_Datagrid_BCHThamGiaHop"
+             xmlns:DATA="clr-namespace:QuanLyHoiNguoiCaoTuoi.DATA" x:Class="QuanLyHoiNguoiCaoTuoi.UI.Hop.UC_Datagrid_ThanhVienHop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <CollectionViewSource x:Key="bch_tham_gia_hopViewSource" d:DesignSource="{d:DesignInstance {x:Type DATA:bch_tham_gia_hop}, CreateList=True}"/>
+        <CollectionViewSource x:Key="thanh_vien_tham_gia_hopViewSource" d:DesignSource="{d:DesignInstance {x:Type DATA:thanh_vien_tham_gia_hop}, CreateList=True}"/>
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource bch_tham_gia_hopViewSource}">
+    <Grid DataContext="{StaticResource thanh_vien_tham_gia_hopViewSource}">
 
-        <DataGrid x:Name="bch_tham_gia_hopDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" MinRowHeight="23" IsReadOnly="True">
+        <DataGrid x:Name="thanh_vien_tham_gia_hopDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" MinRowHeight="23" IsReadOnly="True">
             <DataGrid.Columns>
-                
+
                 <DataGridTextColumn x:Name="namColumn" Width="Auto" Header="Năm" Binding="{Binding nam}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -27,7 +27,8 @@
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn x:Name="thangColumn" Width="Auto" Header="Tháng" Binding="{Binding thang}">
+
+                <DataGridTextColumn x:Name="lan_hopColumn" Width="Auto" Header="Lần họp" Binding="{Binding lan_hop}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -40,7 +41,7 @@
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn x:Name="ho_tenColumn" Width="Auto" Header="Họ tên" Binding="{Binding thanh_vien.ho_ten}">
+                <DataGridTextColumn x:Name="id_thanh_vienColumn" Width="Auto" Header="Tên thành viên" Binding="{Binding thanh_vien.ho_ten}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -91,6 +92,7 @@
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
+
 
 
             </DataGrid.Columns>
