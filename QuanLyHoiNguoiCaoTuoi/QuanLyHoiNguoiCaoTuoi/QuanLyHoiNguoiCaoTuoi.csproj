@@ -75,6 +75,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DATA\CLBDAO.cs" />
+    <Compile Include="DATA\DongGopDAO.cs" />
     <Compile Include="DATA\dong_gop.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -213,6 +214,9 @@
     <Compile Include="UI\Quy\Thu.xaml.cs">
       <DependentUpon>Thu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Quy\UC_Datagrid_KhoanThu.xaml.cs">
+      <DependentUpon>UC_Datagrid_KhoanThu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TaiKhoan\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
@@ -331,6 +335,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Quy\Thu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Quy\UC_Datagrid_KhoanThu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

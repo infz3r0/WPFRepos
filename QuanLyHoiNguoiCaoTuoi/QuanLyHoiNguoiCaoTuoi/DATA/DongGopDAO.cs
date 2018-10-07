@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace QuanLyHoiNguoiCaoTuoi.DATA
 {
-    public class KhoanThuDAO
+    public class DongGopDAO
     {
-        public List<khoan_thu> GetList()
+        public List<dong_gop> GetList()
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    return db.khoan_thu.ToList();
+                    return db.dong_gop.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -24,13 +24,13 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public bool Add(khoan_thu o)
+        public bool Add(dong_gop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    db.khoan_thu.Add(o);
+                    db.dong_gop.Add(o);
                     db.SaveChanges();
                     return true;
                 }
@@ -42,17 +42,16 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
-        public bool Update(khoan_thu o)
+        public bool Update(dong_gop o)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
                 try
                 {
-                    khoan_thu old = db.khoan_thu.FirstOrDefault(x => x.id_thu == o.id_thu);
-                    old.id_nguoi_thu = o.id_nguoi_thu;
-                    old.id_nguoi_nop_tien = o.id_nguoi_nop_tien;
-                    old.noi_dung_thu = o.noi_dung_thu;
-                    old.so_tien = o.so_tien;
+                    dong_gop old = db.dong_gop.FirstOrDefault(x => x.id == o.id);
+                    old.ten = o.ten;
+                    old.sdt = o.sdt;
+                    old.email = o.email;
                     db.SaveChanges();
                     return true;
                 }
@@ -63,9 +62,6 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
                 }
             }
         }
-
-
-
 
     }
 }

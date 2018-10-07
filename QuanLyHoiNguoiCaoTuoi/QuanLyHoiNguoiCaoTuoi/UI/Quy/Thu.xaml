@@ -40,7 +40,7 @@
         <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Người nộp:</Label>
         <ComboBox x:Name="cmbNguoiNop" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputComboBox}" />
 
-        <CheckBox x:Name="ckbDongGop" Grid.Row="5" Grid.Column="0" Style="{StaticResource InputCheckBox}" Content="Đóng góp" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <CheckBox x:Name="ckbDongGop" Grid.Row="5" Grid.Column="0" Style="{StaticResource InputCheckBox}" Content="Đóng góp" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ckbDongGop_Checked" Unchecked="ckbDongGop_Unchecked" />
         
         <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource Label}">Tên:</Label>
         <TextBox x:Name="txbTen" Grid.Row="6" Grid.Column="1" Style="{StaticResource InputText}" />
