@@ -91,6 +91,7 @@
     <Compile Include="DATA\hop_thuong_nien.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\KhoanChiDAO.cs" />
     <Compile Include="DATA\KhoanThuDAO.cs" />
     <Compile Include="DATA\khoan_chi.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -214,6 +215,9 @@
     <Compile Include="UI\Quy\Thu.xaml.cs">
       <DependentUpon>Thu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Quy\UC_Datagrid_KhoanChi.xaml.cs">
+      <DependentUpon>UC_Datagrid_KhoanChi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Quy\UC_Datagrid_KhoanThu.xaml.cs">
       <DependentUpon>UC_Datagrid_KhoanThu.xaml</DependentUpon>
     </Compile>
@@ -335,6 +339,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Quy\Thu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Quy\UC_Datagrid_KhoanChi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
