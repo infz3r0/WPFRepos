@@ -26,16 +26,16 @@
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="AQqpPHJjkK"></Label>
 
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label}">Người duyệt:</Label>
-        <ComboBox x:Name="cmbNguoiDuyet" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputComboBox}" />
+        <ComboBox x:Name="cmbNguoiDuyet" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputComboBox}" IsEnabled="False"/>
         
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}">Nội dung chi:</Label>
-        <TextBox x:Name="txbNoiDung" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}" />
+        <TextBox x:Name="txbNoiDung" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}"  IsEnabled="False" />
 
         <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}">Số tiền:</Label>
-        <TextBox x:Name="txbSoTien" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}" />
+        <TextBox x:Name="txbSoTien" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}"  IsEnabled="False" />
 
         <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}">Hoạt động:</Label>
-        <ComboBox x:Name="cmbHoatDong" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputComboBox}" />
+        <ComboBox x:Name="cmbHoatDong" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputComboBox}"  IsEnabled="False" />
 
         <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click">

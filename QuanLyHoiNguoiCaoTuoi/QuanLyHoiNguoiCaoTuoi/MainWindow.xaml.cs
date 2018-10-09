@@ -408,8 +408,19 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDuyetKhoanChi_Click(object sender, RoutedEventArgs e)
         {
-            Duyet f = new Duyet();
-            f.ShowDialog();
+            //init tab
+            string tabName = "tabDSChi";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_KhoanChi)((TabItem)item).Content).OpenDuyetWindow();
+                    return;
+                }
+            }
         }
 
         #endregion

@@ -122,6 +122,14 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Quy
             Refresh();
         }
 
+        public void OpenDuyetWindow()
+        {
+            khoan_chi o = (khoan_chi)khoan_chiDataGrid.SelectedItem;
+            Duyet w = new Duyet(o);
+            w.ShowDialog();
+            Refresh();
+        }
+
         //end class
     }
 }
