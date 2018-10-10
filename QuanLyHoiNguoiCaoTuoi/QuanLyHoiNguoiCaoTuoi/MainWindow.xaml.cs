@@ -1139,7 +1139,36 @@ namespace QuanLyHoiNguoiCaoTuoi
             ThongKeThanhVienHoatDong f = new ThongKeThanhVienHoatDong();
             f.ShowDialog();
         }
-        
+
+
+
+        private void rbtNewAccount_Click(object sender, RoutedEventArgs e)
+        {
+            NewAccount w = new NewAccount();
+            w.ShowDialog();
+        }
+
+        private void rbtDeleteAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbtResetPassword_Click(object sender, RoutedEventArgs e)
+        {
+            DangNhap w = new DangNhap();
+            w.ShowDialog();
+        }
+
+        private void rbtEditAccount_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbtChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         //endclass
     }

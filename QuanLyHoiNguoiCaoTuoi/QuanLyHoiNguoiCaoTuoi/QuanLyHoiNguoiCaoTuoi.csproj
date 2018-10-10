@@ -121,6 +121,7 @@
     <Compile Include="DATA\quyen.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\TaiKhoanDAO.cs" />
     <Compile Include="DATA\tai_khoan.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -147,6 +148,7 @@
     <Compile Include="DATA\tong_ket.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="MD5Cal.cs" />
     <Compile Include="UI\CLB\CLB.xaml.cs">
       <DependentUpon>CLB.xaml</DependentUpon>
     </Compile>
@@ -223,6 +225,9 @@
     </Compile>
     <Compile Include="UI\TaiKhoan\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TaiKhoan\NewAccount.xaml.cs">
+      <DependentUpon>NewAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ThanhVien\ThongTinBanChapHanh.xaml.cs">
       <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
@@ -351,6 +356,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TaiKhoan\DangNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TaiKhoan\NewAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan"
         mc:Ignorable="d"
-        Title="Đăng nhập" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Đăng nhập" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -26,10 +26,10 @@
         <PasswordBox x:Name="txbPassword" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputPassword}" />
 
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
-            <Button x:Name="btnLogin" Style="{StaticResource ButtonOK}" Width="100" Margin="5,0" IsDefault="True" >
+            <Button x:Name="btnLogin" Style="{StaticResource ButtonOK}" Width="100" Margin="5,0" IsDefault="True" Click="btnLogin_Click" >
                 Đăng nhập
             </Button>
-            <Button x:Name="btnExit" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" IsCancel="True" >
+            <Button x:Name="btnExit" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" Click="btnExit_Click" >
                 Thoát
             </Button>
         </StackPanel>

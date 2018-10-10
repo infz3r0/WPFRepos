@@ -173,6 +173,22 @@
                     <RibbonButton LargeImageSource="UI\Images\statistic.png" Label="Thống kê" KeyTip="B" Name="rbtThongKe" Click="rbtThongKe_Click"/>
                 </RibbonGroup>
             </RibbonTab>
+
+            <RibbonTab Header="Tài khoản" KeyTip="A">
+                <!-- group-->
+                <RibbonGroup x:Name="rbgQuanLyTaiKhoan" Header="Quản lý tài khoản" >
+                    <RibbonButton SmallImageSource="UI\Images\search.png" Label="Thêm tài khoản" KeyTip="B" Name="rbtNewAccount" Click="rbtNewAccount_Click"/>
+                    <RibbonButton SmallImageSource="UI\Images\search.png" Label="Xóa tài khoản" KeyTip="B" Name="rbtDeleteAccount" Click="rbtDeleteAccount_Click"/>
+                    <RibbonButton SmallImageSource="UI\Images\search.png" Label="Reset password" KeyTip="B" Name="rbtResetPassword" Click="rbtResetPassword_Click"/>
+                </RibbonGroup>
+                <!-- group-->
+                <RibbonGroup x:Name="rbgTaiKhoanCaNhan" Header="Tài khoản cá nhân" >
+                    <RibbonButton SmallImageSource="UI\Images\search.png" Label="Sửa thông tin" KeyTip="B" Name="rbtEditAccount" Click="rbtEditAccount_Click"/>
+                    <RibbonButton SmallImageSource="UI\Images\search.png" Label="Đổi password" KeyTip="B" Name="rbtChangePassword" Click="rbtChangePassword_Click"/>
+                </RibbonGroup>
+            </RibbonTab>
+            
+            
         </Ribbon>
         <TabControl Grid.Row="2" Name="tctMain">
             <!--<TabItem Header="Tab1">
