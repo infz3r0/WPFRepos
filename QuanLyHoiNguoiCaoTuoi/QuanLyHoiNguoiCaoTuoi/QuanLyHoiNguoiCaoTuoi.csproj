@@ -149,6 +149,7 @@
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MD5Cal.cs" />
+    <Compile Include="RandomString.cs" />
     <Compile Include="UI\CLB\CLB.xaml.cs">
       <DependentUpon>CLB.xaml</DependentUpon>
     </Compile>
@@ -231,6 +232,9 @@
     </Compile>
     <Compile Include="UI\TaiKhoan\NewAccount.xaml.cs">
       <DependentUpon>NewAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TaiKhoan\ResetPassword.xaml.cs">
+      <DependentUpon>ResetPassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ThanhVien\ThongTinBanChapHanh.xaml.cs">
       <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
@@ -367,6 +371,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TaiKhoan\NewAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TaiKhoan\ResetPassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

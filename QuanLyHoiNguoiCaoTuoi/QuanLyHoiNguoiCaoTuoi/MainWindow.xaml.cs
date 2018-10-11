@@ -1156,7 +1156,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtResetPassword_Click(object sender, RoutedEventArgs e)
         {
-            DangNhap w = new DangNhap();
+            ResetPassword w = new ResetPassword();
             w.ShowDialog();
         }
 
