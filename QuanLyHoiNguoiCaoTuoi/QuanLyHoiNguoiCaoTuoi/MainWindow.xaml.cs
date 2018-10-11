@@ -1150,7 +1150,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtDeleteAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            DeleteAccount w = new DeleteAccount();
+            w.ShowDialog();
         }
 
         private void rbtResetPassword_Click(object sender, RoutedEventArgs e)

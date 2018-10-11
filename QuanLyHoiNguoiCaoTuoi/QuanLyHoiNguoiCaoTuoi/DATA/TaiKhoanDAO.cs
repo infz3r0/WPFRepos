@@ -83,6 +83,28 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
             }
         }
 
+        public bool Delete(int id)
+        {
+            using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
+            {
+                try
+                {
+                    tai_khoan o = db.tai_khoan.FirstOrDefault(x => x.id_thanh_vien == id);
+                    db.tai_khoan.Remove(o);
+
+
+
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    CustomException.UnknownException(ex);
+                    return false;
+                }
+            }
+        }
+
         public bool Login(string username, string password)
         {
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())

@@ -226,6 +226,9 @@
     <Compile Include="UI\TaiKhoan\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\TaiKhoan\DeleteAccount.xaml.cs">
+      <DependentUpon>DeleteAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TaiKhoan\NewAccount.xaml.cs">
       <DependentUpon>NewAccount.xaml</DependentUpon>
     </Compile>
@@ -356,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TaiKhoan\DangNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TaiKhoan\DeleteAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
