@@ -224,6 +224,9 @@
     <Compile Include="UI\Quy\UC_Datagrid_KhoanThu.xaml.cs">
       <DependentUpon>UC_Datagrid_KhoanThu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\TaiKhoan\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TaiKhoan\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
@@ -235,6 +238,9 @@
     </Compile>
     <Compile Include="UI\TaiKhoan\ResetPassword.xaml.cs">
       <DependentUpon>ResetPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TaiKhoan\UpdateAccount.xaml.cs">
+      <DependentUpon>UpdateAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ThanhVien\ThongTinBanChapHanh.xaml.cs">
       <DependentUpon>ThongTinBanChapHanh.xaml</DependentUpon>
@@ -362,6 +368,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\TaiKhoan\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\TaiKhoan\DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -375,6 +385,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TaiKhoan\ResetPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TaiKhoan\UpdateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

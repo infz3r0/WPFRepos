@@ -85,7 +85,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
             //email
             if (txbEmail.Text.Length > 100 || string.IsNullOrEmpty(txbEmail.Text) || string.IsNullOrWhiteSpace(txbEmail.Text))
             {
-                MessageBox.Show("Password không hợp lệ", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Email không hợp lệ", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txbEmail.Focus();
                 return;
             }

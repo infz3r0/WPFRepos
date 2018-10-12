@@ -29,10 +29,19 @@ namespace QuanLyHoiNguoiCaoTuoi
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int id_account;
+
         public MainWindow()
         {
             InitializeComponent();
+
             
+        }
+
+        public void LoginInfo(int id_user, string username)
+        {
+            id_account = id_user;
+            lblUsername.Content = username;
         }
         
         #region khu pho
@@ -1162,12 +1171,29 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void rbtEditAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            UpdateAccount w = new UpdateAccount(id_account);
+            w.ShowDialog();
         }
 
         private void rbtChangePassword_Click(object sender, RoutedEventArgs e)
         {
+            ChangePassword w = new ChangePassword(id_account);
+            w.ShowDialog();
+        }
 
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            id_account = 0;
+            lblUsername.Content = "#";
+
+            DangNhap w = new DangNhap();
+            w.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DangNhap w = new DangNhap();
+            w.ShowDialog();
         }
 
 

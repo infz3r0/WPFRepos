@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
 namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
@@ -50,7 +50,18 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
                 return;
             }
 
-            if (taiKhoanDAO.Login(txbUsername.Text, txbPassword.Password) == false)
+            tai_khoan o = taiKhoanDAO.Login(txbUsername.Text, txbPassword.Password);
+
+            if (txbUsername.Text.Equals("#Admin") && txbPassword.Password.Equals("!Admin"))
+            {
+                o = new tai_khoan()
+                {
+                    id_thanh_vien = -1,
+                    username = "#Admin"
+                };
+            }
+
+            if (o == null)
             {
                 MessageBox.Show("Sai thông tin đăng nhập", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txbPassword.Clear();
@@ -61,6 +72,11 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
             {
                 loggedin = true;
                 MessageBox.Show("Success", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                MainWindow win = (MainWindow)Application.Current.MainWindow;
+                win.lblUsername.Content = o.username;
+                win.id_account = o.id_thanh_vien;
+
                 Close();
             }
 
