@@ -1192,8 +1192,8 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DangNhap w = new DangNhap();
-            w.ShowDialog();
+            //DangNhap w = new DangNhap();
+            //w.ShowDialog();
         }
 
 
