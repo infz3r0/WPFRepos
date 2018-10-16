@@ -60,7 +60,7 @@
                         <RibbonButton SmallImageSource="UI\Images\edit.png" Label="Sửa" KeyTip="C" x:Name="rbtSuaThanhVien" Click="rbtSuaThanhVien_Click"/>
                     </RibbonGroup>
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgBanChapHanh" Header="Ban chấp hành">
+                    <RibbonGroup x:Name="rbgBCH" Header="Ban chấp hành">
                         <RibbonButton LargeImageSource="UI\Images\manager.png" Label="Danh sách ban chấp hành" KeyTip="B" x:Name="rbtDSBCH" Click="rbtDSBCH_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemBCH" Click="rbtThemBCH_Click"/>
@@ -79,8 +79,8 @@
                         <RibbonButton SmallImageSource="UI\Images\edit.png" Label="Sửa" KeyTip="C" x:Name="rbtSuaHoatDong" Click="rbtSuaHoatDong_Click"/>
                     </RibbonGroup>
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgThanhVienThamGiaHoatDong" Header="Thành viên tham gia">
-                        <RibbonButton LargeImageSource="UI\Images\walkperson.png" Label="Danh sách thành viên tham gia" KeyTip="B" x:Name="rbtDSThanhVienHoatDong" Click="rbtDSThanhVienHoatDong_Click"/>
+                    <RibbonGroup x:Name="rbgThamGiaHD" Header="Thành viên tham gia">
+                        <RibbonButton LargeImageSource="UI\Images\walkperson.png" Label="Danh sách thành viên tham gia" KeyTip="B" x:Name="rbtDSThamGiaHD" Click="rbtDSThanhVienHoatDong_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemThamGiaHD" Click="rbtThemThamGiaHD_Click"/>
                         <RibbonButton SmallImageSource="UI\Images\delete.png" Label="Xóa" KeyTip="D" x:Name="rbtXoaThamGiaHD" Click="rbtXoaThamGiaHD_Click"/>
@@ -90,16 +90,16 @@
                 <!-- Ribbon Tab #3: -->
                 <RibbonTab Header="Quỹ" KeyTip="Q">
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgThu" Header="Khoản thu">
-                        <RibbonButton LargeImageSource="UI\Images\income.png" Label="Danh sách khoản thu" KeyTip="B" x:Name="rbtDSThu" Click="rbtDSThu_Click"/>
+                    <RibbonGroup x:Name="rbgKhoanThu" Header="Khoản thu">
+                        <RibbonButton LargeImageSource="UI\Images\income.png" Label="Danh sách khoản thu" KeyTip="B" x:Name="rbtDSKhoanThu" Click="rbtDSThu_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemKhoanThu" Click="rbtThemKhoanThu_Click"/>
                         <RibbonButton SmallImageSource="UI\Images\delete.png" Label="Xóa" KeyTip="D" x:Name="rbtXoaKhoanThu" Click="rbtXoaKhoanThu_Click"/>
                         <RibbonButton SmallImageSource="UI\Images\edit.png" Label="Sửa" KeyTip="C" x:Name="rbtSuaKhoanThu" Click="rbtSuaKhoanThu_Click"/>
                     </RibbonGroup>
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgChi" Header="Khoản chi">
-                        <RibbonButton LargeImageSource="UI\Images\outcome.png" Label="Danh sách khoản chi" KeyTip="B" x:Name="rbtDSChi" Click="rbtDSChi_Click"/>
+                    <RibbonGroup x:Name="rbgKhoanChi" Header="Khoản chi">
+                        <RibbonButton LargeImageSource="UI\Images\outcome.png" Label="Danh sách khoản chi" KeyTip="B" x:Name="rbtDSKhoanChi" Click="rbtDSChi_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemKhoanChi" Click="rbtThemKhoanChi_Click"/>
                         <RibbonButton SmallImageSource="UI\Images\delete.png" Label="Xóa" KeyTip="D" x:Name="rbtXoaKhoanChi" Click="rbtXoaKhoanChi_Click"/>
@@ -139,7 +139,7 @@
 
                     </RibbonGroup>
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgBCHThamGiaHop" Header="BCH tham gia họp">
+                    <RibbonGroup x:Name="rbgBCHHop" Header="BCH tham gia họp">
                         <RibbonButton LargeImageSource="UI\Images\meeting bch member.png" Label="Danh sách ban chấp hành" KeyTip="B" x:Name="rbtDSBCHHop" Click="rbtDSBCHHop_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemBCHHop" Click="rbtThemBCHHop_Click"/>
@@ -156,7 +156,7 @@
 
                     </RibbonGroup>
                     <!-- group-->
-                    <RibbonGroup x:Name="rbgTVHopTN" Header="Thànhh viên">
+                    <RibbonGroup x:Name="rbgThanhVienHop" Header="Thànhh viên">
                         <RibbonButton LargeImageSource="UI\Images\meeting member.png" Label="Danh sách thành viên" KeyTip="B" x:Name="rbtDSThanhVienHop" Click="rbtDSThanhVienHop_Click"/>
 
                         <RibbonButton SmallImageSource="UI\Images\add.png" Label="Thêm" KeyTip="A" x:Name="rbtThemThanhVienHop" Click="rbtThemThanhVienHop_Click"/>
@@ -206,6 +206,9 @@
 
         <StatusBar DockPanel.Dock="Bottom" Grid.Row="2" VerticalAlignment="Center" Height="30px">
             <Label Name="lblUsername" Content="textUsername Agqlhk" FontSize="10"/>
+            <Separator></Separator>
+            <Label Name="lblRole" Content="" FontSize="10"/>
+            <Separator></Separator>
             <Button Name="btnLogout" Content="Đăng xuất" FontSize="14" Click="btnLogout_Click"/>
         </StatusBar>
     </DockPanel>

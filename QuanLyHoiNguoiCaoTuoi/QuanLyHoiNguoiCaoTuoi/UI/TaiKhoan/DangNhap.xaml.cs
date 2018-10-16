@@ -57,6 +57,11 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
                 o = new tai_khoan()
                 {
                     id_thanh_vien = -1,
+                    quyen = new quyen()
+                    {
+                        id_quyen = -1,
+                        mo_ta = "#Admin"
+                    },
                     username = "#Admin"
                 };
             }
@@ -76,7 +81,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
                 MainWindow win = (MainWindow)Application.Current.MainWindow;
                 win.lblUsername.Content = o.username;
                 win.id_account = o.id_thanh_vien;
-
+                win.id_role = o.id_quyen;
                 Close();
             }
 

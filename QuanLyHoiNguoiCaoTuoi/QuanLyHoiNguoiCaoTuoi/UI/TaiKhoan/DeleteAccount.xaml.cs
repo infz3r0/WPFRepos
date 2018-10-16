@@ -32,6 +32,11 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
         {
             //account
             List<tai_khoan> tai_Khoans = taiKhoanDAO.GetList();
+            if (tai_Khoans.Count <= 0)
+            {
+                MessageBox.Show("Không có tài khoản", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                btnOK.IsEnabled = false;
+            }
             cmbAccount.DisplayMemberPath = "username";
             cmbAccount.SelectedValuePath = "id_thanh_vien";
 

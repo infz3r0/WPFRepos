@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using QuanLyHoiNguoiCaoTuoi.UI;
 using QuanLyHoiNguoiCaoTuoi.UI.CLB;
 using QuanLyHoiNguoiCaoTuoi.UI.HoatDong;
 using QuanLyHoiNguoiCaoTuoi.UI.Hop;
@@ -30,6 +32,7 @@ namespace QuanLyHoiNguoiCaoTuoi
     public partial class MainWindow : Window
     {
         public int id_account;
+        public int id_role;
 
         public MainWindow()
         {
@@ -1185,15 +1188,315 @@ namespace QuanLyHoiNguoiCaoTuoi
         {
             id_account = 0;
             lblUsername.Content = "#";
+            lblRole.Content = "";
 
-            DangNhap w = new DangNhap();
-            w.ShowDialog();
+            Login();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //DangNhap w = new DangNhap();
-            //w.ShowDialog();
+            Login();
+        }
+
+        private void Login()
+        {
+            DangNhap w = new DangNhap();
+            w.ShowDialog();
+
+            ApplyPermission(id_role);
+        }
+
+        #region set permission
+
+        enum TypePermission
+        {
+            VIEWONLY,
+            FULL,
+            NONE
+        }
+
+        private void SetVisibility(TypePermission permission, RibbonGroup rbg, RibbonButton ds, RibbonButton add, RibbonButton del, RibbonButton edit )
+        {
+            switch(permission)
+            {
+                case TypePermission.VIEWONLY:
+                    rbg.Visibility = Visibility.Visible;
+                    ds.Visibility = Visibility.Visible;
+                    add.Visibility = Visibility.Hidden;
+                    del.Visibility = Visibility.Hidden;
+                    edit.Visibility = Visibility.Hidden;
+                    break;
+                case TypePermission.FULL:
+                    rbg.Visibility = Visibility.Visible;
+                    ds.Visibility = Visibility.Visible;
+                    add.Visibility = Visibility.Visible;
+                    del.Visibility = Visibility.Visible;
+                    edit.Visibility = Visibility.Visible;
+                    break;
+                case TypePermission.NONE:
+                    rbg.Visibility = Visibility.Hidden;
+                    ds.Visibility = Visibility.Hidden;
+                    add.Visibility = Visibility.Hidden;
+                    del.Visibility = Visibility.Hidden;
+                    edit.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
+        private void SetVisibility_KhuPho(TypePermission permission)
+        {
+            SetVisibility(permission, rbgKhuPho, rbtDSKhuPho, rbtThemKhuPho, rbtXoaKhuPho, rbtSuaKhuPho);
+        }
+
+        private void SetVisibility_ThanhVien(TypePermission permission)
+        {
+            SetVisibility(permission, rbgThanhVien, rbtDSThanhVien, rbtThemThanhVien, rbtXoaThanhVien, rbtSuaThanhVien);
+        }
+
+        private void SetVisibility_BCH(TypePermission permission)
+        {
+            SetVisibility(permission, rbgBCH, rbtDSBCH, rbtThemBCH, rbtXoaBCH, rbtSuaBCH);
+        }
+
+        private void SetVisibility_HoatDong(TypePermission permission)
+        {
+            SetVisibility(permission, rbgHoatDong, rbtDSHoatDong, rbtThemHoatDong, rbtXoaHoatDong, rbtSuaHoatDong);
+        }
+
+        private void SetVisibility_ThamGiaHD(TypePermission permission)
+        {
+            SetVisibility(permission, rbgThamGiaHD, rbtDSThamGiaHD, rbtThemThamGiaHD, rbtXoaThamGiaHD, rbtSuaThamGiaHD);
+        }
+
+        private void SetVisibility_KhoanThu(TypePermission permission)
+        {
+            SetVisibility(permission, rbgKhoanThu, rbtDSKhoanThu, rbtThemKhoanThu, rbtXoaKhoanThu, rbtSuaKhoanThu);
+        }
+
+        private void SetVisibility_KhoanChi(TypePermission permission)
+        {
+            SetVisibility(permission, rbgKhoanChi, rbtDSKhoanChi, rbtThemKhoanChi, rbtXoaKhoanChi, rbtSuaKhoanChi);
+            rbtDuyetKhoanChi.Visibility = Visibility.Hidden;
+        }
+
+        private void SetVisibility_CLB(TypePermission permission)
+        {
+            SetVisibility(permission, rbgCLB, rbtDSCLB, rbtThemCLB, rbtXoaCLB, rbtSuaCLB);
+        }
+
+        private void SetVisibility_ThanhVienCLB(TypePermission permission)
+        {
+            SetVisibility(permission, rbgThanhVienCLB, rbtDSThanhVienCLB, rbtThemThanhVienCLB, rbtXoaThanhVienCLB, rbtSuaThanhVienCLB);
+        }
+
+        private void SetVisibility_HopBCH(TypePermission permission)
+        {
+            SetVisibility(permission, rbgHopBCH, rbtDSHopBCH, rbtThemHopBCH, rbtXoaHopBCH, rbtSuaHopBCH);
+        }
+
+        private void SetVisibility_BCHHop(TypePermission permission)
+        {
+            SetVisibility(permission, rbgBCHHop, rbtDSBCHHop, rbtThemBCHHop, rbtXoaBCHHop, rbtSuaBCHHop);
+        }
+
+        private void SetVisibility_HopTN(TypePermission permission)
+        {
+            SetVisibility(permission, rbgHopTN, rbtDSHopTN, rbtThemHopTN, rbtXoaHopTN, rbtSuaHopTN);
+        }
+
+        private void SetVisibility_ThanhVienHop(TypePermission permission)
+        {
+            SetVisibility(permission, rbgThanhVienHop, rbtDSThanhVienHop, rbtThemThanhVienHop, rbtXoaThanhVienHop, rbtSuaThanhVienHop);
+        }
+
+        private void SetVisibility_TimKiem(TypePermission permission)
+        {
+            switch(permission)
+            {
+                case TypePermission.FULL:
+                    rbgTimKiem.Visibility = Visibility.Visible;
+                    break;
+                case TypePermission.NONE:
+                    rbgTimKiem.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
+        private void SetVisibility_ThongKe(TypePermission permission)
+        {
+            //SetVisibility(permission, rbgKhuPho, rbtDSKhuPho, rbtThemKhuPho, rbtXoaKhuPho, rbtSuaKhuPho);
+        }
+
+        private void SetVisibility_QuanLyTaiKhoan(TypePermission permission)
+        {
+            switch (permission)
+            {
+                case TypePermission.FULL:
+                    rbgQuanLyTaiKhoan.Visibility = Visibility.Visible;
+                    break;
+                case TypePermission.NONE:
+                    rbgQuanLyTaiKhoan.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
+        private void SetVisibility_TaiKhoanCaNhan(TypePermission permission)
+        {
+            switch (permission)
+            {
+                case TypePermission.FULL:
+                    rbgTaiKhoanCaNhan.Visibility = Visibility.Visible;
+                    break;
+                case TypePermission.NONE:
+                    rbgTaiKhoanCaNhan.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
+        #endregion
+
+        private void ApplyPermission(int idp)
+        {
+            switch (idp)
+            {
+                //admin
+                case -1:
+                    SetVisibility_KhuPho(TypePermission.FULL);
+                    SetVisibility_ThanhVien(TypePermission.FULL);
+                    SetVisibility_BCH(TypePermission.FULL);
+
+                    SetVisibility_HoatDong(TypePermission.FULL);
+                    SetVisibility_ThamGiaHD(TypePermission.FULL);
+
+                    SetVisibility_KhoanThu(TypePermission.FULL);
+                    SetVisibility_KhoanChi(TypePermission.FULL);
+
+                    SetVisibility_CLB(TypePermission.FULL);
+                    SetVisibility_ThanhVienCLB(TypePermission.FULL);
+
+                    SetVisibility_HopBCH(TypePermission.FULL);
+                    SetVisibility_BCHHop(TypePermission.FULL);
+
+                    SetVisibility_HopTN(TypePermission.FULL);
+                    SetVisibility_ThanhVienHop(TypePermission.FULL);
+
+                    SetVisibility_TimKiem(TypePermission.FULL);
+                    SetVisibility_ThongKe(TypePermission.FULL);
+
+                    SetVisibility_QuanLyTaiKhoan(TypePermission.FULL);
+                    SetVisibility_TaiKhoanCaNhan(TypePermission.FULL);
+                    break;
+                //chu tich
+                case 0:
+                    SetVisibility_KhuPho(TypePermission.FULL);
+                    SetVisibility_ThanhVien(TypePermission.FULL);
+                    SetVisibility_BCH(TypePermission.FULL);
+
+                    SetVisibility_HoatDong(TypePermission.FULL);
+                    SetVisibility_ThamGiaHD(TypePermission.FULL);
+
+                    SetVisibility_KhoanThu(TypePermission.VIEWONLY);
+                    SetVisibility_KhoanChi(TypePermission.VIEWONLY);
+                    rbtDuyetKhoanChi.Visibility = Visibility.Visible;
+
+                    SetVisibility_CLB(TypePermission.FULL);
+                    SetVisibility_ThanhVienCLB(TypePermission.FULL);
+
+                    SetVisibility_HopBCH(TypePermission.FULL);
+                    SetVisibility_BCHHop(TypePermission.FULL);
+
+                    SetVisibility_HopTN(TypePermission.FULL);
+                    SetVisibility_ThanhVienHop(TypePermission.FULL);
+
+                    SetVisibility_TimKiem(TypePermission.FULL);
+                    SetVisibility_ThongKe(TypePermission.FULL);
+
+                    SetVisibility_QuanLyTaiKhoan(TypePermission.FULL);
+                    SetVisibility_TaiKhoanCaNhan(TypePermission.FULL);
+                    break;
+                //pho chu tich
+                case 1:
+                    SetVisibility_KhuPho(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVien(TypePermission.VIEWONLY);
+                    SetVisibility_BCH(TypePermission.VIEWONLY);
+
+                    SetVisibility_HoatDong(TypePermission.FULL);
+                    SetVisibility_ThamGiaHD(TypePermission.FULL);
+
+                    SetVisibility_KhoanThu(TypePermission.NONE);
+                    SetVisibility_KhoanChi(TypePermission.NONE);
+
+                    SetVisibility_CLB(TypePermission.FULL);
+                    SetVisibility_ThanhVienCLB(TypePermission.FULL);
+
+                    SetVisibility_HopBCH(TypePermission.FULL);
+                    SetVisibility_BCHHop(TypePermission.FULL);
+
+                    SetVisibility_HopTN(TypePermission.FULL);
+                    SetVisibility_ThanhVienHop(TypePermission.FULL);
+
+                    SetVisibility_TimKiem(TypePermission.FULL);
+                    SetVisibility_ThongKe(TypePermission.FULL);
+
+                    SetVisibility_QuanLyTaiKhoan(TypePermission.NONE);
+                    SetVisibility_TaiKhoanCaNhan(TypePermission.FULL);
+                    break;
+                //uy vien
+                case 2:
+                    SetVisibility_KhuPho(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVien(TypePermission.VIEWONLY);
+                    SetVisibility_BCH(TypePermission.VIEWONLY);
+
+                    SetVisibility_HoatDong(TypePermission.VIEWONLY);
+                    SetVisibility_ThamGiaHD(TypePermission.VIEWONLY);
+
+                    SetVisibility_KhoanThu(TypePermission.NONE);
+                    SetVisibility_KhoanChi(TypePermission.NONE);
+
+                    SetVisibility_CLB(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVienCLB(TypePermission.VIEWONLY);
+
+                    SetVisibility_HopBCH(TypePermission.VIEWONLY);
+                    SetVisibility_BCHHop(TypePermission.VIEWONLY);
+
+                    SetVisibility_HopTN(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVienHop(TypePermission.VIEWONLY);
+
+                    SetVisibility_TimKiem(TypePermission.FULL);
+                    SetVisibility_ThongKe(TypePermission.NONE);
+
+                    SetVisibility_QuanLyTaiKhoan(TypePermission.NONE);
+                    SetVisibility_TaiKhoanCaNhan(TypePermission.FULL);
+                    break;
+                //ke toan
+                case 3:
+                    SetVisibility_KhuPho(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVien(TypePermission.VIEWONLY);
+                    SetVisibility_BCH(TypePermission.VIEWONLY);
+
+                    SetVisibility_HoatDong(TypePermission.VIEWONLY);
+                    SetVisibility_ThamGiaHD(TypePermission.VIEWONLY);
+
+                    SetVisibility_KhoanThu(TypePermission.FULL);
+                    SetVisibility_KhoanChi(TypePermission.FULL);
+
+                    SetVisibility_CLB(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVienCLB(TypePermission.VIEWONLY);
+
+                    SetVisibility_HopBCH(TypePermission.VIEWONLY);
+                    SetVisibility_BCHHop(TypePermission.VIEWONLY);
+
+                    SetVisibility_HopTN(TypePermission.VIEWONLY);
+                    SetVisibility_ThanhVienHop(TypePermission.VIEWONLY);
+
+                    SetVisibility_TimKiem(TypePermission.FULL);
+                    SetVisibility_ThongKe(TypePermission.NONE);
+
+                    SetVisibility_QuanLyTaiKhoan(TypePermission.NONE);
+                    SetVisibility_TaiKhoanCaNhan(TypePermission.FULL);
+                    break;
+            }
+
         }
 
 
