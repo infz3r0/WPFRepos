@@ -87,12 +87,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Quy
                         khoan_thu o = (khoan_thu)khoan_thuDataGrid.SelectedCells[r * countCol].Item;
                         khoan_thuL.Add(o);
                     }
-                    foreach (khoan_thu o in khoan_thuL)
+                    foreach (khoan_thu t in khoan_thuL)
                     {
                         using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
                             try
                             {
+                                khoan_thu o = db.khoan_thu.FirstOrDefault(x => x.id_thu == t.id_thu);
                                 db.khoan_thu.Remove(o);
                                 db.SaveChanges();
                                 Refresh();

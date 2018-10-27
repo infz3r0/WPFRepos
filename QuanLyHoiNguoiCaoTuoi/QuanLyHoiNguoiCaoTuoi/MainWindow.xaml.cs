@@ -22,7 +22,7 @@ using QuanLyHoiNguoiCaoTuoi.UI.KhuPho;
 using QuanLyHoiNguoiCaoTuoi.UI.Quy;
 using QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan;
 using QuanLyHoiNguoiCaoTuoi.UI.ThanhVien;
-using QuanLyHoiNguoiCaoTuoi.UI.TimKiemThogKe;
+using QuanLyHoiNguoiCaoTuoi.UI.TimKiemThongKe;
 
 namespace QuanLyHoiNguoiCaoTuoi
 {

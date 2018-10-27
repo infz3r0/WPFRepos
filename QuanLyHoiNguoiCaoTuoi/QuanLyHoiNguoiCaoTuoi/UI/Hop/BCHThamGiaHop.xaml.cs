@@ -136,8 +136,8 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Hop
             int y = Convert.ToInt32(cmbNam.SelectedValue);
             int m = Convert.ToInt32(cmbThang.SelectedValue);
 
-            List<thong_tin_ban_chap_hanh> selected_tv = new List<thong_tin_ban_chap_hanh>(thong_tin_ban_chap_hanhDataGrid.SelectedItems.Cast<thong_tin_ban_chap_hanh>());
-            foreach (thong_tin_ban_chap_hanh o in selected_tv)
+            List<bch_tham_gia_hop> selected_tv = new List<bch_tham_gia_hop>(hop_bchDataGrid.SelectedItems.Cast<bch_tham_gia_hop>());
+            foreach (bch_tham_gia_hop o in selected_tv)
             {
                 bchThamGiaHopDAO.Remove(m, y, o.id_thanh_vien);
             }

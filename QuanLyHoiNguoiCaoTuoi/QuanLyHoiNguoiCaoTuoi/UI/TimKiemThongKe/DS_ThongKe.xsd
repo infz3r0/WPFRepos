@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_ThongKe" targetNamespace="http://tempuri.org/DS_ThongKe.xsd" xmlns:mstns="http://tempuri.org/DS_ThongKe.xsd" xmlns="http://tempuri.org/DS_ThongKe.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="hoi_nguoi_cao_tuoiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="hoi_nguoi_cao_tuoiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLyHoiNguoiCaoTuoi.Properties.Settings.GlobalReference.Default.hoi_nguoi_cao_tuoiConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_ThongKe_MucDoHoatDongTableAdapter" GeneratorDataComponentClassName="V_ThongKe_MucDoHoatDongTableAdapter" Name="V_ThongKe_MucDoHoatDong" UserDataComponentName="V_ThongKe_MucDoHoatDongTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="hoi_nguoi_cao_tuoiConnectionString (Settings)" DbObjectName="hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id_thanh_vien, ho_ten, ngay_sinh, SoLanThamGiaHD, SoCLBThamGia, SoLanThamGiaHop, Total FROM dbo.V_ThongKe_MucDoHoatDong</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_thanh_vien" DataSetColumn="id_thanh_vien" />
+              <Mapping SourceColumn="ho_ten" DataSetColumn="ho_ten" />
+              <Mapping SourceColumn="ngay_sinh" DataSetColumn="ngay_sinh" />
+              <Mapping SourceColumn="SoLanThamGiaHD" DataSetColumn="SoLanThamGiaHD" />
+              <Mapping SourceColumn="SoCLBThamGia" DataSetColumn="SoCLBThamGia" />
+              <Mapping SourceColumn="SoLanThamGiaHop" DataSetColumn="SoLanThamGiaHop" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_ThongKe" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_ThongKe" msprop:Generator_UserDSName="DS_ThongKe">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_ThongKe_MucDoHoatDong" msprop:Generator_TableClassName="V_ThongKe_MucDoHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_MucDoHoatDong" msprop:Generator_RowChangedName="V_ThongKe_MucDoHoatDongRowChanged" msprop:Generator_TablePropName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_MucDoHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_MucDoHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_MucDoHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_MucDoHoatDongRowDeleted" msprop:Generator_RowClassName="V_ThongKe_MucDoHoatDongRow" msprop:Generator_UserTableName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowEvArgName="V_ThongKe_MucDoHoatDongRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_thanh_vien" msprop:Generator_ColumnVarNameInTable="columnid_thanh_vien" msprop:Generator_ColumnPropNameInRow="id_thanh_vien" msprop:Generator_ColumnPropNameInTable="id_thanh_vienColumn" msprop:Generator_UserColumnName="id_thanh_vien" type="xs:int" />
+              <xs:element name="ho_ten" msprop:Generator_ColumnVarNameInTable="columnho_ten" msprop:Generator_ColumnPropNameInRow="ho_ten" msprop:Generator_ColumnPropNameInTable="ho_tenColumn" msprop:Generator_UserColumnName="ho_ten">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ngay_sinh" msprop:Generator_ColumnVarNameInTable="columnngay_sinh" msprop:Generator_ColumnPropNameInRow="ngay_sinh" msprop:Generator_ColumnPropNameInTable="ngay_sinhColumn" msprop:Generator_UserColumnName="ngay_sinh" type="xs:dateTime" />
+              <xs:element name="SoLanThamGiaHD" msprop:Generator_ColumnVarNameInTable="columnSoLanThamGiaHD" msprop:Generator_ColumnPropNameInRow="SoLanThamGiaHD" msprop:Generator_ColumnPropNameInTable="SoLanThamGiaHDColumn" msprop:Generator_UserColumnName="SoLanThamGiaHD" type="xs:int" />
+              <xs:element name="SoCLBThamGia" msprop:Generator_ColumnVarNameInTable="columnSoCLBThamGia" msprop:Generator_ColumnPropNameInRow="SoCLBThamGia" msprop:Generator_ColumnPropNameInTable="SoCLBThamGiaColumn" msprop:Generator_UserColumnName="SoCLBThamGia" type="xs:int" />
+              <xs:element name="SoLanThamGiaHop" msprop:Generator_ColumnVarNameInTable="columnSoLanThamGiaHop" msprop:Generator_ColumnPropNameInRow="SoLanThamGiaHop" msprop:Generator_ColumnPropNameInTable="SoLanThamGiaHopColumn" msprop:Generator_UserColumnName="SoLanThamGiaHop" type="xs:int" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

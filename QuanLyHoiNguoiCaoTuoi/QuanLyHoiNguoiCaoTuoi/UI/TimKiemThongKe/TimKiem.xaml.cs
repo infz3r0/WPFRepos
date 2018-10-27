@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 using QuanLyHoiNguoiCaoTuoi.DATA;
 
-namespace QuanLyHoiNguoiCaoTuoi.UI.TimKiemThogKe
+namespace QuanLyHoiNguoiCaoTuoi.UI.TimKiemThongKe
 {
     /// <summary>
     /// Interaction logic for TimKiem.xaml
@@ -118,7 +118,6 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TimKiemThogKe
                         thanh_vienDataGrid.Visibility = Visibility.Hidden;
                         cLBDataGrid.Visibility = Visibility.Hidden;
                         hoat_dongDataGrid.Visibility = Visibility.Visible;
-                        break;
                         break;
                 }
 

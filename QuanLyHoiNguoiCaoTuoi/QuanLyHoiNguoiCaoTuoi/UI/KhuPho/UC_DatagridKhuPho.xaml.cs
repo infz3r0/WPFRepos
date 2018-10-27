@@ -85,15 +85,17 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
                     List<khu_pho> khu_phoL = new List<khu_pho>();
                     for (int r = 0; r < countSelected; r++)
                     {
-                        khu_pho o = (khu_pho)khu_phoDataGrid.SelectedCells[r * countCol].Item;
-                        khu_phoL.Add(o);
+                        khu_pho t = (khu_pho)khu_phoDataGrid.SelectedCells[r * countCol].Item;
+
+                        khu_phoL.Add(t);
                     }
-                    foreach (khu_pho o in khu_phoL)
+                    foreach (khu_pho t in khu_phoL)
                     {
                         using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
                             try
                             {
+                                khu_pho o = db.khu_pho.FirstOrDefault(x => x.id_khu_pho == t.id_khu_pho);
                                 db.khu_pho.Remove(o);
                                 db.SaveChanges();
                                 Refresh();

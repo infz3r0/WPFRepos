@@ -34,11 +34,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.Viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.Viewer.dll</HintPath>
+    </Reference>
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\SAPBusinessObjects.WPF.ViewerShared.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -121,6 +132,15 @@
     <Compile Include="DATA\quyen.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\sysdiagram.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="DATA\TaiKhoanDAO.cs" />
     <Compile Include="DATA\tai_khoan.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -146,6 +166,9 @@
     </Compile>
     <Compile Include="DATA\TongKetDAO.cs" />
     <Compile Include="DATA\tong_ket.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DATA\V_ThongKe_MucDoHoatDong.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MD5Cal.cs" />
@@ -254,10 +277,21 @@
     <Compile Include="UI\ThanhVien\UC_Datagrid_ThongTinThanhVien.xaml.cs">
       <DependentUpon>UC_Datagrid_ThongTinThanhVien.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\TimKiemThogKe\ThongKeThanhVienHoatDong.xaml.cs">
+    <Compile Include="UI\TimKiemThongKe\DS_ThongKe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ThongKe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TimKiemThongKe\R_MucDoHoatDong.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_MucDoHoatDong.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\TimKiemThongKe\ThongKeThanhVienHoatDong.xaml.cs">
       <DependentUpon>ThongKeThanhVienHoatDong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\TimKiemThogKe\TimKiem.xaml.cs">
+    <Compile Include="UI\TimKiemThongKe\TimKiem.xaml.cs">
       <DependentUpon>TimKiem.xaml</DependentUpon>
     </Compile>
     <Page Include="UI\CLB\CLB.xaml">
@@ -408,11 +442,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\TimKiemThogKe\ThongKeThanhVienHoatDong.xaml">
+    <Page Include="UI\TimKiemThongKe\ThongKeThanhVienHoatDong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\TimKiemThogKe\TimKiem.xaml">
+    <Page Include="UI\TimKiemThongKe\TimKiem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -434,6 +468,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TimKiemThongKe\R_MucDoHoatDong.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_MucDoHoatDong.cs</LastGenOutput>
     </EmbeddedResource>
     <EntityDeploy Include="DATA\ModelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -463,6 +501,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UI\TimKiemThongKe\DS_ThongKe.xsc">
+      <DependentUpon>DS_ThongKe.xsd</DependentUpon>
+    </None>
+    <None Include="UI\TimKiemThongKe\DS_ThongKe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ThongKe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UI\TimKiemThongKe\DS_ThongKe.xss">
+      <DependentUpon>DS_ThongKe.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -531,6 +580,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

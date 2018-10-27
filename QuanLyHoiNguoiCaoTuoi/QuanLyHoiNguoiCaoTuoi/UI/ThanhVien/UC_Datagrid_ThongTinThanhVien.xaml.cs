@@ -80,12 +80,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
                         thanh_vien o = (thanh_vien)thanh_vienDataGrid.SelectedCells[r * countCol].Item;
                         thanh_vienL.Add(o);
                     }
-                    foreach (thanh_vien o in thanh_vienL)
+                    foreach (thanh_vien t in thanh_vienL)
                     {
                         using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
                             try
                             {
+                                thanh_vien o = db.thanh_vien.FirstOrDefault(x => x.id_thanh_vien == t.id_thanh_vien);
                                 db.thanh_vien.Remove(o);
                                 db.SaveChanges();
                                 Refresh();

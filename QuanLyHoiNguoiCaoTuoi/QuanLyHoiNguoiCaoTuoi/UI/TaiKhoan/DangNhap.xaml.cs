@@ -62,6 +62,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
                         id_quyen = -1,
                         mo_ta = "#Admin"
                     },
+                    id_quyen = -1,
                     username = "#Admin"
                 };
             }

@@ -80,12 +80,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
                         thong_tin_ban_chap_hanh o = (thong_tin_ban_chap_hanh)thong_tin_ban_chap_hanhDataGrid.SelectedCells[r * countCol].Item;
                         thong_tin_ban_chap_hanhL.Add(o);
                     }
-                    foreach (thong_tin_ban_chap_hanh o in thong_tin_ban_chap_hanhL)
+                    foreach (thong_tin_ban_chap_hanh t in thong_tin_ban_chap_hanhL)
                     {
                         using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
                         {
                             try
                             {
+                                thong_tin_ban_chap_hanh o = db.thong_tin_ban_chap_hanh.FirstOrDefault(x => x.id_thanh_vien == t.id_thanh_vien);
                                 db.thong_tin_ban_chap_hanh.Remove(o);
                                 db.SaveChanges();
                                 Refresh();

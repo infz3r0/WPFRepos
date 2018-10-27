@@ -58,6 +58,8 @@
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.hop_bch" Width="1.5" PointX="0.75" PointY="0.875" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__02084FDA" />
         <AssociationConnector Association="hoi_nguoi_cao_tuoiModel.FK__bch_tham_gia_hop__236943A5" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.sysdiagram" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_MucDoHoatDong" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
