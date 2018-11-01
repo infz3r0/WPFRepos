@@ -270,9 +270,27 @@ namespace QuanLyHoiNguoiCaoTuoi
             }
         }
 
+        private void rbtDanhGiaHD_Click(object sender, RoutedEventArgs e)
+        {
+            //init tab
+            string tabName = "tabDSHoatDong";
+
+            //check exist
+            foreach (object item in tctMain.Items)
+            {
+                if (item is TabItem && ((TabItem)item).Name.Equals(tabName) && ((TabItem)item).IsSelected)
+                {
+                    //refresh
+                    ((UC_Datagrid_HoatDong)((TabItem)item).Content).OpenDanhGiaWindow();
+                    return;
+                }
+            }
+        }
+
         #endregion
         #region thanh vien hoat dong
-        private void rbtThemThamGiaHD_Click(object sender, RoutedEventArgs e)
+
+        private void rbtSuaThamGiaHD_Click(object sender, RoutedEventArgs e)
         {
             ThanhVienHoatDong f = new ThanhVienHoatDong();
             f.ShowDialog();
@@ -290,16 +308,6 @@ namespace QuanLyHoiNguoiCaoTuoi
                     return;
                 }
             }
-        }
-
-        private void rbtXoaThamGiaHD_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbtSuaThamGiaHD_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         #endregion
@@ -523,6 +531,17 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region thanh vien clb
         private void rbtThemThanhVienCLB_Click(object sender, RoutedEventArgs e)
         {
+            
+
+        }
+
+        private void rbtXoaThanhVienCLB_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void rbtSuaThanhVienCLB_Click(object sender, RoutedEventArgs e)
+        {
             ThanhVienCLB f = new ThanhVienCLB();
             f.ShowDialog();
 
@@ -539,17 +558,6 @@ namespace QuanLyHoiNguoiCaoTuoi
                     return;
                 }
             }
-
-        }
-
-        private void rbtXoaThanhVienCLB_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void rbtSuaThanhVienCLB_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         #endregion
@@ -669,6 +677,17 @@ namespace QuanLyHoiNguoiCaoTuoi
         #region thanh vien hop
         private void rbtThemThanhVienHop_Click(object sender, RoutedEventArgs e)
         {
+            
+
+        }
+
+        private void rbtXoaThanhVienHop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbtSuaThanhVienHop_Click(object sender, RoutedEventArgs e)
+        {
             ThanhVienHop f = new ThanhVienHop();
             f.ShowDialog();
 
@@ -685,22 +704,21 @@ namespace QuanLyHoiNguoiCaoTuoi
                     return;
                 }
             }
-
-        }
-
-        private void rbtXoaThanhVienHop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbtSuaThanhVienHop_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         #endregion
         #region bch hop
         private void rbtThemBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void rbtXoaBCHHop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rbtSuaBCHHop_Click(object sender, RoutedEventArgs e)
         {
             BCHThamGiaHop f = new BCHThamGiaHop();
             f.ShowDialog();
@@ -718,16 +736,6 @@ namespace QuanLyHoiNguoiCaoTuoi
                     return;
                 }
             }
-        }
-
-        private void rbtXoaBCHHop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbtSuaBCHHop_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
 
@@ -1194,14 +1202,16 @@ namespace QuanLyHoiNguoiCaoTuoi
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+        {            
             Login();
         }
 
         private void Login()
         {
+            this.Hide();
             DangNhap w = new DangNhap();
             w.ShowDialog();
+            this.Show();
 
             ApplyPermission(id_role);
         }
@@ -1222,9 +1232,9 @@ namespace QuanLyHoiNguoiCaoTuoi
                 case TypePermission.VIEWONLY:
                     rbg.Visibility = Visibility.Visible;
                     ds.Visibility = Visibility.Visible;
-                    add.Visibility = Visibility.Hidden;
-                    del.Visibility = Visibility.Hidden;
-                    edit.Visibility = Visibility.Hidden;
+                    add.Visibility = Visibility.Collapsed;
+                    del.Visibility = Visibility.Collapsed;
+                    edit.Visibility = Visibility.Collapsed;
                     break;
                 case TypePermission.FULL:
                     rbg.Visibility = Visibility.Visible;
@@ -1234,11 +1244,11 @@ namespace QuanLyHoiNguoiCaoTuoi
                     edit.Visibility = Visibility.Visible;
                     break;
                 case TypePermission.NONE:
-                    rbg.Visibility = Visibility.Hidden;
-                    ds.Visibility = Visibility.Hidden;
-                    add.Visibility = Visibility.Hidden;
-                    del.Visibility = Visibility.Hidden;
-                    edit.Visibility = Visibility.Hidden;
+                    rbg.Visibility = Visibility.Collapsed;
+                    ds.Visibility = Visibility.Collapsed;
+                    add.Visibility = Visibility.Collapsed;
+                    del.Visibility = Visibility.Collapsed;
+                    edit.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -1261,11 +1271,12 @@ namespace QuanLyHoiNguoiCaoTuoi
         private void SetVisibility_HoatDong(TypePermission permission)
         {
             SetVisibility(permission, rbgHoatDong, rbtDSHoatDong, rbtThemHoatDong, rbtXoaHoatDong, rbtSuaHoatDong);
+            rbtDanhGiaHD.Visibility = Visibility.Collapsed;
         }
 
         private void SetVisibility_ThamGiaHD(TypePermission permission)
         {
-            SetVisibility(permission, rbgThamGiaHD, rbtDSThamGiaHD, rbtThemThamGiaHD, rbtXoaThamGiaHD, rbtSuaThamGiaHD);
+            SetVisibility(permission, rbgThamGiaHD, rbtDSThamGiaHD, rbtSuaThamGiaHD, rbtSuaThamGiaHD, rbtSuaThamGiaHD);
         }
 
         private void SetVisibility_KhoanThu(TypePermission permission)
@@ -1276,7 +1287,7 @@ namespace QuanLyHoiNguoiCaoTuoi
         private void SetVisibility_KhoanChi(TypePermission permission)
         {
             SetVisibility(permission, rbgKhoanChi, rbtDSKhoanChi, rbtThemKhoanChi, rbtXoaKhoanChi, rbtSuaKhoanChi);
-            rbtDuyetKhoanChi.Visibility = Visibility.Hidden;
+            rbtDuyetKhoanChi.Visibility = Visibility.Collapsed;
         }
 
         private void SetVisibility_CLB(TypePermission permission)
@@ -1286,7 +1297,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void SetVisibility_ThanhVienCLB(TypePermission permission)
         {
-            SetVisibility(permission, rbgThanhVienCLB, rbtDSThanhVienCLB, rbtThemThanhVienCLB, rbtXoaThanhVienCLB, rbtSuaThanhVienCLB);
+            SetVisibility(permission, rbgThanhVienCLB, rbtDSThanhVienCLB, rbtSuaThanhVienCLB, rbtSuaThanhVienCLB, rbtSuaThanhVienCLB);
         }
 
         private void SetVisibility_HopBCH(TypePermission permission)
@@ -1296,7 +1307,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void SetVisibility_BCHHop(TypePermission permission)
         {
-            SetVisibility(permission, rbgBCHHop, rbtDSBCHHop, rbtThemBCHHop, rbtXoaBCHHop, rbtSuaBCHHop);
+            SetVisibility(permission, rbgBCHHop, rbtDSBCHHop, rbtSuaBCHHop, rbtSuaBCHHop, rbtSuaBCHHop);
         }
 
         private void SetVisibility_HopTN(TypePermission permission)
@@ -1306,7 +1317,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
         private void SetVisibility_ThanhVienHop(TypePermission permission)
         {
-            SetVisibility(permission, rbgThanhVienHop, rbtDSThanhVienHop, rbtThemThanhVienHop, rbtXoaThanhVienHop, rbtSuaThanhVienHop);
+            SetVisibility(permission, rbgThanhVienHop, rbtDSThanhVienHop, rbtSuaThanhVienHop, rbtSuaThanhVienHop, rbtSuaThanhVienHop);
         }
 
         private void SetVisibility_TimKiem(TypePermission permission)
@@ -1317,7 +1328,7 @@ namespace QuanLyHoiNguoiCaoTuoi
                     rbgTimKiem.Visibility = Visibility.Visible;
                     break;
                 case TypePermission.NONE:
-                    rbgTimKiem.Visibility = Visibility.Hidden;
+                    rbgTimKiem.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -1335,7 +1346,7 @@ namespace QuanLyHoiNguoiCaoTuoi
                     rbgQuanLyTaiKhoan.Visibility = Visibility.Visible;
                     break;
                 case TypePermission.NONE:
-                    rbgQuanLyTaiKhoan.Visibility = Visibility.Hidden;
+                    rbgQuanLyTaiKhoan.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -1348,7 +1359,7 @@ namespace QuanLyHoiNguoiCaoTuoi
                     rbgTaiKhoanCaNhan.Visibility = Visibility.Visible;
                     break;
                 case TypePermission.NONE:
-                    rbgTaiKhoanCaNhan.Visibility = Visibility.Hidden;
+                    rbgTaiKhoanCaNhan.Visibility = Visibility.Collapsed;
                     break;
             }
         }
@@ -1367,9 +1378,11 @@ namespace QuanLyHoiNguoiCaoTuoi
 
                     SetVisibility_HoatDong(TypePermission.FULL);
                     SetVisibility_ThamGiaHD(TypePermission.FULL);
+                    rbtDanhGiaHD.Visibility = Visibility.Visible;
 
                     SetVisibility_KhoanThu(TypePermission.FULL);
                     SetVisibility_KhoanChi(TypePermission.FULL);
+                    rbtDuyetKhoanChi.Visibility = Visibility.Visible;
 
                     SetVisibility_CLB(TypePermission.FULL);
                     SetVisibility_ThanhVienCLB(TypePermission.FULL);
@@ -1394,6 +1407,7 @@ namespace QuanLyHoiNguoiCaoTuoi
 
                     SetVisibility_HoatDong(TypePermission.FULL);
                     SetVisibility_ThamGiaHD(TypePermission.FULL);
+                    rbtDanhGiaHD.Visibility = Visibility.Visible;
 
                     SetVisibility_KhoanThu(TypePermission.VIEWONLY);
                     SetVisibility_KhoanChi(TypePermission.VIEWONLY);
@@ -1498,6 +1512,8 @@ namespace QuanLyHoiNguoiCaoTuoi
             }
 
         }
+
+        
 
 
         //endclass

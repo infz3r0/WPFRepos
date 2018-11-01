@@ -43,7 +43,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.HoatDong
             }
 
             cmbNam.ItemsSource = years;
-            cmbNam.SelectedIndex = 200;
+            cmbNam.SelectedItem = DateTime.Now.Year;
 
             //ngay
             dtpNgayBatDau.SelectedDate = DateTime.Now;
@@ -97,7 +97,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.HoatDong
                 return;
             }
 
-            if ((DateTime)dtpNgayBatDau.SelectedDate > (DateTime)dtpNgayKetThuc.SelectedDate)
+            if ((DateTime)dtpNgayBatDau.SelectedDate > (DateTime)dtpNgayKetThuc.SelectedDate || ((DateTime)dtpNgayBatDau.SelectedDate).Year != Convert.ToInt32(cmbNam.SelectedItem))
             {
                 MessageBox.Show("Ngày bắt đầu hoặc kết thúc không hợp lệ", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Warning);
                 dtpNgayBatDau.Focus();

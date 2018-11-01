@@ -184,6 +184,9 @@
       <DependentUpon>UC_Datagrid_ThanhVienCLB.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\ComboboxPairs.cs" />
+    <Compile Include="UI\HoatDong\DanhGiaHD.xaml.cs">
+      <DependentUpon>DanhGiaHD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\HoatDong\HoatDong.xaml.cs">
       <DependentUpon>HoatDong.xaml</DependentUpon>
     </Compile>
@@ -303,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\CLB\UC_Datagrid_ThanhVienCLB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\HoatDong\DanhGiaHD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -577,6 +584,7 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <SplashScreen Include="UI\Images\splash.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

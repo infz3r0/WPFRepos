@@ -116,10 +116,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Quy
 
         public void OpenUpdateWindow()
         {
-            khoan_thu o = (khoan_thu)khoan_thuDataGrid.SelectedItem;
-            Thu w = new Thu(o);
-            w.ShowDialog();
-            Refresh();
+            if (khoan_thuDataGrid.SelectedItems.Count > 0)
+            {
+                khoan_thu o = (khoan_thu)khoan_thuDataGrid.SelectedItem;
+                Thu w = new Thu(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class

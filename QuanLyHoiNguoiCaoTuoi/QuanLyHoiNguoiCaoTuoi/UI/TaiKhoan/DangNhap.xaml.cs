@@ -30,6 +30,8 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
 
             lblTitle.Content = "Đăng nhập";
             loggedin = false;
+
+            txbUsername.Focus();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -77,7 +79,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TaiKhoan
             else
             {
                 loggedin = true;
-                MessageBox.Show("Success", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show("Success", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 MainWindow win = (MainWindow)Application.Current.MainWindow;
                 win.lblUsername.Content = o.username;

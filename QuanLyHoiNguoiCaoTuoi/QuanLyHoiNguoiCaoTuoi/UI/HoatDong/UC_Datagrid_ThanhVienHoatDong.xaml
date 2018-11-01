@@ -14,7 +14,7 @@
 
         <DataGrid x:Name="thanh_vien_tham_giaDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" MinRowHeight="23" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="id_hoat_dongColumn" Width="SizeToHeader" Header="ID" Binding="{Binding id_hoat_dong}">
+                <DataGridTextColumn x:Name="id_hoat_dongColumn" Width="Auto" Header="ID" Binding="{Binding id_hoat_dong}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -26,7 +26,7 @@
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn x:Name="id_thanh_vienColumn" Width="SizeToHeader" Header="Tên thành viên" Binding="{Binding thanh_vien.ho_ten}">
+                <DataGridTextColumn x:Name="id_thanh_vienColumn" Width="Auto" Header="Tên thành viên" Binding="{Binding thanh_vien.ho_ten}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -38,7 +38,7 @@
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn x:Name="nhiem_vuColumn" Width="SizeToHeader" Header="Nhiệm vụ" Binding="{Binding nhiem_vu}">
+                <DataGridTextColumn x:Name="nhiem_vuColumn" Width="Auto" Header="Nhiệm vụ" Binding="{Binding nhiem_vu}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="HorizontalAlignment" Value="Center" />

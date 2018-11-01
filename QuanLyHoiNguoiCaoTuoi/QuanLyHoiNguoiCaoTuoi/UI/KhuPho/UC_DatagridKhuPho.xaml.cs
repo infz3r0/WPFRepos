@@ -118,10 +118,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.KhuPho
 
         public void OpenUpdateWindow()
         {
-            khu_pho o = (khu_pho)khu_phoDataGrid.SelectedItem;
-            KhuPho w = new KhuPho(o);
-            w.ShowDialog();
-            Refresh();
+            if (khu_phoDataGrid.SelectedItems.Count > 0)
+            {
+                khu_pho o = (khu_pho)khu_phoDataGrid.SelectedItem;
+                KhuPho w = new KhuPho(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class

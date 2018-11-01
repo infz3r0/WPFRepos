@@ -118,10 +118,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.CLB
 
         public void OpenUpdateWindow()
         {
-            DATA.CLB o = (DATA.CLB)cLBDataGrid.SelectedItem;
-            CLB w = new CLB(o);
-            w.ShowDialog();
-            Refresh();
+            if (cLBDataGrid.SelectedItems.Count > 0)
+            {
+                DATA.CLB o = (DATA.CLB)cLBDataGrid.SelectedItem;
+                CLB w = new CLB(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class

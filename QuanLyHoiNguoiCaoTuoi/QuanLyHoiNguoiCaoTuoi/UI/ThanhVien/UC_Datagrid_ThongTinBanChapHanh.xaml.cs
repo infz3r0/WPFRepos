@@ -110,10 +110,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
 
         public void OpenUpdateWindow()
         {
-            thong_tin_ban_chap_hanh o = (thong_tin_ban_chap_hanh)thong_tin_ban_chap_hanhDataGrid.SelectedItem;
-            ThongTinBanChapHanh w = new ThongTinBanChapHanh(o);
-            w.ShowDialog();
-            Refresh();
+            if (thong_tin_ban_chap_hanhDataGrid.SelectedItems.Count > 0)
+            {
+                thong_tin_ban_chap_hanh o = (thong_tin_ban_chap_hanh)thong_tin_ban_chap_hanhDataGrid.SelectedItem;
+                ThongTinBanChapHanh w = new ThongTinBanChapHanh(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class

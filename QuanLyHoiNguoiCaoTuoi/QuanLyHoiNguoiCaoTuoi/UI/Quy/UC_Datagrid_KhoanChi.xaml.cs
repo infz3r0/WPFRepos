@@ -116,18 +116,24 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Quy
 
         public void OpenUpdateWindow()
         {
-            khoan_chi o = (khoan_chi)khoan_chiDataGrid.SelectedItem;
-            Chi w = new Chi(o);
-            w.ShowDialog();
-            Refresh();
+            if (khoan_chiDataGrid.SelectedItems.Count > 0)
+            {
+                khoan_chi o = (khoan_chi)khoan_chiDataGrid.SelectedItem;
+                Chi w = new Chi(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         public void OpenDuyetWindow()
         {
-            khoan_chi o = (khoan_chi)khoan_chiDataGrid.SelectedItem;
-            Duyet w = new Duyet(o);
-            w.ShowDialog();
-            Refresh();
+            if (khoan_chiDataGrid.SelectedItems.Count > 0)
+            {
+                khoan_chi o = (khoan_chi)khoan_chiDataGrid.SelectedItem;
+                Duyet w = new Duyet(o);
+                w.ShowDialog();
+                Refresh();
+            }
         }
 
         //end class

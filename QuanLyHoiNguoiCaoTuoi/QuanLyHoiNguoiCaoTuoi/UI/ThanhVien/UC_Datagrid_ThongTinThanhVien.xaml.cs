@@ -110,10 +110,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.ThanhVien
 
         public void OpenUpdateWindow()
         {
-            thanh_vien o = (thanh_vien)thanh_vienDataGrid.SelectedItem;
-            ThongTinThanhVien w = new ThongTinThanhVien(o);
-            w.ShowDialog();
-            Refresh();
+            if (thanh_vienDataGrid.SelectedItems.Count > 0)
+            {
+                thanh_vien o = (thanh_vien)thanh_vienDataGrid.SelectedItem;
+                ThongTinThanhVien w = new ThongTinThanhVien(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class

@@ -110,10 +110,24 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.HoatDong
 
         public void OpenUpdateWindow()
         {
-            hoat_dong o = (hoat_dong)hoat_dongDataGrid.SelectedItem;
-            HoatDong w = new HoatDong(o);
-            w.ShowDialog();
-            Refresh();
+            if (hoat_dongDataGrid.SelectedItems.Count > 0)
+            {
+                hoat_dong o = (hoat_dong)hoat_dongDataGrid.SelectedItem;
+                HoatDong w = new HoatDong(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
+        }
+
+        public void OpenDanhGiaWindow()
+        {
+            if (hoat_dongDataGrid.SelectedItems.Count > 0)
+            {
+                hoat_dong o = (hoat_dong)hoat_dongDataGrid.SelectedItem;
+                DanhGiaHD w = new DanhGiaHD(o);
+                w.ShowDialog();
+                Refresh();
+            }
         }
 
         //end class

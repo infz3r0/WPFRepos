@@ -1,12 +1,12 @@
-﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.UI.HoatDong.HoatDongUpdate"
+﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.UI.HoatDong.DanhGiaHD"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.HoatDong"
         mc:Ignorable="d"
-        Title="Sửa nhiệm vụ" Height="250" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
-    
+        Title="Đánh giá" Height="290" Width="420" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -17,6 +17,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
         <Label x:Name="lblTitle" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Title}" Content="Hoạt động"/>
@@ -24,13 +25,16 @@
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label}" Content="Hoạt động:"/>
         <TextBox x:Name="txbHoatDong" Grid.Row="1" Grid.Column="1" Style="{StaticResource InputText}" />
 
-        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}" Content="Thành viên:"/>
-        <TextBox x:Name="txbThanhVien" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}"  />
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label}" Content="Điểm chuẩn:"/>
+        <TextBox x:Name="txbDiemChuan" Grid.Row="2" Grid.Column="1" Style="{StaticResource InputText}"  />
 
-        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}" Content="Nhiệm vụ:"/>
-        <TextBox x:Name="txbNhiemVu" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}" MaxLength="200"  />
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label}" Content="Tự chấm điểm:"/>
+        <TextBox x:Name="txbTuChamDiem" Grid.Row="3" Grid.Column="1" Style="{StaticResource InputText}"  />
 
-        <StackPanel Grid.Row="4" Grid.Column="4" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label}" Content="Kết quả đạt được:"/>
+        <TextBox x:Name="txbKetQuaDatDuoc" Grid.Row="4" Grid.Column="1" Style="{StaticResource InputText}" MaxLength="200"  />
+
+        <StackPanel Grid.Row="5" Grid.Column="5" Orientation="Horizontal" Margin="5,10,5,0" HorizontalAlignment="Right">
             <Button x:Name="btnOK" Style="{StaticResource ButtonOK}" Width="50" Margin="5,0" IsDefault="True" Click="btnOK_Click" Content="OK"/>
             <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Margin="5,0" Width="50" IsCancel="True" Content="Close" />
         </StackPanel>

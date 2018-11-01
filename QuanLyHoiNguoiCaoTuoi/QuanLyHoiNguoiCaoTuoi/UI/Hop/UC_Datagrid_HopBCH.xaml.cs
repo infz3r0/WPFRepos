@@ -109,10 +109,13 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.Hop
 
         public void OpenUpdateWindow()
         {
-            hop_bch o = (hop_bch)hop_bchDataGrid.SelectedItem;
-            HopBCH w = new HopBCH(o);
-            w.ShowDialog();
-            Refresh();
+            if (hop_bchDataGrid.SelectedItems.Count > 0)
+            {
+                hop_bch o = (hop_bch)hop_bchDataGrid.SelectedItem;
+                HopBCH w = new HopBCH(o);
+                w.ShowDialog();
+                Refresh(); 
+            }
         }
 
         //end class
