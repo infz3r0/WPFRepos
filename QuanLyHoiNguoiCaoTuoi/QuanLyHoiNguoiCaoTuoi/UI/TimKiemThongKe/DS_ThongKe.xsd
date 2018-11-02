@@ -29,6 +29,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_ThongKe_TongDiemHoatDongTableAdapter" GeneratorDataComponentClassName="V_ThongKe_TongDiemHoatDongTableAdapter" Name="V_ThongKe_TongDiemHoatDong" UserDataComponentName="V_ThongKe_TongDiemHoatDongTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="hoi_nguoi_cao_tuoiConnectionString (Settings)" DbObjectName="hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nam, tong_diem, max, [percent] FROM dbo.V_ThongKe_TongDiemHoatDong</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nam" DataSetColumn="nam" />
+              <Mapping SourceColumn="tong_diem" DataSetColumn="tong_diem" />
+              <Mapping SourceColumn="max" DataSetColumn="max" />
+              <Mapping SourceColumn="percent" DataSetColumn="percent" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -37,7 +56,7 @@
   <xs:element name="DS_ThongKe" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_ThongKe" msprop:Generator_UserDSName="DS_ThongKe">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_ThongKe_MucDoHoatDong" msprop:Generator_TableClassName="V_ThongKe_MucDoHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_MucDoHoatDong" msprop:Generator_RowChangedName="V_ThongKe_MucDoHoatDongRowChanged" msprop:Generator_TablePropName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_MucDoHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_MucDoHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_MucDoHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_MucDoHoatDongRowDeleted" msprop:Generator_RowClassName="V_ThongKe_MucDoHoatDongRow" msprop:Generator_UserTableName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowEvArgName="V_ThongKe_MucDoHoatDongRowChangeEvent">
+        <xs:element name="V_ThongKe_MucDoHoatDong" msprop:Generator_TableClassName="V_ThongKe_MucDoHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_MucDoHoatDong" msprop:Generator_TablePropName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_MucDoHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_MucDoHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_MucDoHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_MucDoHoatDongRowDeleted" msprop:Generator_UserTableName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowChangedName="V_ThongKe_MucDoHoatDongRowChanged" msprop:Generator_RowEvArgName="V_ThongKe_MucDoHoatDongRowChangeEvent" msprop:Generator_RowClassName="V_ThongKe_MucDoHoatDongRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_thanh_vien" msprop:Generator_ColumnVarNameInTable="columnid_thanh_vien" msprop:Generator_ColumnPropNameInRow="id_thanh_vien" msprop:Generator_ColumnPropNameInTable="id_thanh_vienColumn" msprop:Generator_UserColumnName="id_thanh_vien" type="xs:int" />
@@ -56,7 +75,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="V_ThongKe_TongDiemHoatDong" msprop:Generator_TableClassName="V_ThongKe_TongDiemHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_TongDiemHoatDong" msprop:Generator_TablePropName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_TongDiemHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_TongDiemHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_TongDiemHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_TongDiemHoatDongRowDeleted" msprop:Generator_UserTableName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowChangedName="V_ThongKe_TongDiemHoatDongRowChanged" msprop:Generator_RowEvArgName="V_ThongKe_TongDiemHoatDongRowChangeEvent" msprop:Generator_RowClassName="V_ThongKe_TongDiemHoatDongRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nam" msprop:Generator_ColumnVarNameInTable="columnnam" msprop:Generator_ColumnPropNameInRow="nam" msprop:Generator_ColumnPropNameInTable="namColumn" msprop:Generator_UserColumnName="nam" type="xs:int" />
+              <xs:element name="tong_diem" msprop:Generator_ColumnVarNameInTable="columntong_diem" msprop:Generator_ColumnPropNameInRow="tong_diem" msprop:Generator_ColumnPropNameInTable="tong_diemColumn" msprop:Generator_UserColumnName="tong_diem" type="xs:int" minOccurs="0" />
+              <xs:element name="max" msprop:Generator_ColumnVarNameInTable="columnmax" msprop:Generator_ColumnPropNameInRow="max" msprop:Generator_ColumnPropNameInTable="maxColumn" msprop:Generator_UserColumnName="max" type="xs:int" minOccurs="0" />
+              <xs:element name="percent" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpercent" msprop:Generator_ColumnPropNameInRow="percent" msprop:Generator_ColumnPropNameInTable="percentColumn" msprop:Generator_UserColumnName="percent" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_ThongKe_TongDiemHoatDong" />
+      <xs:field xpath="mstns:nam" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

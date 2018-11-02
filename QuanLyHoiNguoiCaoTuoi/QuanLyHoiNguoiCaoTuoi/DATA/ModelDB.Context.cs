@@ -46,6 +46,7 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
         public virtual DbSet<hop_bch> hop_bch { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<V_ThongKe_MucDoHoatDong> V_ThongKe_MucDoHoatDong { get; set; }
+        public virtual DbSet<V_ThongKe_TongDiemHoatDong> V_ThongKe_TongDiemHoatDong { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

@@ -1121,6 +1121,27 @@ namespace QuanLyHoiNguoiCaoTuoi
         }
         #endregion
 
+        #region Tim kiem Thong ke
+
+        private void rbtSearch_Click(object sender, RoutedEventArgs e)
+        {
+            TimKiem f = new TimKiem();
+            f.ShowDialog();
+        }
+
+        private void rbtThongKe_Click(object sender, RoutedEventArgs e)
+        {
+            ThongKeThanhVienHoatDong f = new ThongKeThanhVienHoatDong();
+            f.ShowDialog();
+        }
+
+        private void rbtThongKeTongDiemHD_Click(object sender, RoutedEventArgs e)
+        {
+            ThongKeTongDiemHoatDong f = new ThongKeTongDiemHoatDong();
+            f.ShowDialog();
+        }
+
+        #endregion
 
         private void AddNewTab(string tabName, string tabHeader, string dgridName)
         {
@@ -1148,17 +1169,7 @@ namespace QuanLyHoiNguoiCaoTuoi
             tctMain.SelectedItem = tab;
         }
 
-        private void rbtSearch_Click(object sender, RoutedEventArgs e)
-        {
-            TimKiem f = new TimKiem();
-            f.ShowDialog();
-        }
-
-        private void rbtThongKe_Click(object sender, RoutedEventArgs e)
-        {
-            ThongKeThanhVienHoatDong f = new ThongKeThanhVienHoatDong();
-            f.ShowDialog();
-        }
+        
 
 
 
@@ -1514,6 +1525,8 @@ namespace QuanLyHoiNguoiCaoTuoi
         }
 
         
+
+
 
 
         //endclass

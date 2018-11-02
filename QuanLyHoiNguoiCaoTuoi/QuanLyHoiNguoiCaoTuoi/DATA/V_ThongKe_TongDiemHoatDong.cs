@@ -12,14 +12,11 @@ namespace QuanLyHoiNguoiCaoTuoi.DATA
     using System;
     using System.Collections.ObjectModel;
     
-    public partial class V_ThongKe_MucDoHoatDong
+    public partial class V_ThongKe_TongDiemHoatDong
     {
-        public int id_thanh_vien { get; set; }
-        public string ho_ten { get; set; }
-        public Nullable<System.DateTime> ngay_sinh { get; set; }
-        public Nullable<int> SoLanThamGiaHD { get; set; }
-        public Nullable<int> SoCLBThamGia { get; set; }
-        public Nullable<int> SoLanThamGiaHop { get; set; }
-        public Nullable<int> Total { get; set; }
+        public int nam { get; set; }
+        public int tong_diem { get; set; }
+        public int max { get; set; }
+        public double percent { get; set; }
     }
 }

@@ -205,6 +205,17 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
           <Property Name="SoLanThamGiaHop" Type="int" />
           <Property Name="Total" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_ThongKe_TongDiemHoatDong">
+          <Key>
+            <PropertyRef Name="nam" />
+          </Key>
+          <Property Name="nam" Type="int" Nullable="false" />
+          <Property Name="tong_diem" Type="int" />
+          <Property Name="max" Type="int" />
+          <Property Name="percent" Type="float" />
+        </EntityType>
         <Association Name="FK__bch_tham___id_th__1EA48E88">
           <End Role="thanh_vien" Type="Self.thanh_vien" Multiplicity="1" />
           <End Role="bch_tham_gia_hop" Type="Self.bch_tham_gia_hop" Multiplicity="*" />
@@ -705,6 +716,14 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
     [V_ThongKe_MucDoHoatDong].[SoLanThamGiaHop] AS [SoLanThamGiaHop], 
     [V_ThongKe_MucDoHoatDong].[Total] AS [Total]
     FROM [dbo].[V_ThongKe_MucDoHoatDong] AS [V_ThongKe_MucDoHoatDong]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ThongKe_TongDiemHoatDong" EntityType="Self.V_ThongKe_TongDiemHoatDong" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ThongKe_TongDiemHoatDong].[nam] AS [nam], 
+    [V_ThongKe_TongDiemHoatDong].[tong_diem] AS [tong_diem], 
+    [V_ThongKe_TongDiemHoatDong].[max] AS [max], 
+    [V_ThongKe_TongDiemHoatDong].[percent] AS [percent]
+    FROM [dbo].[V_ThongKe_TongDiemHoatDong] AS [V_ThongKe_TongDiemHoatDong]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__bch_tham___id_th__1EA48E88" Association="Self.FK__bch_tham___id_th__1EA48E88">
             <End Role="thanh_vien" EntitySet="thanh_vien" />
@@ -1697,6 +1716,7 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="V_ThongKe_TongDiemHoatDong" EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_TongDiemHoatDong" />
         </EntityContainer>
         <EntityType Name="hop_bch">
           <Key>
@@ -1754,11 +1774,11 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
           </Key>
           <Property Name="id_thanh_vien" Type="Int32" Nullable="false" />
           <Property Name="ho_ten" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ngay_sinh" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="SoLanThamGiaHD" Type="Int32" Nullable="false" />
-          <Property Name="SoCLBThamGia" Type="Int32" Nullable="false" />
-          <Property Name="SoLanThamGiaHop" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="ngay_sinh" Type="DateTime" Precision="3" />
+          <Property Name="SoLanThamGiaHD" Type="Int32" />
+          <Property Name="SoCLBThamGia" Type="Int32" />
+          <Property Name="SoLanThamGiaHop" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
         </EntityType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1771,6 +1791,15 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="V_ThongKe_TongDiemHoatDong">
+          <Key>
+            <PropertyRef Name="nam" />
+          </Key>
+          <Property Name="nam" Type="Int32" Nullable="false" />
+          <Property Name="tong_diem" Type="Int32" Nullable="false" />
+          <Property Name="max" Type="Int32" Nullable="false" />
+          <Property Name="percent" Type="Double" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2009,6 +2038,16 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="hoi_nguoi_cao_tuoiModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="hoi_nguoi_cao_tuoiModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="V_ThongKe_TongDiemHoatDong">
+            <EntityTypeMapping TypeName="hoi_nguoi_cao_tuoiModel.V_ThongKe_TongDiemHoatDong">
+              <MappingFragment StoreEntitySet="V_ThongKe_TongDiemHoatDong">
+                <ScalarProperty Name="percent" ColumnName="percent" />
+                <ScalarProperty Name="max" ColumnName="max" />
+                <ScalarProperty Name="tong_diem" ColumnName="tong_diem" />
+                <ScalarProperty Name="nam" ColumnName="nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
