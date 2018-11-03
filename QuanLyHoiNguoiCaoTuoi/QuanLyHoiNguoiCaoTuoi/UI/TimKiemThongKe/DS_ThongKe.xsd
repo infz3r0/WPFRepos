@@ -48,6 +48,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_ThongKe_ThongTinTableAdapter" GeneratorDataComponentClassName="V_ThongKe_ThongTinTableAdapter" Name="V_ThongKe_ThongTin" UserDataComponentName="V_ThongKe_ThongTinTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="hoi_nguoi_cao_tuoiConnectionString (Settings)" DbObjectName="hoi_nguoi_cao_tuoi.dbo.V_ThongKe_ThongTin" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TongThanhVien, TongBCH, TongCLB, TongTVThamGiaCLB FROM dbo.V_ThongKe_ThongTin</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TongThanhVien" DataSetColumn="TongThanhVien" />
+              <Mapping SourceColumn="TongBCH" DataSetColumn="TongBCH" />
+              <Mapping SourceColumn="TongCLB" DataSetColumn="TongCLB" />
+              <Mapping SourceColumn="TongTVThamGiaCLB" DataSetColumn="TongTVThamGiaCLB" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -56,7 +75,7 @@
   <xs:element name="DS_ThongKe" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DS_ThongKe" msprop:Generator_UserDSName="DS_ThongKe">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="V_ThongKe_MucDoHoatDong" msprop:Generator_TableClassName="V_ThongKe_MucDoHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_MucDoHoatDong" msprop:Generator_TablePropName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_MucDoHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_MucDoHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_MucDoHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_MucDoHoatDongRowDeleted" msprop:Generator_UserTableName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowChangedName="V_ThongKe_MucDoHoatDongRowChanged" msprop:Generator_RowEvArgName="V_ThongKe_MucDoHoatDongRowChangeEvent" msprop:Generator_RowClassName="V_ThongKe_MucDoHoatDongRow">
+        <xs:element name="V_ThongKe_MucDoHoatDong" msprop:Generator_TableClassName="V_ThongKe_MucDoHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_MucDoHoatDong" msprop:Generator_RowChangedName="V_ThongKe_MucDoHoatDongRowChanged" msprop:Generator_TablePropName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_MucDoHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_MucDoHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_MucDoHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_MucDoHoatDongRowDeleted" msprop:Generator_RowClassName="V_ThongKe_MucDoHoatDongRow" msprop:Generator_UserTableName="V_ThongKe_MucDoHoatDong" msprop:Generator_RowEvArgName="V_ThongKe_MucDoHoatDongRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_thanh_vien" msprop:Generator_ColumnVarNameInTable="columnid_thanh_vien" msprop:Generator_ColumnPropNameInRow="id_thanh_vien" msprop:Generator_ColumnPropNameInTable="id_thanh_vienColumn" msprop:Generator_UserColumnName="id_thanh_vien" type="xs:int" />
@@ -75,13 +94,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_ThongKe_TongDiemHoatDong" msprop:Generator_TableClassName="V_ThongKe_TongDiemHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_TongDiemHoatDong" msprop:Generator_TablePropName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_TongDiemHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_TongDiemHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_TongDiemHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_TongDiemHoatDongRowDeleted" msprop:Generator_UserTableName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowChangedName="V_ThongKe_TongDiemHoatDongRowChanged" msprop:Generator_RowEvArgName="V_ThongKe_TongDiemHoatDongRowChangeEvent" msprop:Generator_RowClassName="V_ThongKe_TongDiemHoatDongRow">
+        <xs:element name="V_ThongKe_TongDiemHoatDong" msprop:Generator_TableClassName="V_ThongKe_TongDiemHoatDongDataTable" msprop:Generator_TableVarName="tableV_ThongKe_TongDiemHoatDong" msprop:Generator_RowChangedName="V_ThongKe_TongDiemHoatDongRowChanged" msprop:Generator_TablePropName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowDeletingName="V_ThongKe_TongDiemHoatDongRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_TongDiemHoatDongRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_TongDiemHoatDongRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_TongDiemHoatDongRowDeleted" msprop:Generator_RowClassName="V_ThongKe_TongDiemHoatDongRow" msprop:Generator_UserTableName="V_ThongKe_TongDiemHoatDong" msprop:Generator_RowEvArgName="V_ThongKe_TongDiemHoatDongRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nam" msprop:Generator_ColumnVarNameInTable="columnnam" msprop:Generator_ColumnPropNameInRow="nam" msprop:Generator_ColumnPropNameInTable="namColumn" msprop:Generator_UserColumnName="nam" type="xs:int" />
               <xs:element name="tong_diem" msprop:Generator_ColumnVarNameInTable="columntong_diem" msprop:Generator_ColumnPropNameInRow="tong_diem" msprop:Generator_ColumnPropNameInTable="tong_diemColumn" msprop:Generator_UserColumnName="tong_diem" type="xs:int" minOccurs="0" />
               <xs:element name="max" msprop:Generator_ColumnVarNameInTable="columnmax" msprop:Generator_ColumnPropNameInRow="max" msprop:Generator_ColumnPropNameInTable="maxColumn" msprop:Generator_UserColumnName="max" type="xs:int" minOccurs="0" />
               <xs:element name="percent" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpercent" msprop:Generator_ColumnPropNameInRow="percent" msprop:Generator_ColumnPropNameInTable="percentColumn" msprop:Generator_UserColumnName="percent" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_ThongKe_ThongTin" msprop:Generator_TableClassName="V_ThongKe_ThongTinDataTable" msprop:Generator_TableVarName="tableV_ThongKe_ThongTin" msprop:Generator_TablePropName="V_ThongKe_ThongTin" msprop:Generator_RowDeletingName="V_ThongKe_ThongTinRowDeleting" msprop:Generator_RowChangingName="V_ThongKe_ThongTinRowChanging" msprop:Generator_RowEvHandlerName="V_ThongKe_ThongTinRowChangeEventHandler" msprop:Generator_RowDeletedName="V_ThongKe_ThongTinRowDeleted" msprop:Generator_UserTableName="V_ThongKe_ThongTin" msprop:Generator_RowChangedName="V_ThongKe_ThongTinRowChanged" msprop:Generator_RowEvArgName="V_ThongKe_ThongTinRowChangeEvent" msprop:Generator_RowClassName="V_ThongKe_ThongTinRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TongThanhVien" msprop:Generator_ColumnVarNameInTable="columnTongThanhVien" msprop:Generator_ColumnPropNameInRow="TongThanhVien" msprop:Generator_ColumnPropNameInTable="TongThanhVienColumn" msprop:Generator_UserColumnName="TongThanhVien" type="xs:int" minOccurs="0" />
+              <xs:element name="TongBCH" msprop:Generator_ColumnVarNameInTable="columnTongBCH" msprop:Generator_ColumnPropNameInRow="TongBCH" msprop:Generator_ColumnPropNameInTable="TongBCHColumn" msprop:Generator_UserColumnName="TongBCH" type="xs:int" minOccurs="0" />
+              <xs:element name="TongCLB" msprop:Generator_ColumnVarNameInTable="columnTongCLB" msprop:Generator_ColumnPropNameInRow="TongCLB" msprop:Generator_ColumnPropNameInTable="TongCLBColumn" msprop:Generator_UserColumnName="TongCLB" type="xs:int" minOccurs="0" />
+              <xs:element name="TongTVThamGiaCLB" msprop:Generator_ColumnVarNameInTable="columnTongTVThamGiaCLB" msprop:Generator_ColumnPropNameInRow="TongTVThamGiaCLB" msprop:Generator_ColumnPropNameInTable="TongTVThamGiaCLBColumn" msprop:Generator_UserColumnName="TongTVThamGiaCLB" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

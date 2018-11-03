@@ -206,6 +206,17 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_MucDoHoatDong' do
           <Property Name="Total" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_ThongTin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_ThongKe_ThongTin">
+          <Key>
+            <PropertyRef Name="TongThanhVien" />
+          </Key>
+          <Property Name="TongThanhVien" Type="int" Nullable="false" />
+          <Property Name="TongBCH" Type="int" />
+          <Property Name="TongCLB" Type="int" />
+          <Property Name="TongTVThamGiaCLB" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_ThongKe_TongDiemHoatDong">
           <Key>
@@ -716,6 +727,14 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong'
     [V_ThongKe_MucDoHoatDong].[SoLanThamGiaHop] AS [SoLanThamGiaHop], 
     [V_ThongKe_MucDoHoatDong].[Total] AS [Total]
     FROM [dbo].[V_ThongKe_MucDoHoatDong] AS [V_ThongKe_MucDoHoatDong]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ThongKe_ThongTin" EntityType="Self.V_ThongKe_ThongTin" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_ThongKe_ThongTin].[TongThanhVien] AS [TongThanhVien], 
+    [V_ThongKe_ThongTin].[TongBCH] AS [TongBCH], 
+    [V_ThongKe_ThongTin].[TongCLB] AS [TongCLB], 
+    [V_ThongKe_ThongTin].[TongTVThamGiaCLB] AS [TongTVThamGiaCLB]
+    FROM [dbo].[V_ThongKe_ThongTin] AS [V_ThongKe_ThongTin]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_ThongKe_TongDiemHoatDong" EntityType="Self.V_ThongKe_TongDiemHoatDong" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1717,6 +1736,7 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong'
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="V_ThongKe_TongDiemHoatDong" EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_TongDiemHoatDong" />
+          <EntitySet Name="V_ThongKe_ThongTin" EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_ThongTin" />
         </EntityContainer>
         <EntityType Name="hop_bch">
           <Key>
@@ -1796,9 +1816,18 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong'
             <PropertyRef Name="nam" />
           </Key>
           <Property Name="nam" Type="Int32" Nullable="false" />
-          <Property Name="tong_diem" Type="Int32" Nullable="false" />
-          <Property Name="max" Type="Int32" Nullable="false" />
-          <Property Name="percent" Type="Double" Nullable="false" />
+          <Property Name="tong_diem" Type="Int32" />
+          <Property Name="max" Type="Int32" />
+          <Property Name="percent" Type="Double" />
+        </EntityType>
+        <EntityType Name="V_ThongKe_ThongTin">
+          <Key>
+            <PropertyRef Name="TongThanhVien" />
+          </Key>
+          <Property Name="TongThanhVien" Type="Int32" Nullable="false" />
+          <Property Name="TongBCH" Type="Int32" Nullable="false" />
+          <Property Name="TongCLB" Type="Int32" Nullable="false" />
+          <Property Name="TongTVThamGiaCLB" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2045,6 +2074,16 @@ warning 6002: The table/view 'hoi_nguoi_cao_tuoi.dbo.V_ThongKe_TongDiemHoatDong'
                 <ScalarProperty Name="max" ColumnName="max" />
                 <ScalarProperty Name="tong_diem" ColumnName="tong_diem" />
                 <ScalarProperty Name="nam" ColumnName="nam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ThongKe_ThongTin">
+            <EntityTypeMapping TypeName="hoi_nguoi_cao_tuoiModel.V_ThongKe_ThongTin">
+              <MappingFragment StoreEntitySet="V_ThongKe_ThongTin">
+                <ScalarProperty Name="TongTVThamGiaCLB" ColumnName="TongTVThamGiaCLB" />
+                <ScalarProperty Name="TongCLB" ColumnName="TongCLB" />
+                <ScalarProperty Name="TongBCH" ColumnName="TongBCH" />
+                <ScalarProperty Name="TongThanhVien" ColumnName="TongThanhVien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

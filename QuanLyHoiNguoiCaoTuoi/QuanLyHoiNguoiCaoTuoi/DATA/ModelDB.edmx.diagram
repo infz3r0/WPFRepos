@@ -61,6 +61,7 @@
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.sysdiagram" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_MucDoHoatDong" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_TongDiemHoatDong" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="hoi_nguoi_cao_tuoiModel.V_ThongKe_ThongTin" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

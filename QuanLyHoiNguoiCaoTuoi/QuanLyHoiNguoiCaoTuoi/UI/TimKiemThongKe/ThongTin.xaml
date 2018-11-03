@@ -1,0 +1,13 @@
+﻿<Window x:Class="QuanLyHoiNguoiCaoTuoi.UI.TimKiemThongKe.ThongTin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyHoiNguoiCaoTuoi.UI.TimKiemThongKe"
+        xmlns:my="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"
+        mc:Ignorable="d"
+        Title="Thống kê thông tin của hội" Height="530" Width="700" Loaded="Window_Loaded">
+    <Grid>
+        <my:CrystalReportsViewer Name="crystalReportsViewer1" />
+    </Grid>
+</Window>

@@ -176,6 +176,7 @@
                     <RibbonGroup x:Name="rbgThongKe" Header="Thống kê">
                         <RibbonButton LargeImageSource="UI\Images\statistic.png" Label="Thống kê mức độ hoạt động" KeyTip="B" x:Name="rbtThongKe" Click="rbtThongKe_Click"/>
                         <RibbonButton LargeImageSource="UI\Images\statistic.png" Label="Thống kê tổng điểm hoạt động" KeyTip="B" x:Name="rbtThongKeTongDiemHD" Click="rbtThongKeTongDiemHD_Click"/>
+                        <RibbonButton LargeImageSource="UI\Images\statistic.png" Label="Thống kê thông tin" KeyTip="B" x:Name="rbtThongKeThongTin" Click="rbtThongKeThongTin_Click"/>
                     </RibbonGroup>
                 </RibbonTab>
 

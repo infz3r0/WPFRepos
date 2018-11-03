@@ -171,6 +171,9 @@
     <Compile Include="DATA\V_ThongKe_MucDoHoatDong.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DATA\V_ThongKe_ThongTin.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="DATA\V_ThongKe_TongDiemHoatDong.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -294,6 +297,12 @@
       <DependentUpon>R_MucDoHoatDong.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\TimKiemThongKe\R_ThongTin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>R_ThongTin.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\TimKiemThongKe\R_TongDiemHoatDong.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +314,9 @@
     </Compile>
     <Compile Include="UI\TimKiemThongKe\ThongKeTongDiemHoatDong.xaml.cs">
       <DependentUpon>ThongKeTongDiemHoatDong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TimKiemThongKe\ThongTin.xaml.cs">
+      <DependentUpon>ThongTin.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\TimKiemThongKe\TimKiem.xaml.cs">
       <DependentUpon>TimKiem.xaml</DependentUpon>
@@ -469,6 +481,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\TimKiemThongKe\ThongTin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\TimKiemThongKe\TimKiem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -495,6 +511,10 @@
     <EmbeddedResource Include="UI\TimKiemThongKe\R_MucDoHoatDong.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_MucDoHoatDong.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TimKiemThongKe\R_ThongTin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_ThongTin.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\TimKiemThongKe\R_TongDiemHoatDong.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

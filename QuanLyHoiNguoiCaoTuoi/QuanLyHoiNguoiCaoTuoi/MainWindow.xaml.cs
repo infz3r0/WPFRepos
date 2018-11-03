@@ -1141,6 +1141,12 @@ namespace QuanLyHoiNguoiCaoTuoi
             f.ShowDialog();
         }
 
+        private void rbtThongKeThongTin_Click(object sender, RoutedEventArgs e)
+        {
+            ThongTin f = new ThongTin();
+            f.ShowDialog();
+        }
+
         #endregion
 
         private void AddNewTab(string tabName, string tabHeader, string dgridName)
@@ -1525,6 +1531,8 @@ namespace QuanLyHoiNguoiCaoTuoi
         }
 
         
+
+
 
 
 
