@@ -140,6 +140,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.HoatDong
                 newo.ngay_ket_thuc = dtpNgayKetThuc.SelectedDate;
                 newo.diem_chuan = Convert.ToInt32(txbDiemChuan.Text);
                 newo.nam = Convert.ToInt32(cmbNam.SelectedItem);
+                newo.tu_cham_diem = -1;
 
                 if (hoatDongDAO.Add(newo))
                 {

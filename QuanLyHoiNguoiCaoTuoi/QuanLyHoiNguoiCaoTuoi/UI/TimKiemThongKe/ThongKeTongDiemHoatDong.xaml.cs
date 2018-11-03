@@ -34,7 +34,7 @@ namespace QuanLyHoiNguoiCaoTuoi.UI.TimKiemThongKe
             report.Load("../../UI/TimKiemThongKe/R_TongDiemHoatDong.rpt");
             using (hoi_nguoi_cao_tuoiEntities db = new hoi_nguoi_cao_tuoiEntities())
             {
-                report.SetDataSource(from x in db.V_ThongKe_TongDiemHoatDong select new { x.nam, x.tong_diem, x.max, x.percent });
+                report.SetDataSource(db.V_ThongKe_TongDiemHoatDong.Take(5).OrderByDescending(x=>x.nam));
             }
             crystalReportsViewer1.ViewerCore.ReportSource = report;
         }
